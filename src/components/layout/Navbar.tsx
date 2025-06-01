@@ -6,8 +6,10 @@ import { useRouter } from 'next/navigation'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
+  { name: 'Interactive Explorer', href: '/explorer' },
   { name: 'Explore', href: '/explore' },
   { name: 'Markets', href: '/markets' },
+  { name: 'Sources', href: '/sources' },
 ]
 
 export default function Navbar() {
