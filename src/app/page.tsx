@@ -1,103 +1,124 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className='min-h-screen'>
+      {/* Hero Section */}
+      <section className='relative min-h-[85vh] flex items-center'>
+        {/* Background Overlay */}
+        <div className='absolute inset-0 bg-black/50 z-10' />
+        <div className='absolute inset-0 bg-gradient-to-b from-transparent to-secondary z-10' />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Background Image */}
+        <div
+          className='absolute inset-0 z-0'
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1470004914212-05527e49370b?q=80&w=2874&auto=format&fit=crop')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+
+        {/* Hero Content */}
+        <div className='container mx-auto px-4 relative z-20'>
+          <div className='max-w-2xl'>
+            <h1 className='font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4'>
+              Discover Taiwan&apos;s{' '}
+              <span className='text-primary'>Night Markets</span>
+            </h1>
+            <p className='text-lg md:text-xl text-neutral-200 mb-8'>
+              Explore the vibrant flavors and cultural heritage of Taiwan&apos;s
+              most beloved night markets
+            </p>
+            <div className='flex flex-col sm:flex-row gap-4'>
+              <Link
+                href='/explore'
+                className='bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition-colors text-center'
+              >
+                Explore the Map
+              </Link>
+              <Link
+                href='/markets'
+                className='bg-secondary-light hover:bg-neutral-700 text-white font-medium py-3 px-6 rounded-lg border border-neutral-600 transition-colors text-center'
+              >
+                Browse Markets
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Featured Markets Section */}
+      <section className='py-16 bg-secondary'>
+        <div className='container mx-auto px-4'>
+          <div className='flex items-center justify-between mb-10'>
+            <h2 className='font-bold text-3xl text-white'>
+              Featured <span className='text-primary'>Night Markets</span>
+            </h2>
+            <Link
+              href='/markets'
+              className='text-primary hover:text-primary-light font-medium'
+            >
+              View All
+            </Link>
+          </div>
+
+          {/* Markets Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {[1, 2, 3].map(i => (
+              <div
+                key={i}
+                className='bg-secondary-light rounded-xl overflow-hidden border border-neutral-700 group hover:border-primary transition-colors'
+              >
+                <div className='relative h-48'>
+                  <Image
+                    src={`https://picsum.photos/800/400?random=${i}`}
+                    alt={`Featured night market ${i}`}
+                    fill
+                    className='object-cover transition-transform group-hover:scale-105'
+                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                  />
+                </div>
+                <div className='p-6'>
+                  <h3 className='text-xl font-bold text-white mb-2'>
+                    Night Market {i}
+                  </h3>
+                  <p className='text-neutral-400'>
+                    Experience the vibrant atmosphere and delicious street food
+                    at this popular night market.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className='py-16 bg-neutral-900'>
+        <div className='container mx-auto px-4'>
+          <div className='max-w-4xl mx-auto text-center'>
+            <h2 className='font-bold text-3xl text-white mb-6'>
+              Discover the <span className='text-primary'>Culture</span> Behind
+              the Food
+            </h2>
+            <p className='text-lg text-neutral-300 mb-8'>
+              Taiwan&apos;s night markets are more than just food
+              destinations—they&apos;re cultural experiences that bring
+              communities together. From family recipes passed down through
+              generations to innovative fusion dishes, each vendor has a unique
+              story to tell.
+            </p>
+            <Link
+              href='/about'
+              className='inline-block bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-lg transition-colors'
+            >
+              Learn More About Our Mission
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
