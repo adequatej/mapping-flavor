@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "首頁",
+    "about": "關於",
+    "explore": "探索",
+    "markets": "夜市"
+  },
+  "home": {
+    "hero": {
+      "title": "探索台灣夜市",
+      "subtitle": "體驗台灣最受歡迎夜市的美食與文化傳統",
+      "cta": "開始探索"
+    },
+    "featured": {
+      "title": "精選夜市",
+      "viewAll": "查看所有夜市"
+    }
+  },
+  "explore": {
+    "loading": "地圖載入中..."
+  }
+}

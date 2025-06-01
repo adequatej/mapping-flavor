@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "explore": "Explore",
+    "markets": "Markets"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Taiwan's Night Markets",
+      "subtitle": "Explore the vibrant flavors and cultural heritage of Taiwan's most beloved night markets",
+      "cta": "Start Exploring"
+    },
+    "featured": {
+      "title": "Featured Markets",
+      "viewAll": "View All Markets"
+    }
+  },
+  "explore": {
+    "loading": "Loading map..."
+  }
+}
