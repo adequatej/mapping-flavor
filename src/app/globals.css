@@ -1,26 +1,31 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 240 10% 3.9%; /* #0A0A0A */
+  --foreground: 0 0% 98%; /* #FAFAFA */
+  --muted: 240 3.7% 15.9%; /* #28282B */
+  --border: 240 3.7% 15.9%; /* #28282B */
+  --primary: 5 90% 58%; /* #FF4B2B */
+  --primary-light: 5 100% 65%; /* #FF6B4B */
+  --primary-dark: 5 80% 50%; /* #E03A1B */
+  --secondary: 240 10% 3.9%; /* #0A0A0A */
+  --secondary-light: 240 10% 12%; /* #1E1E1E */
+  --secondary-dark: 240 10% 2%; /* #050505 */
+  --accent: 45 93% 47%; /* #FFC107 */
+  --accent-light: 45 100% 60%; /* #FFD54F */
+  --accent-dark: 45 100% 38%; /* #FFA000 */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-secondary text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .bg-gradient-soft {
+    @apply bg-gradient-to-br from-secondary via-muted to-primary/10;
+  }
 }
