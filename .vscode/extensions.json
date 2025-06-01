@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    // Essential for this project
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-typescript-next",
+
+    // React/Next.js
+    "burkeholland.simple-react-snippets",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+
+    // General productivity
+    "ms-vscode.vscode-json",
+    "editorconfig.editorconfig",
+    "streetsidesoftware.code-spell-checker",
+
+    // Optional but helpful
+    "visualstudioexptteam.intellicode-api-usage-examples",
+    "ms-vscode.sublime-keybindings"
+  ],
+  "unwantedRecommendations": ["ms-vscode.vscode-json"]
+}
