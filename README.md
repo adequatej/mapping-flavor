@@ -158,7 +158,7 @@ This research was conducted with respect for Taiwanese culture and vendor privac
 ---
 
 **Researcher**: Jed Geoghegan  
-**Institution**: Humanities and Arts Program  
+**Institution**: Humanities and Arts Program @ WPI
 **Research Period**: 2025
 **Methodology**: Observational Research with Critical Cultural Analysis
 
