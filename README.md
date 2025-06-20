@@ -163,3 +163,26 @@ This research was conducted with respect for Taiwanese culture and vendor privac
 **Methodology**: Observational Research with Critical Cultural Analysis
 
 _This project demonstrates how digital humanities approaches can enhance traditional scholarship while maintaining academic rigor and cultural sensitivity._
+
+Redux vs. React Local State
+
+- Project is a mapping application with:
+  Multiple interconnected features (markets, vendors, research)
+  Complex state interactions
+  Need for state persistence
+  Multiple components sharing state
+  Future scalability needs
+
+  So..
+  Redux would be better because:
+  State is complex (markets, vendors, UI state, filters)
+  Need to share state between many components
+  Might need to implement features like:
+  Saving/loading state
+  Undo/redo for map interactions
+  Complex filtering and sorting
+  State persistence between page refreshes
+
+React
+
+- Using functional components and hooks (not class components)

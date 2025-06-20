@@ -1,17 +1,18 @@
 import Navbar from '@/components/layout/Navbar'
 import { Noto_Sans, Noto_Sans_TC } from 'next/font/google'
 import './globals.css'
+import { Providers } from './providers'
 
 const notoSans = Noto_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
   variable: '--font-noto-sans',
+  weight: ['400', '500', '600', '700'],
 })
 
 const notoSansTC = Noto_Sans_TC({
-  weight: ['400', '500', '700'],
   subsets: ['latin'],
   variable: '--font-noto-sans-tc',
+  weight: ['400', '500', '700'],
 })
 
 export const metadata = {
@@ -28,8 +29,10 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${notoSans.variable} ${notoSansTC.variable}`}>
       <body className='min-h-screen bg-background text-foreground'>
-        <Navbar />
-        <main>{children}</main>
+        <Providers>
+          <Navbar />
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   )

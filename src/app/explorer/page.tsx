@@ -1,30 +1,14 @@
 'use client'
 
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import {
+  setFilterCategory,
+  setSelectedMarket,
+} from '@/store/slices/marketsSlice'
+import { setActivePanel, setViewMode } from '@/store/slices/uiSlice'
+import { setSelectedVendor } from '@/store/slices/vendorsSlice'
+import { Market, Vendor } from '@/types'
 import Image from 'next/image'
-import { useState } from 'react'
-
-interface Market {
-  id: string
-  name: string
-  chineseName: string
-  coordinates: [number, number]
-  researchFocus: string
-  description: string
-  keyFindings: string[]
-  analyticalNote: string
-  established: string
-  location: string
-  image: string
-  vendors: Vendor[]
-}
-
-interface Vendor {
-  id: string
-  name: string
-  specialty: string
-  cultural_significance: string
-  coordinates: [number, number]
-}
 
 interface ResearchPanel {
   id: string
@@ -208,13 +192,14 @@ const researchPanels: ResearchPanel[] = [
 ]
 
 export default function Explorer() {
-  const [selectedMarket, setSelectedMarket] = useState<Market | null>(null)
-  const [selectedVendor, setSelectedVendor] = useState<Vendor | null>(null)
-  const [activePanel, setActivePanel] = useState<ResearchPanel | null>(null)
-  const [viewMode, setViewMode] = useState<'markets' | 'vendors' | 'research'>(
-    'markets'
-  )
-  const [filterCategory, setFilterCategory] = useState<string>('all')
+  const dispatch = useAppDispatch()
+
+  const selectedMarket = useAppSelector(state => state.markets.selectedMarket)
+  const selectedVendor = useAppSelector(state => state.vendors.selectedVendor)
+  const activePanel = useAppSelector(state => state.ui.activePanel)
+  const viewMode = useAppSelector(state => state.ui.viewMode)
+  const filterCategory = useAppSelector(state => state.markets.filterCategory)
+  const markets = useAppSelector(state => state.markets.markets)
 
   const filteredMarkets =
     filterCategory === 'all'
@@ -224,6 +209,26 @@ export default function Explorer() {
             .toLowerCase()
             .includes(filterCategory.toLowerCase())
         )
+
+  const handleMarketSelect = (market: Market | null) => {
+    dispatch(setSelectedMarket(market))
+  }
+
+  const handleVendorSelect = (vendor: Vendor | null) => {
+    dispatch(setSelectedVendor(vendor))
+  }
+
+  const handleViewModeChange = (mode: 'markets' | 'vendors' | 'research') => {
+    dispatch(setViewMode(mode))
+  }
+
+  const handleFilterChange = (category: string) => {
+    dispatch(setFilterCategory(category))
+  }
+
+  const handlePanelToggle = (panel: ResearchPanel | null) => {
+    dispatch(setActivePanel(activePanel?.id === panel?.id ? null : panel))
+  }
 
   return (
     <div className='h-screen flex flex-col overflow-hidden bg-secondary'>
@@ -251,7 +256,7 @@ export default function Explorer() {
               ].map(({ mode, label, icon }) => (
                 <button
                   key={mode}
-                  onClick={() => setViewMode(mode)}
+                  onClick={() => handleViewModeChange(mode)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     viewMode === mode
                       ? 'bg-primary text-white'
@@ -266,7 +271,7 @@ export default function Explorer() {
             {/* Filter Dropdown */}
             <select
               value={filterCategory}
-              onChange={e => setFilterCategory(e.target.value)}
+              onChange={e => handleFilterChange(e.target.value)}
               className='bg-neutral-800 text-white border border-neutral-600 rounded-lg px-3 py-2 text-sm'
             >
               <option value='all'>All Research Focuses</option>
@@ -293,7 +298,7 @@ export default function Explorer() {
             {filteredMarkets.map(market => (
               <button
                 key={market.id}
-                onClick={() => setSelectedMarket(market)}
+                onClick={() => handleMarketSelect(market)}
                 className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
                   selectedMarket?.id === market.id
                     ? 'scale-125 z-20'
@@ -323,7 +328,7 @@ export default function Explorer() {
               selectedMarket.vendors.map(vendor => (
                 <button
                   key={vendor.id}
-                  onClick={() => setSelectedVendor(vendor)}
+                  onClick={() => handleVendorSelect(vendor)}
                   className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
                     selectedVendor?.id === vendor.id
                       ? 'scale-125'
@@ -372,11 +377,7 @@ export default function Explorer() {
                 {researchPanels.map(panel => (
                   <button
                     key={panel.id}
-                    onClick={() =>
-                      setActivePanel(
-                        activePanel?.id === panel.id ? null : panel
-                      )
-                    }
+                    onClick={() => handlePanelToggle(panel)}
                     className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-4 transition-colors'
                   >
                     <h3 className='font-semibold text-white mb-2'>
@@ -461,8 +462,8 @@ export default function Explorer() {
                     <button
                       key={vendor.id}
                       onClick={() => {
-                        setSelectedVendor(vendor)
-                        setViewMode('vendors')
+                        handleVendorSelect(vendor)
+                        handleViewModeChange('vendors')
                       }}
                       className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-3 transition-colors'
                     >
@@ -497,7 +498,7 @@ export default function Explorer() {
               </div>
 
               <button
-                onClick={() => setSelectedVendor(null)}
+                onClick={() => handleVendorSelect(null)}
                 className='mt-4 w-full bg-secondary hover:bg-neutral-700 text-white py-2 px-4 rounded-lg transition-colors'
               >
                 Back to Market View
@@ -520,7 +521,7 @@ export default function Explorer() {
                 {filteredMarkets.map(market => (
                   <button
                     key={market.id}
-                    onClick={() => setSelectedMarket(market)}
+                    onClick={() => handleMarketSelect(market)}
                     className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-4 transition-colors'
                   >
                     <h3 className='font-semibold text-white text-sm'>

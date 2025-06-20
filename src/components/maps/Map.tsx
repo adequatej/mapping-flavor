@@ -1,6 +1,7 @@
+import { useAppSelector } from '@/store/hooks'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 // Initialize Mapbox
 // will put in token later
@@ -17,9 +18,9 @@ const TAIWAN_BOUNDS = {
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null)
   const map = useRef<mapboxgl.Map | null>(null)
-  const [lng] = useState(121.5)
-  const [lat] = useState(23.5)
-  const [zoom] = useState(7)
+
+  // Get map state from Redux
+  const { lng, lat, zoom, bounds } = useAppSelector(state => state.map)
 
   useEffect(() => {
     if (!mapContainer.current) return
@@ -30,8 +31,8 @@ export default function Map() {
       center: [lng, lat],
       zoom: zoom,
       maxBounds: [
-        [TAIWAN_BOUNDS.west, TAIWAN_BOUNDS.south],
-        [TAIWAN_BOUNDS.east, TAIWAN_BOUNDS.north],
+        [bounds.west, bounds.south],
+        [bounds.east, bounds.north],
       ],
     })
 
@@ -40,7 +41,7 @@ export default function Map() {
     return () => {
       map.current?.remove()
     }
-  }, [lng, lat, zoom])
+  }, [lng, lat, zoom, bounds])
 
   return (
     <div className='relative h-full w-full'>

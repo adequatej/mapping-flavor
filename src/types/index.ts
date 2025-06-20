@@ -3,37 +3,24 @@
 export interface Market {
   id: string
   name: string
+  chineseName: string
+  coordinates: [number, number]
+  researchFocus: string
   description: string
-  location: {
-    address: string
-    coordinates: {
-      lat: number
-      lng: number
-    }
-  }
+  keyFindings: string[]
+  analyticalNote: string
+  established: string
+  location: string
   image: string
-  openingHours: string
-  status: 'active' | 'inactive'
-  vendors: string[] // vendor IDs
-  createdAt: Date
-  updatedAt: Date
+  vendors: Vendor[]
 }
 
 export interface Vendor {
   id: string
-  marketId: string
   name: string
-  description: string
   specialty: string
-  image: string
-  contact?: {
-    phone?: string
-    email?: string
-  }
-  rating?: number
-  status: 'active' | 'inactive'
-  createdAt: Date
-  updatedAt: Date
+  cultural_significance: string
+  coordinates: [number, number]
 }
 
 export interface User {
