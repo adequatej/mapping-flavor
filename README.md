@@ -8,7 +8,7 @@
 
 ## 🎓 **Academic Research Project**
 
-This project investigates how Taiwan's night markets function as sites of cultural identity negotiation, examining the preservation of Taiwanese and Hakka culinary traditions within the broader context of post-colonial Taiwan. Through observational research and critical cultural analysis, this study explores how food vendors navigate authenticity, tourism pressures, and cultural preservation.
+This project investigates how Taiwan's night markets function as sites of cultural identity negotiation, examining the preservation of Taiwanese and Hakka culinary traditions within the broader context of post-colonial Taiwan. Through observational research and critical cultural analysis, this study explores how food vendors navigate authenticity, tourism pressures, and cultural preservation..
 
 ## 🔬 **Research Framework**
 
@@ -158,7 +158,7 @@ This research was conducted with respect for Taiwanese culture and vendor privac
 ---
 
 **Researcher**: Jed Geoghegan  
-**Institution**: Humanities and Arts Program  
+**Institution**: Humanities and Arts Program @ WPI
 **Research Period**: 2025
 **Methodology**: Observational Research with Critical Cultural Analysis
 
