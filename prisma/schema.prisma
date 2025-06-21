@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  image     String?
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Market {
+  id             String   @id
+  name           String
+  chineseName    String
+  location       String
+  latitude       Float
+  longitude      Float
+  established    String
+  researchFocus  String
+  description    String   @db.Text
+  analyticalNote String   @db.Text
+  keyFindings    String[]
+  image          String
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  vendors Vendor[]
+
+  @@map("markets")
+}
+
+model Vendor {
+  id                   String   @id @default(cuid())
+  name                 String
+  chineseName          String?
+  description          String   @db.Text
+  specialties          String[]
+  latitude             Float?
+  longitude            Float?
+  images               String[]
+  contactPhone         String?
+  contactInstagram     String?
+  contactFacebook      String?
+  contactLine          String?
+  operatingHours       String?
+  researchNotes        String?  @db.Text
+  culturalSignificance String?  @db.Text
+  isActive             Boolean  @default(true)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  markets Market[]
+
+  @@map("vendors")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
