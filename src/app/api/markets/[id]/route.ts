@@ -4,11 +4,12 @@ import { NextRequest, NextResponse } from 'next/server'
 // GET /api/markets/[id] - Get a specific market
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const market = await prisma.market.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         vendors: {
           select: {
@@ -37,7 +38,7 @@ export async function GET(
       data: market,
     })
   } catch (error) {
-    console.error(`GET /api/markets/${params.id} error:`, error)
+    console.error(`GET /api/markets/[id] error:`, error)
     return NextResponse.json(
       { success: false, error: 'Failed to fetch market' },
       { status: 500 }
@@ -48,14 +49,15 @@ export async function GET(
 // PUT /api/markets/[id] - Update a specific market
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body = await request.json()
 
     // Check if market exists
     const existingMarket = await prisma.market.findUnique({
-      where: { id: params.id },
+      where: { id },
     })
 
     if (!existingMarket) {
@@ -67,7 +69,7 @@ export async function PUT(
 
     // Update market
     const market = await prisma.market.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         name: body.name,
         chineseName: body.chineseName,
@@ -92,7 +94,7 @@ export async function PUT(
       data: market,
     })
   } catch (error) {
-    console.error(`PUT /api/markets/${params.id} error:`, error)
+    console.error(`PUT /api/markets/[id] error:`, error)
     return NextResponse.json(
       { success: false, error: 'Failed to update market' },
       { status: 500 }
@@ -103,12 +105,14 @@ export async function PUT(
 // DELETE /api/markets/[id] - Delete a specific market
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+
     // Check if market exists
     const existingMarket = await prisma.market.findUnique({
-      where: { id: params.id },
+      where: { id },
     })
 
     if (!existingMarket) {
@@ -120,7 +124,7 @@ export async function DELETE(
 
     // Soft delete by setting isActive to false
     const market = await prisma.market.update({
-      where: { id: params.id },
+      where: { id },
       data: { isActive: false },
     })
 
@@ -130,7 +134,7 @@ export async function DELETE(
       data: market,
     })
   } catch (error) {
-    console.error(`DELETE /api/markets/${params.id} error:`, error)
+    console.error(`DELETE /api/markets/[id] error:`, error)
     return NextResponse.json(
       { success: false, error: 'Failed to delete market' },
       { status: 500 }

@@ -1,10 +1,7 @@
 'use client'
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import {
-  setFilterCategory,
-  setSelectedMarket,
-} from '@/store/slices/marketsSlice'
+import { setFilters, setSelectedMarket } from '@/store/slices/marketsSlice'
 import { setActivePanel, setViewMode } from '@/store/slices/uiSlice'
 import { setSelectedVendor } from '@/store/slices/vendorsSlice'
 import { Market, Vendor } from '@/types'
@@ -22,7 +19,8 @@ const markets: Market[] = [
     id: 'shilin',
     name: 'Shilin Night Market',
     chineseName: '士林夜市',
-    coordinates: [121.5244, 25.0881],
+    latitude: 25.0881,
+    longitude: 121.5244,
     location: 'Shilin District, Taipei',
     established: '1899',
     researchFocus: 'Tourism vs. Authenticity',
@@ -36,20 +34,27 @@ const markets: Market[] = [
       'Spatial organization reflecting tourism infrastructure',
     ],
     image: 'https://picsum.photos/800/400?random=1',
+    isActive: true,
     vendors: [
       {
         id: 'v1',
         name: "Chen's Stinky Tofu",
         specialty: 'Fermented Tofu',
         cultural_significance: 'Traditional fermentation techniques',
-        coordinates: [121.5244, 25.0881],
+        latitude: 25.0881,
+        longitude: 121.5244,
+        marketId: 'shilin',
+        isActive: true,
       },
       {
         id: 'v2',
         name: "Lin's Bubble Tea",
         specialty: 'Taiwanese Tea Culture',
         cultural_significance: 'Modern Taiwanese innovation',
-        coordinates: [121.5245, 25.0882],
+        latitude: 25.0882,
+        longitude: 121.5245,
+        marketId: 'shilin',
+        isActive: true,
       },
     ],
   },
@@ -57,7 +62,8 @@ const markets: Market[] = [
     id: 'raohe',
     name: 'Raohe Street Night Market',
     chineseName: '饒河街觀光夜市',
-    coordinates: [121.5763, 25.0508],
+    latitude: 25.0508,
+    longitude: 121.5763,
     location: 'Songshan District, Taipei',
     established: '1987',
     researchFocus: 'Hakka Heritage & Digital Preservation',
@@ -71,20 +77,27 @@ const markets: Market[] = [
       'Analysis of Hakka dishes marketed to different audiences',
     ],
     image: 'https://picsum.photos/800/400?random=2',
+    isActive: true,
     vendors: [
       {
         id: 'v3',
         name: "Wang's Hakka Lei Cha",
         specialty: 'Traditional Hakka Tea Rice',
         cultural_significance: 'Hakka cultural preservation',
-        coordinates: [121.5763, 25.0508],
+        latitude: 25.0508,
+        longitude: 121.5763,
+        marketId: 'raohe',
+        isActive: true,
       },
       {
         id: 'v4',
         name: 'Traditional Pork Pepper Buns',
         specialty: 'Pepper Buns',
         cultural_significance: 'Cross-cultural adaptation',
-        coordinates: [121.5764, 25.0509],
+        latitude: 25.0509,
+        longitude: 121.5764,
+        marketId: 'raohe',
+        isActive: true,
       },
     ],
   },
@@ -92,7 +105,8 @@ const markets: Market[] = [
     id: 'huaxi',
     name: 'Huaxi Street Night Market',
     chineseName: '華西街夜市',
-    coordinates: [121.5005, 25.0377],
+    latitude: 25.0377,
+    longitude: 121.5005,
     location: 'Wanhua District, Taipei',
     established: '1962',
     researchFocus: 'Democratic Cultural Spaces',
@@ -106,20 +120,27 @@ const markets: Market[] = [
       'Traditional preparation methods in working-class context',
     ],
     image: 'https://picsum.photos/800/400?random=3',
+    isActive: true,
     vendors: [
       {
         id: 'v5',
         name: 'Old Taipei Snake Soup',
         specialty: 'Traditional Medicine Food',
         cultural_significance: 'Traditional Chinese medicine practices',
-        coordinates: [121.5005, 25.0377],
+        latitude: 25.0377,
+        longitude: 121.5005,
+        marketId: 'huaxi',
+        isActive: true,
       },
       {
         id: 'v6',
         name: 'Family Noodle Stand',
         specialty: 'Beef Noodle Soup',
         cultural_significance: 'Post-war cultural adaptation',
-        coordinates: [121.5006, 25.0378],
+        latitude: 25.0378,
+        longitude: 121.5006,
+        marketId: 'huaxi',
+        isActive: true,
       },
     ],
   },
@@ -127,7 +148,8 @@ const markets: Market[] = [
     id: 'kenting',
     name: 'Kenting Night Market',
     chineseName: '墾丁夜市',
-    coordinates: [120.8069, 21.9594],
+    latitude: 21.9594,
+    longitude: 120.8069,
     location: 'Kenting, Pingtung County',
     established: '1980s',
     researchFocus: 'Tourism & Regional Identity',
@@ -141,20 +163,27 @@ const markets: Market[] = [
       'Analysis of regional vs. tourist-oriented cultural offerings',
     ],
     image: 'https://picsum.photos/800/400?random=4',
+    isActive: true,
     vendors: [
       {
         id: 'v7',
         name: 'Pingtung Specialty Stands',
         specialty: 'Regional Southern Taiwan Cuisine',
         cultural_significance: 'Local Pingtung food traditions',
-        coordinates: [120.8069, 21.9594],
+        latitude: 21.9594,
+        longitude: 120.8069,
+        marketId: 'kenting',
+        isActive: true,
       },
       {
         id: 'v8',
         name: 'Beach Resort Fusion',
         specialty: 'Tourist-Oriented Fusion Food',
         cultural_significance: 'Tourism-adapted local cuisine',
-        coordinates: [120.807, 21.9595],
+        latitude: 21.9595,
+        longitude: 120.807,
+        marketId: 'kenting',
+        isActive: true,
       },
     ],
   },
@@ -198,17 +227,15 @@ export default function Explorer() {
   const selectedVendor = useAppSelector(state => state.vendors.selectedVendor)
   const activePanel = useAppSelector(state => state.ui.activePanel)
   const viewMode = useAppSelector(state => state.ui.viewMode)
-  const filterCategory = useAppSelector(state => state.markets.filterCategory)
+  const filters = useAppSelector(state => state.markets.filters)
   const markets = useAppSelector(state => state.markets.markets)
 
-  const filteredMarkets =
-    filterCategory === 'all'
-      ? markets
-      : markets.filter(market =>
-          market.researchFocus
-            .toLowerCase()
-            .includes(filterCategory.toLowerCase())
-        )
+  const filteredMarkets = markets.filter((market: Market) => {
+    if (!filters.researchFocus) return true
+    return market.researchFocus
+      .toLowerCase()
+      .includes(filters.researchFocus.toLowerCase())
+  })
 
   const handleMarketSelect = (market: Market | null) => {
     dispatch(setSelectedMarket(market))
@@ -222,8 +249,12 @@ export default function Explorer() {
     dispatch(setViewMode(mode))
   }
 
-  const handleFilterChange = (category: string) => {
-    dispatch(setFilterCategory(category))
+  const handleFilterChange = (researchFocus: string) => {
+    dispatch(
+      setFilters({
+        researchFocus: researchFocus === 'all' ? '' : researchFocus,
+      })
+    )
   }
 
   const handlePanelToggle = (panel: ResearchPanel | null) => {
@@ -270,7 +301,7 @@ export default function Explorer() {
 
             {/* Filter Dropdown */}
             <select
-              value={filterCategory}
+              value={filters.researchFocus || 'all'}
               onChange={e => handleFilterChange(e.target.value)}
               className='bg-neutral-800 text-white border border-neutral-600 rounded-lg px-3 py-2 text-sm'
             >
@@ -305,8 +336,8 @@ export default function Explorer() {
                     : 'hover:scale-110 z-10'
                 }`}
                 style={{
-                  left: `${40 + (market.coordinates[0] - 121.5) * 1000}%`,
-                  top: `${60 - (market.coordinates[1] - 25.0) * 1000}%`,
+                  left: `${40 + (market.longitude - 121.5) * 1000}%`,
+                  top: `${60 - (market.latitude - 25.0) * 1000}%`,
                 }}
               >
                 <div
@@ -325,7 +356,7 @@ export default function Explorer() {
             {/* Vendor Markers (when market is selected) */}
             {selectedMarket &&
               viewMode === 'vendors' &&
-              selectedMarket.vendors.map(vendor => (
+              selectedMarket.vendors?.map((vendor: Vendor) => (
                 <button
                   key={vendor.id}
                   onClick={() => handleVendorSelect(vendor)}
@@ -335,8 +366,8 @@ export default function Explorer() {
                       : 'hover:scale-110'
                   }`}
                   style={{
-                    left: `${40 + (vendor.coordinates[0] - 121.5) * 1000}%`,
-                    top: `${60 - (vendor.coordinates[1] - 25.0) * 1000}%`,
+                    left: `${40 + (vendor.longitude - 121.5) * 1000}%`,
+                    top: `${60 - (vendor.latitude - 25.0) * 1000}%`,
                   }}
                 >
                   <div
@@ -458,7 +489,7 @@ export default function Explorer() {
                   Documented Vendors
                 </h4>
                 <div className='space-y-2'>
-                  {selectedMarket.vendors.map(vendor => (
+                  {selectedMarket.vendors?.map((vendor: Vendor) => (
                     <button
                       key={vendor.id}
                       onClick={() => {

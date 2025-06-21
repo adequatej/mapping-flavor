@@ -1,9 +1,108 @@
-import Link from 'next/link'
+// markets page
+'use client'
 
-// Temporary placeholder - will be replaced with API call
-const markets: any[] = []
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+
+interface Market {
+  id: string
+  name: string
+  chineseName: string
+  location: string
+  established: string
+  researchFocus: string
+  description: string
+  analyticalNote: string
+  keyFindings: string[]
+  image: string
+  isActive: boolean
+}
+
+interface ApiResponse {
+  success: boolean
+  data: Market[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    pages: number
+  }
+}
 
 export default function Markets() {
+  const [markets, setMarkets] = useState<Market[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchMarkets = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch('/api/markets')
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch markets')
+        }
+
+        const data: ApiResponse = await response.json()
+
+        if (data.success) {
+          setMarkets(data.data)
+        } else {
+          throw new Error('API returned error')
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchMarkets()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className='min-h-screen py-16'>
+        <div className='container mx-auto px-4'>
+          <div className='max-w-4xl mx-auto text-center'>
+            <div className='animate-pulse'>
+              <div className='h-12 bg-neutral-800 rounded mb-4'></div>
+              <div className='h-6 bg-neutral-800 rounded mb-8'></div>
+              <div className='space-y-8'>
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className='h-80 bg-neutral-800 rounded-xl'></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className='min-h-screen py-16'>
+        <div className='container mx-auto px-4'>
+          <div className='max-w-2xl mx-auto text-center'>
+            <h1 className='text-4xl font-bold text-white mb-6'>
+              Something went wrong!
+            </h1>
+            <p className='text-neutral-300 mb-8'>{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className='bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition-colors'
+            >
+              Try again
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className='min-h-screen py-16'>
       <div className='container mx-auto px-4'>
@@ -42,9 +141,98 @@ export default function Markets() {
           </p>
         </div>
 
-        {/* Temporary message */}
-        <div className='text-center text-neutral-400'>
-          <p>Markets data will be loaded from API soon...</p>
+        {/* Markets Grid */}
+        <div className='space-y-12'>
+          {markets.map((market, index) => (
+            <div
+              key={market.id}
+              className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}
+            >
+              {/* Image */}
+              <div
+                className={`relative h-80 rounded-xl overflow-hidden ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
+              >
+                <Image
+                  src={market.image}
+                  alt={`${market.name} observation site`}
+                  fill
+                  className='object-cover'
+                  sizes='(max-width: 768px) 100vw, 50vw'
+                />
+                <div className='absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm'>
+                  Est. {market.established}
+                </div>
+                <div className='absolute bottom-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-full text-xs'>
+                  Field Site
+                </div>
+              </div>
+
+              {/* Content */}
+              <div
+                className={`space-y-4 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}
+              >
+                <div>
+                  <h3 className='text-2xl font-bold text-white mb-1'>
+                    {market.name}
+                  </h3>
+                  <p className='text-neutral-400 text-sm mb-2'>
+                    {market.chineseName} • {market.location}
+                  </p>
+                  <div className='inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium'>
+                    Focus: {market.researchFocus}
+                  </div>
+                </div>
+
+                <p className='text-neutral-300 leading-relaxed'>
+                  {market.description}
+                </p>
+
+                {/* Analytical Reflection */}
+                <div className='bg-neutral-900 rounded-lg p-4'>
+                  <h4 className='text-accent font-semibold mb-2'>
+                    Theoretical Connection
+                  </h4>
+                  <p className='text-neutral-400 text-sm leading-relaxed'>
+                    {market.analyticalNote}
+                  </p>
+                </div>
+
+                {/* Observations */}
+                <div>
+                  <h4 className='text-white font-semibold mb-3'>
+                    What I Noticed
+                  </h4>
+                  <ul className='space-y-2'>
+                    {market.keyFindings.map((finding, i) => (
+                      <li
+                        key={i}
+                        className='flex items-start space-x-2 text-sm'
+                      >
+                        <span className='text-primary mt-1'>•</span>
+                        <span className='text-neutral-400'>{finding}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Action Buttons */}
+                <div className='flex space-x-4 pt-4'>
+                  <Link
+                    href={`/explorer?market=${market.id}`}
+                    className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+                  >
+                    Explore in Interactive Map
+                  </Link>
+                  <Link
+                    href={`/markets/${market.id}`}
+                    className='bg-secondary-light hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-lg border border-neutral-600 transition-colors text-sm'
+                  >
+                    Detailed Analysis
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Reflection Section */}

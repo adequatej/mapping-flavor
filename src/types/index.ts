@@ -1,18 +1,22 @@
-// Core types for the application so far
+// Core types for the application
 
 export interface Market {
   id: string
   name: string
   chineseName: string
-  coordinates: [number, number]
+  location: string
+  established: string
   researchFocus: string
   description: string
-  keyFindings: string[]
   analyticalNote: string
-  established: string
-  location: string
+  keyFindings: string[]
   image: string
-  vendors: Vendor[]
+  latitude: number
+  longitude: number
+  isActive: boolean
+  createdAt?: string
+  updatedAt?: string
+  vendors?: Vendor[]
 }
 
 export interface Vendor {
@@ -20,7 +24,12 @@ export interface Vendor {
   name: string
   specialty: string
   cultural_significance: string
-  coordinates: [number, number]
+  latitude: number
+  longitude: number
+  marketId: string
+  isActive: boolean
+  createdAt?: string
+  updatedAt?: string
 }
 
 export interface User {
@@ -35,4 +44,23 @@ export interface ApiResponse<T> {
   success: boolean
   data?: T
   error?: string
+  pagination?: {
+    page: number
+    limit: number
+    total: number
+    pages: number
+  }
+}
+
+// Redux async state types
+export interface AsyncState {
+  loading: boolean
+  error: string | null
+}
+
+export interface MarketFilters {
+  search?: string
+  location?: string
+  researchFocus?: string
+  isActive?: boolean
 }
