@@ -23,12 +23,14 @@ interface Vendor {
   culturalSignificance?: string
   isActive: boolean
   markets?: Array<{
-    id: string
-    name: string
-    chineseName: string
-    location: string
-    latitude: number
-    longitude: number
+    market: {
+      id: string
+      name: string
+      chineseName: string
+      location: string
+      latitude: number
+      longitude: number
+    }
   }>
 }
 
@@ -166,10 +168,10 @@ export default function VendorDetail() {
             {vendor.markets && vendor.markets.length > 0 && (
               <div className='mb-4'>
                 <Link
-                  href={`/markets/${vendor.markets[0].id}`}
+                  href={`/markets/${vendor.markets[0].market.id}`}
                   className='inline-flex items-center bg-primary/20 text-primary px-4 py-2 rounded-full font-medium hover:bg-primary/30 transition-colors'
                 >
-                  📍 {vendor.markets[0].name}
+                  📍 {vendor.markets[0].market.name}
                 </Link>
               </div>
             )}
@@ -300,7 +302,9 @@ export default function VendorDetail() {
                   {vendor.markets && vendor.markets.length > 0 && (
                     <div>
                       <p className='text-neutral-400 text-sm'>Market</p>
-                      <p className='text-white'>{vendor.markets[0].location}</p>
+                      <p className='text-white'>
+                        {vendor.markets[0].market.location}
+                      </p>
                     </div>
                   )}
                 </div>
@@ -356,10 +360,10 @@ export default function VendorDetail() {
               <div className='space-y-4'>
                 {vendor.markets && vendor.markets.length > 0 && (
                   <Link
-                    href={`/markets/${vendor.markets[0].id}`}
+                    href={`/markets/${vendor.markets[0].market.id}`}
                     className='block w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-4 rounded-lg transition-colors text-center'
                   >
-                    Visit {vendor.markets[0].name}
+                    Visit {vendor.markets[0].market.name}
                   </Link>
                 )}
                 <Link
@@ -400,7 +404,7 @@ export default function VendorDetail() {
               </Link>
               {vendor.markets && vendor.markets.length > 0 && (
                 <Link
-                  href={`/explorer?market=${vendor.markets[0].id}`}
+                  href={`/explorer?market=${vendor.markets[0].market.id}`}
                   className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors'
                 >
                   Explore in Map

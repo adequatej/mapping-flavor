@@ -12,13 +12,17 @@ export async function GET(
       where: { id },
       include: {
         markets: {
-          select: {
-            id: true,
-            name: true,
-            chineseName: true,
-            location: true,
-            latitude: true,
-            longitude: true,
+          include: {
+            market: {
+              select: {
+                id: true,
+                name: true,
+                chineseName: true,
+                location: true,
+                latitude: true,
+                longitude: true,
+              },
+            },
           },
         },
       },
@@ -87,13 +91,17 @@ export async function PUT(
       },
       include: {
         markets: {
-          select: {
-            id: true,
-            name: true,
-            chineseName: true,
-            location: true,
-            latitude: true,
-            longitude: true,
+          include: {
+            market: {
+              select: {
+                id: true,
+                name: true,
+                chineseName: true,
+                location: true,
+                latitude: true,
+                longitude: true,
+              },
+            },
           },
         },
       },

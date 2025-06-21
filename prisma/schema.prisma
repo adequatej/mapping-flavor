@@ -38,7 +38,7 @@ model Market {
   updatedAt      DateTime @updatedAt
 
   // Relations
-  vendors Vendor[]
+  vendors MarketVendor[]
 
   @@map("markets")
 }
@@ -64,9 +64,21 @@ model Vendor {
   updatedAt            DateTime @updatedAt
 
   // Relations
-  markets Market[]
+  markets MarketVendor[]
 
   @@map("vendors")
+}
+
+model MarketVendor {
+  id       String @id @default(cuid())
+  marketId String
+  vendorId String
+  
+  market Market @relation(fields: [marketId], references: [id], onDelete: Cascade)
+  vendor Vendor @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  
+  @@unique([marketId, vendorId])
+  @@map("market_vendors")
 }
 
 enum Role {

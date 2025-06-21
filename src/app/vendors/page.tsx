@@ -22,10 +22,12 @@ interface Vendor {
   culturalSignificance?: string
   isActive: boolean
   markets?: Array<{
-    id: string
-    name: string
-    chineseName: string
-    location: string
+    market: {
+      id: string
+      name: string
+      chineseName: string
+      location: string
+    }
   }>
 }
 
@@ -192,7 +194,7 @@ export default function Vendors() {
                     )}
                     {vendor.markets && vendor.markets.length > 0 && (
                       <p className='text-primary text-sm'>
-                        📍 {vendor.markets[0].name}
+                        📍 {vendor.markets[0].market.name}
                       </p>
                     )}
                   </div>
@@ -240,7 +242,7 @@ export default function Vendors() {
                     </Link>
                     {vendor.markets && vendor.markets.length > 0 && (
                       <Link
-                        href={`/markets/${vendor.markets[0].id}`}
+                        href={`/markets/${vendor.markets[0].market.id}`}
                         className='bg-secondary hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded-lg border border-neutral-600 transition-colors text-center text-sm'
                       >
                         Visit Market

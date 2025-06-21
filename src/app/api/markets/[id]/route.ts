@@ -12,15 +12,19 @@ export async function GET(
       where: { id },
       include: {
         vendors: {
-          select: {
-            id: true,
-            name: true,
-            chineseName: true,
-            description: true,
-            specialties: true,
-            images: true,
-            latitude: true,
-            longitude: true,
+          include: {
+            vendor: {
+              select: {
+                id: true,
+                name: true,
+                chineseName: true,
+                description: true,
+                specialties: true,
+                images: true,
+                latitude: true,
+                longitude: true,
+              },
+            },
           },
         },
       },
@@ -85,7 +89,11 @@ export async function PUT(
         isActive: body.isActive,
       },
       include: {
-        vendors: true,
+        vendors: {
+          include: {
+            vendor: true,
+          },
+        },
       },
     })
 

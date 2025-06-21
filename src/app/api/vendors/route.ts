@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
     if (marketId) {
       where.markets = {
         some: {
-          id: marketId,
+          marketId: marketId,
         },
       }
     }
@@ -56,11 +56,15 @@ export async function GET(request: NextRequest) {
       orderBy: { createdAt: 'desc' },
       include: {
         markets: {
-          select: {
-            id: true,
-            name: true,
-            chineseName: true,
-            location: true,
+          include: {
+            market: {
+              select: {
+                id: true,
+                name: true,
+                chineseName: true,
+                location: true,
+              },
+            },
           },
         },
       },
@@ -139,17 +143,23 @@ export async function POST(request: NextRequest) {
         latitude: parseFloat(latitude),
         longitude: parseFloat(longitude),
         markets: {
-          connect: { id: marketId },
+          create: {
+            marketId: marketId,
+          },
         },
         isActive,
       },
       include: {
         markets: {
-          select: {
-            id: true,
-            name: true,
-            chineseName: true,
-            location: true,
+          include: {
+            market: {
+              select: {
+                id: true,
+                name: true,
+                chineseName: true,
+                location: true,
+              },
+            },
           },
         },
       },

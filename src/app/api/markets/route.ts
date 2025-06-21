@@ -40,10 +40,14 @@ export async function GET(request: NextRequest) {
         take: limit,
         include: {
           vendors: {
-            select: {
-              id: true,
-              name: true,
-              chineseName: true,
+            include: {
+              vendor: {
+                select: {
+                  id: true,
+                  name: true,
+                  chineseName: true,
+                },
+              },
             },
           },
         },
@@ -129,7 +133,11 @@ export async function POST(request: NextRequest) {
         isActive: body.isActive ?? true,
       },
       include: {
-        vendors: true,
+        vendors: {
+          include: {
+            vendor: true,
+          },
+        },
       },
     })
 
