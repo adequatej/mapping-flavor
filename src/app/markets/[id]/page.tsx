@@ -20,6 +20,18 @@ interface Market {
   isActive: boolean
   latitude?: number
   longitude?: number
+  vendors?: Array<{
+    vendor: {
+      id: string
+      name: string
+      chineseName?: string
+      description: string
+      specialties: string[]
+      images: string[]
+      latitude?: number
+      longitude?: number
+    }
+  }>
 }
 
 interface ApiResponse {
@@ -219,6 +231,95 @@ export default function MarketDetail() {
                 </div>
               </section>
 
+              {/* Market Vendors */}
+              {market.vendors && market.vendors.length > 0 && (
+                <section>
+                  <h2 className='text-2xl font-bold text-white mb-6'>
+                    Documented Vendors
+                  </h2>
+                  <div className='grid gap-6'>
+                    {market.vendors.map(vendorData => (
+                      <div
+                        key={vendorData.vendor.id}
+                        className='bg-neutral-900 rounded-xl p-6 hover:bg-neutral-800 transition-colors'
+                      >
+                        <div className='flex items-start space-x-4'>
+                          {/* Vendor Image */}
+                          <div className='relative w-20 h-20 rounded-lg overflow-hidden bg-neutral-800 flex-shrink-0'>
+                            {vendorData.vendor.images &&
+                            vendorData.vendor.images.length > 0 ? (
+                              <Image
+                                src={vendorData.vendor.images[0]}
+                                alt={`${vendorData.vendor.name} stall`}
+                                fill
+                                className='object-cover'
+                                sizes='80px'
+                              />
+                            ) : (
+                              <div className='flex items-center justify-center h-full text-neutral-500'>
+                                <div className='text-2xl'>🏪</div>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Vendor Info */}
+                          <div className='flex-1'>
+                            <div className='flex items-start justify-between'>
+                              <div>
+                                <h3 className='text-lg font-semibold text-white mb-1'>
+                                  {vendorData.vendor.name}
+                                </h3>
+                                {vendorData.vendor.chineseName && (
+                                  <p className='text-neutral-400 text-sm mb-2'>
+                                    {vendorData.vendor.chineseName}
+                                  </p>
+                                )}
+                                <div className='flex flex-wrap gap-2 mb-3'>
+                                  {vendorData.vendor.specialties
+                                    .slice(0, 3)
+                                    .map((specialty, i) => (
+                                      <span
+                                        key={i}
+                                        className='bg-primary/20 text-primary px-2 py-1 rounded-full text-xs'
+                                      >
+                                        {specialty}
+                                      </span>
+                                    ))}
+                                  {vendorData.vendor.specialties.length > 3 && (
+                                    <span className='text-neutral-500 text-xs'>
+                                      +
+                                      {vendorData.vendor.specialties.length - 3}{' '}
+                                      more
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                              <Link
+                                href={`/vendors/${vendorData.vendor.id}`}
+                                className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+                              >
+                                View Profile
+                              </Link>
+                            </div>
+                            <p className='text-neutral-300 text-sm leading-relaxed line-clamp-2'>
+                              {vendorData.vendor.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className='mt-6 text-center'>
+                    <Link
+                      href={`/vendors?market=${market.id}`}
+                      className='inline-flex items-center text-primary hover:text-primary-light transition-colors'
+                    >
+                      View all vendors at {market.name} →
+                    </Link>
+                  </div>
+                </section>
+              )}
+
               {/* Research Methods Note */}
               <section className='bg-gradient-to-r from-accent/10 to-primary/10 rounded-xl p-8'>
                 <h3 className='text-xl font-bold text-white mb-4'>
@@ -274,8 +375,14 @@ export default function MarketDetail() {
               {/* Actions */}
               <div className='space-y-4'>
                 <Link
-                  href={`/explorer?market=${market.id}`}
+                  href={`/vendors?market=${market.id}`}
                   className='block w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-4 rounded-lg transition-colors text-center'
+                >
+                  View Market Vendors
+                </Link>
+                <Link
+                  href={`/explorer?market=${market.id}`}
+                  className='block w-full bg-accent hover:bg-accent-dark text-white font-medium py-3 px-4 rounded-lg transition-colors text-center'
                 >
                   Explore Interactive Map
                 </Link>

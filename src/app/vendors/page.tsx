@@ -46,12 +46,61 @@ export default function Vendors() {
   const [vendors, setVendors] = useState<Vendor[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [selectedMarket, setSelectedMarket] = useState<string>('')
+  const [markets, setMarkets] = useState<Array<{ id: string; name: string }>>(
+    []
+  )
+
+  // Fetch markets for filter dropdown first
+  useEffect(() => {
+    const fetchMarkets = async () => {
+      try {
+        const response = await fetch('/api/markets')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.success) {
+            setMarkets(data.data.map((m: any) => ({ id: m.id, name: m.name })))
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch markets:', err)
+      }
+    }
+    fetchMarkets()
+  }, [])
+
+  // Get market filter from URL after markets are loaded
+  useEffect(() => {
+    if (markets.length > 0) {
+      const urlParams = new URLSearchParams(window.location.search)
+      const marketParam = urlParams.get('market')
+      if (marketParam && markets.find(m => m.id === marketParam)) {
+        setSelectedMarket(marketParam)
+      }
+    }
+  }, [markets])
+
+  // Update URL when market filter changes (but not on initial load)
+  useEffect(() => {
+    // Only update URL if we're not on initial load
+    if (selectedMarket) {
+      const url = new URL(window.location.href)
+      url.searchParams.set('market', selectedMarket)
+      window.history.replaceState({}, '', url.toString())
+    }
+  }, [selectedMarket])
 
   useEffect(() => {
     const fetchVendors = async () => {
       try {
         setLoading(true)
-        const response = await fetch('/api/vendors')
+        const params = new URLSearchParams()
+        if (selectedMarket) {
+          params.append('marketId', selectedMarket)
+        }
+
+        const url = `/api/vendors${params.toString() ? `?${params.toString()}` : ''}`
+        const response = await fetch(url)
 
         if (!response.ok) {
           throw new Error('Failed to fetch vendors')
@@ -72,7 +121,7 @@ export default function Vendors() {
     }
 
     fetchVendors()
-  }, [])
+  }, [selectedMarket])
 
   if (loading) {
     return (
@@ -130,6 +179,43 @@ export default function Vendors() {
             Meet the vendors who create the authentic experiences that make
             Taiwan's night markets so special
           </p>
+        </div>
+
+        {/* Market Filter */}
+        <div className='max-w-4xl mx-auto mb-8'>
+          <div className='bg-neutral-900 rounded-xl p-6'>
+            <div className='flex flex-wrap items-center gap-4'>
+              <label className='text-white font-medium'>
+                Filter by Market:
+              </label>
+              <select
+                value={selectedMarket}
+                onChange={e => setSelectedMarket(e.target.value)}
+                className='bg-neutral-800 text-white px-4 py-2 rounded-lg border border-neutral-600 focus:border-primary focus:outline-none min-w-[200px]'
+              >
+                <option value=''>All Markets</option>
+                {markets.map(market => (
+                  <option key={market.id} value={market.id}>
+                    {market.name}
+                  </option>
+                ))}
+              </select>
+              {selectedMarket && (
+                <div className='flex items-center gap-2'>
+                  <span className='text-neutral-400 text-sm'>
+                    Showing vendors from:{' '}
+                    {markets.find(m => m.id === selectedMarket)?.name}
+                  </span>
+                  <button
+                    onClick={() => setSelectedMarket('')}
+                    className='bg-primary/20 text-primary hover:bg-primary/30 px-3 py-1 rounded-full text-sm transition-colors'
+                  >
+                    Clear filter
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Research Note */}

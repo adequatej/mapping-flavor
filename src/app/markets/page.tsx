@@ -216,18 +216,24 @@ export default function Markets() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className='flex space-x-4 pt-4'>
-                  <Link
-                    href={`/explorer?market=${market.id}`}
-                    className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
-                  >
-                    Explore in Interactive Map
-                  </Link>
+                <div className='flex flex-wrap gap-3 pt-4'>
                   <Link
                     href={`/markets/${market.id}`}
-                    className='bg-secondary-light hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-lg border border-neutral-600 transition-colors text-sm'
+                    className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
                   >
                     Detailed Analysis
+                  </Link>
+                  <Link
+                    href={`/vendors?market=${market.id}`}
+                    className='bg-accent hover:bg-accent-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+                  >
+                    View Vendors
+                  </Link>
+                  <Link
+                    href={`/explorer?market=${market.id}`}
+                    className='bg-secondary-light hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-lg border border-neutral-600 transition-colors text-sm'
+                  >
+                    Interactive Map
                   </Link>
                 </div>
               </div>
