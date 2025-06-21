@@ -22,14 +22,23 @@ export interface Market {
 export interface Vendor {
   id: string
   name: string
-  specialty: string
-  cultural_significance: string
-  latitude: number
-  longitude: number
-  marketId: string
+  chineseName?: string
+  description: string
+  specialties: string[]
+  latitude?: number
+  longitude?: number
+  images: string[]
+  contactPhone?: string
+  contactInstagram?: string
+  contactFacebook?: string
+  contactLine?: string
+  operatingHours?: string
+  researchNotes?: string
+  culturalSignificance?: string
   isActive: boolean
   createdAt?: string
   updatedAt?: string
+  markets?: Market[]
 }
 
 export interface User {
@@ -62,5 +71,12 @@ export interface MarketFilters {
   search?: string
   location?: string
   researchFocus?: string
+  isActive?: boolean
+}
+
+export interface VendorFilters {
+  search?: string
+  marketId?: string
+  specialty?: string
   isActive?: boolean
 }
