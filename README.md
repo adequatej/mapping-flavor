@@ -183,6 +183,6 @@ Redux vs. React Local State
   Complex filtering and sorting
   State persistence between page refreshes
 
-React
+React.
 
 - Using functional components and hooks (not class components)
