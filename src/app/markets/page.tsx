@@ -1,6 +1,7 @@
-import { markets } from '@/data/markets'
-import Image from 'next/image'
 import Link from 'next/link'
+
+// Temporary placeholder - will be replaced with API call
+const markets: any[] = []
 
 export default function Markets() {
   return (
@@ -41,98 +42,9 @@ export default function Markets() {
           </p>
         </div>
 
-        {/* Markets Grid */}
-        <div className='space-y-12'>
-          {markets.map((market, index) => (
-            <div
-              key={market.id}
-              className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}
-            >
-              {/* Image */}
-              <div
-                className={`relative h-80 rounded-xl overflow-hidden ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
-              >
-                <Image
-                  src={market.image}
-                  alt={`${market.name} observation site`}
-                  fill
-                  className='object-cover'
-                  sizes='(max-width: 768px) 100vw, 50vw'
-                />
-                <div className='absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm'>
-                  Est. {market.established}
-                </div>
-                <div className='absolute bottom-4 left-4 bg-primary/90 text-white px-3 py-1 rounded-full text-xs'>
-                  Field Site
-                </div>
-              </div>
-
-              {/* Content */}
-              <div
-                className={`space-y-4 ${index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}
-              >
-                <div>
-                  <h3 className='text-2xl font-bold text-white mb-1'>
-                    {market.name}
-                  </h3>
-                  <p className='text-neutral-400 text-sm mb-2'>
-                    {market.chineseName} • {market.location}
-                  </p>
-                  <div className='inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium'>
-                    Focus: {market.researchFocus}
-                  </div>
-                </div>
-
-                <p className='text-neutral-300 leading-relaxed'>
-                  {market.description}
-                </p>
-
-                {/* Analytical Reflection */}
-                <div className='bg-neutral-900 rounded-lg p-4'>
-                  <h4 className='text-accent font-semibold mb-2'>
-                    Theoretical Connection
-                  </h4>
-                  <p className='text-neutral-400 text-sm leading-relaxed'>
-                    {market.analyticalNote}
-                  </p>
-                </div>
-
-                {/* Observations */}
-                <div>
-                  <h4 className='text-white font-semibold mb-3'>
-                    What I Noticed
-                  </h4>
-                  <ul className='space-y-2'>
-                    {market.keyFindings.map((finding, i) => (
-                      <li
-                        key={i}
-                        className='flex items-start space-x-2 text-sm'
-                      >
-                        <span className='text-primary mt-1'>•</span>
-                        <span className='text-neutral-400'>{finding}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Action Buttons */}
-                <div className='flex space-x-4 pt-4'>
-                  <Link
-                    href={`/explorer?market=${market.id}`}
-                    className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
-                  >
-                    Explore in Interactive Map
-                  </Link>
-                  <Link
-                    href={`/markets/${market.id}`}
-                    className='bg-secondary-light hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-lg border border-neutral-600 transition-colors text-sm'
-                  >
-                    Detailed Analysis
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Temporary message */}
+        <div className='text-center text-neutral-400'>
+          <p>Markets data will be loaded from API soon...</p>
         </div>
 
         {/* Reflection Section */}
