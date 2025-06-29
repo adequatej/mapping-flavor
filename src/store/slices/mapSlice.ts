@@ -13,14 +13,14 @@ interface MapState {
 }
 
 const initialState: MapState = {
-  lng: 121.5,
-  lat: 23.5,
-  zoom: 7,
+  lng: 121.0,
+  lat: 23.8,
+  zoom: 6,
   bounds: {
-    north: 25.3,
-    south: 21.9,
-    west: 120.0,
-    east: 122.0,
+    north: 25.8,
+    south: 21.8,
+    west: 119.3,
+    east: 122.7,
   },
 }
 

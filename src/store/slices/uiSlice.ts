@@ -11,12 +11,16 @@ interface UIState {
   viewMode: 'markets' | 'vendors' | 'research'
   activePanel: ResearchPanel | null
   isSidebarOpen: boolean
+  searchQuery: string
+  isDetailView: boolean
 }
 
 const initialState: UIState = {
   viewMode: 'markets',
   activePanel: null,
   isSidebarOpen: true,
+  searchQuery: '',
+  isDetailView: false,
 }
 
 const uiSlice = createSlice({
@@ -35,9 +39,21 @@ const uiSlice = createSlice({
     toggleSidebar: state => {
       state.isSidebarOpen = !state.isSidebarOpen
     },
+    setSearchQuery: (state, action: PayloadAction<string>) => {
+      state.searchQuery = action.payload
+    },
+    setDetailView: (state, action: PayloadAction<boolean>) => {
+      state.isDetailView = action.payload
+    },
   },
 })
 
-export const { setViewMode, setActivePanel, toggleSidebar } = uiSlice.actions
+export const {
+  setViewMode,
+  setActivePanel,
+  toggleSidebar,
+  setSearchQuery,
+  setDetailView,
+} = uiSlice.actions
 
 export default uiSlice.reducer
