@@ -73,7 +73,7 @@ export default function Map({
         map.current = null
       }
     }
-  }, []) // Remove lng, lat, zoom, bounds from dependencies to prevent re-initialization
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps -- Map should only initialize once
 
   // Respond to zoom and center changes from Redux
   useEffect(() => {
@@ -277,6 +277,7 @@ export default function Map({
   }, [
     vendors,
     selectedMarket,
+    selectedVendor?.id,
     viewMode,
     mapLoaded,
     onVendorSelect,
