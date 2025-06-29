@@ -14,7 +14,35 @@ interface SourceCategory {
 export default function Sources() {
   const sources: SourceCategory[] = [
     {
-      category: 'Food Studies & National Identity',
+      category: 'Postcolonial Theory & Cultural Studies',
+      sources: [
+        {
+          citation:
+            'Bourdieu, P. (1984). Distinction: A Social Critique of the Judgement of Taste. Harvard University Press.',
+          summary:
+            'Shows how cultural knowledge and tastes function as forms of capital that determine social position, explaining how economic constraints shape cultural expression and access.',
+          relevance:
+            'Shows how economic pressures in night markets determine which cultural narratives vendors can express, revealing that cultural democracy is more limited than it appears.',
+        },
+        {
+          citation: 'Said, E. W. (1978). Orientalism. Pantheon Books.',
+          summary:
+            'Foundational work examining how Western representations of the "Orient" serve to justify and maintain power relations, showing how cultural representations are political acts that reinforce hierarchies.',
+          relevance:
+            'Important for analyzing how tourist-oriented cultural performances in night markets may reinforce certain narratives about Taiwan and its relationship to broader Asian cultural dynamics.',
+        },
+        {
+          citation:
+            'Scott, J. C. (1990). Domination and the Arts of Resistance: Hidden Transcripts. Yale University Press.',
+          summary:
+            'Examines how subordinated groups develop "hidden transcripts" - forms of resistance and cultural preservation that operate beneath dominant power structures, distinct from public performances required by those in power.',
+          relevance:
+            'Provides framework for understanding how night market vendors navigate between public cultural performances for tourists/authorities and private preservation of authentic cultural practices.',
+        },
+      ],
+    },
+    {
+      category: 'Taiwan Studies & Food Politics',
       sources: [
         {
           citation:
@@ -23,7 +51,7 @@ export default function Sources() {
           summary:
             "Examines how Taiwan's government has used food as a tool for building national identity, particularly through the promotion of Minnan and Hakka cuisines while marginalizing Indigenous foods.",
           relevance:
-            'Provides crucial framework for understanding which cuisines are promoted and why, informing my analysis of night market cultural politics.',
+            'Provides important framework for understanding which cuisines are promoted and why, informing analysis of night market cultural politics and state influence on cultural representation.',
         },
       ],
     },
@@ -58,7 +86,7 @@ export default function Sources() {
       ],
     },
     {
-      category: 'Tourism Studies & Night Market Analysis',
+      category: 'Night Market Studies & Vendor Behavior',
       sources: [
         {
           citation:
@@ -66,7 +94,7 @@ export default function Sources() {
           summary:
             'Analyzes how vendors create "attractiveness" for tourists through cultural performances and market experiences, examining the business motivations behind cultural commodification.',
           relevance:
-            'Informs my understanding of vendor strategies and tourist-local dynamics, particularly relevant for Shilin Night Market analysis.',
+            'Provides framework for analyzing vendor behavior and cultural performance strategies, particularly relevant for understanding identity commodification at Shilin Night Market.',
         },
         {
           citation:
@@ -74,18 +102,11 @@ export default function Sources() {
           summary:
             'Explores tourist engagement with night markets, focusing on behaviors, consumption patterns, and cultural interactions as social spaces for cultural exchange.',
           relevance:
-            'Provides data on tourist experiences and satisfaction, informing my analysis of night markets as democratic cultural spaces.',
-        },
-        {
-          citation:
-            'Liu, C., Chou, S., & Lin, J. (2021). Implementation and Evaluation of Tourism Industry: Evidentiary Case Study of Night Market Development in Taiwan. Evaluation and Program Planning, 84, 101961.',
-          summary:
-            "Evaluates night market development in Taiwan's tourism industry, examining economic benefits and cultural preservation within commercial contexts.",
-          relevance:
-            'Helps balance cultural preservation with tourism promotion, informing decisions about market and vendor selection for the platform.',
+            'Provides framework for "democratic cultural spaces" claim that this research critiques, showing gaps between idealized and actual power dynamics in night market interactions.',
         },
       ],
     },
+
     {
       category: 'Participatory Culture & Inclusion',
       sources: [
@@ -128,36 +149,38 @@ export default function Sources() {
         {/* Header */}
         <div className='max-w-4xl mx-auto text-center mb-16'>
           <h1 className='font-bold text-4xl md:text-5xl text-white mb-6'>
-            Academic <span className='text-primary'>Sources</span>
+            Bibliography
           </h1>
           <p className='text-xl text-neutral-300 leading-relaxed mb-4'>
-            Scholarly foundation for the critical analysis of Taiwanese night
-            market culture and digital heritage preservation
+            Academic sources for "Cultural Identity Negotiation in Taiwan's
+            Night Markets"
           </p>
           <p className='text-neutral-400'>
-            This research draws upon interdisciplinary scholarship in food
-            studies, digital heritage, tourism studies, and Taiwan studies
+            Sources listed alphabetically by author within categories, following
+            standard academic bibliography format
           </p>
         </div>
 
-        {/* Methodology Note */}
+        {/* Academic Note */}
         <div className='bg-secondary-light rounded-xl p-8 mb-12 max-w-4xl mx-auto'>
           <h2 className='text-2xl font-bold text-white mb-4'>
-            <span className='text-accent'>Research Framework</span>
+            <span className='text-accent'>Theoretical Framework</span>
           </h2>
           <p className='text-neutral-300 leading-relaxed mb-4'>
-            This project uses observational research methods combined with
-            critical cultural analysis, drawing on established scholarship in
-            food studies, digital heritage, and tourism research. The
-            interdisciplinary approach allows for comprehensive examination of
-            night markets as sites of cultural identity negotiation and digital
-            preservation experimentation.
+            This research uses critical ethnographic observation combined with
+            postcolonial and cultural studies theory to examine how cultural
+            identity operates in Taiwan's night market spaces. The analysis
+            draws primarily on Edward Said's orientalism framework, Pierre
+            Bourdieu's cultural capital theory, and James C. Scott's concept of
+            hidden transcripts to understand power dynamics in cultural
+            representation.
           </p>
           <p className='text-neutral-400 text-sm'>
-            <strong>Note:</strong> All observations and analysis are grounded in
-            existing scholarly frameworks, with particular attention to
-            participatory heritage models and community-centered approaches to
-            cultural documentation.
+            <strong>Methodology:</strong> Evidence gathered through participant
+            observation at four Taiwan night markets, analyzed using Chen and
+            Huang's (2014) vendor behavior framework while incorporating
+            postcolonial approaches that examine power dynamics in everyday
+            cultural spaces.
           </p>
         </div>
 
@@ -230,40 +253,44 @@ export default function Sources() {
           ))}
         </div>
 
-        {/* Additional Research Areas */}
+        {/* Research Limitations & Future Directions */}
         <div className='mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-8'>
           <h3 className='text-2xl font-bold text-white mb-6 text-center'>
-            Future Research Directions
+            Research Limitations & Future Directions
           </h3>
           <div className='grid md:grid-cols-2 gap-8'>
             <div>
               <h4 className='text-white font-semibold mb-3'>
-                Expanding the Framework
+                Current Limitations
               </h4>
               <p className='text-neutral-300 text-sm mb-4'>
-                Future research could incorporate Indigenous food studies
-                scholarship and postcolonial food theory to further examine
-                power dynamics in Taiwan's culinary landscape.
+                This research represents observations from a specific time
+                period and perspective. The analysis would benefit from
+                longer-term ethnographic work and direct collaboration with
+                vendor communities to capture their own perspectives on cultural
+                identity negotiation.
               </p>
               <p className='text-neutral-400 text-sm'>
-                Additional fieldwork could include comparative analysis with
-                other Asian night market cultures and deeper investigation of
-                vendor family histories.
+                Indigenous food cultures remain largely absent from these
+                tourist-facing markets, representing a significant gap in
+                understanding Taiwan's complete culinary landscape and power
+                dynamics.
               </p>
             </div>
             <div>
               <h4 className='text-white font-semibold mb-3'>
-                Community Collaboration
+                Future Research Areas
               </h4>
               <p className='text-neutral-300 text-sm mb-4'>
-                This platform serves as a foundation for community-driven
-                research, inviting vendors, customers, and cultural
-                practitioners to contribute their perspectives and experiences.
+                Future research should incorporate Indigenous food studies
+                scholarship and examine how digital documentation might
+                democratize cultural representation beyond current institutional
+                frameworks.
               </p>
               <p className='text-neutral-400 text-sm'>
-                Following participatory heritage models, future development will
-                prioritize community agency in cultural representation and
-                narrative creation.
+                Comparative analysis with other post-colonial commercial
+                cultural spaces could reveal broader patterns of how cultural
+                identity operates under economic and political pressures.
               </p>
             </div>
           </div>
