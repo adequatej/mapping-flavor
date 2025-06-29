@@ -1,19 +1,27 @@
 'use client'
 
+import MapControls from '@/components/maps/MapControls'
+import MapSidebar from '@/components/maps/MapSidebar'
+import SearchHeader from '@/components/maps/SearchHeader'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { setCenter, setZoom } from '@/store/slices/mapSlice'
 import { fetchMarkets, setSelectedMarket } from '@/store/slices/marketsSlice'
-import { setActivePanel, setViewMode } from '@/store/slices/uiSlice'
+import {
+  setDetailView,
+  setSearchQuery,
+  setViewMode,
+  toggleSidebar,
+} from '@/store/slices/uiSlice'
 import { fetchVendors, setSelectedVendor } from '@/store/slices/vendorsSlice'
 import { Market, Vendor } from '@/types'
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
 import { useEffect } from 'react'
 
 // Dynamically import Map to avoid SSR issues
 const Map = dynamic(() => import('@/components/maps/Map'), {
   ssr: false,
   loading: () => (
-    <div className='w-full h-full bg-neutral-800 flex items-center justify-center'>
+    <div className='absolute inset-0 bg-neutral-800 flex items-center justify-center'>
       <div className='text-white'>Loading map...</div>
     </div>
   ),
@@ -78,6 +86,7 @@ export default function Explorer() {
   const marketsState = useAppSelector(state => state.markets)
   const vendorsState = useAppSelector(state => state.vendors)
   const uiState = useAppSelector(state => state.ui)
+  const mapState = useAppSelector(state => state.map)
 
   const markets = marketsState.markets
   const marketsLoading = marketsState.loading
@@ -88,7 +97,9 @@ export default function Explorer() {
   const selectedVendor = vendorsState.selectedVendor
 
   const viewMode = uiState.viewMode
-  const activePanel = uiState.activePanel
+  const isSidebarOpen = uiState.isSidebarOpen
+  const searchQuery = uiState.searchQuery
+  const isDetailView = uiState.isDetailView
 
   // Load data on mount
   useEffect(() => {
@@ -96,333 +107,146 @@ export default function Explorer() {
     dispatch(fetchVendors())
   }, [dispatch])
 
-  const handleMarketSelect = (market: Market | null) => {
-    dispatch(setSelectedMarket(market))
+  // Map event handlers
+  const handleZoomIn = () => {
+    const newZoom = Math.min(mapState.zoom + 1, 18)
+    dispatch(setZoom(newZoom))
   }
 
-  const handleVendorSelect = (vendor: Vendor | null) => {
-    dispatch(setSelectedVendor(vendor))
+  const handleZoomOut = () => {
+    const newZoom = Math.max(mapState.zoom - 1, 6) // Match the map's minZoom limit - prevents zooming out past Taiwan
+    dispatch(setZoom(newZoom))
+  }
+
+  const handleReset = () => {
+    dispatch(setCenter({ lng: 121.0, lat: 23.8 }))
+    dispatch(setZoom(6)) // Match the new minZoom level
+    dispatch(setSelectedMarket(null))
+    dispatch(setSelectedVendor(null))
+  }
+
+  const handleToggleSidebar = () => {
+    dispatch(toggleSidebar())
+  }
+
+  // Search and filter handlers
+  const handleSearch = (query: string) => {
+    dispatch(setSearchQuery(query))
   }
 
   const handleViewModeChange = (mode: 'markets' | 'vendors' | 'research') => {
     dispatch(setViewMode(mode))
+    // Auto-open sidebar when changing view mode
+    if (!isSidebarOpen) {
+      dispatch(toggleSidebar())
+    }
   }
 
-  const handlePanelToggle = (panel: ResearchPanel | null) => {
-    dispatch(setActivePanel(activePanel?.id === panel?.id ? null : panel))
+  // Selection handlers
+  const handleMarketSelect = (market: Market | null) => {
+    dispatch(setSelectedMarket(market))
+
+    // Auto-open sidebar and enable detail view when a market is selected
+    if (market && !isSidebarOpen) {
+      dispatch(toggleSidebar())
+    }
+
+    // Enable detail view when a market is selected from map
+    dispatch(setDetailView(!!market))
+
+    if (market && viewMode === 'vendors') {
+      // Auto-focus on market when selecting for vendor view
+      dispatch(setCenter({ lng: market.longitude, lat: market.latitude }))
+    }
   }
 
-  // Filter markets based on research focus if needed
-  const filteredMarkets = markets || []
+  const handleVendorSelect = (vendor: Vendor | null) => {
+    dispatch(setSelectedVendor(vendor))
+
+    // Auto-open sidebar and enable detail view when a vendor is selected
+    if (vendor && !isSidebarOpen) {
+      dispatch(toggleSidebar())
+    }
+
+    // Enable detail view when a vendor is selected from map
+    dispatch(setDetailView(!!vendor))
+  }
+
+  const handleBackToList = () => {
+    dispatch(setDetailView(false))
+    dispatch(setSelectedMarket(null))
+  }
+
+  const handleMapLoad = (zoom: number, center: [number, number]) => {
+    // Sync Redux state with actual map state when map loads
+    dispatch(setZoom(zoom))
+    dispatch(setCenter({ lng: center[0], lat: center[1] }))
+  }
 
   if (marketsLoading || vendorsLoading) {
     return (
-      <div className='h-screen flex items-center justify-center bg-secondary'>
+      <div className='h-screen flex items-center justify-center bg-neutral-800'>
         <div className='text-white text-xl'>Loading research data...</div>
       </div>
     )
   }
 
   return (
-    <div className='h-screen flex flex-col overflow-hidden bg-secondary'>
-      {/* Header */}
-      <header className='bg-secondary-light border-b border-neutral-700 px-6 py-4 flex-shrink-0'>
-        <div className='flex items-center justify-between'>
-          <div>
-            <h1 className='text-2xl font-bold text-white'>
-              Taiwan Night Markets{' '}
-              <span className='text-primary'>Research Explorer</span>
-            </h1>
-            <p className='text-sm text-neutral-400'>
-              Interactive analysis of cultural identity and digital heritage
-              preservation
-            </p>
-          </div>
+    <div className='fixed inset-0 top-16 bg-neutral-800 overflow-hidden'>
+      {/* Full-screen Map */}
+      <div className='absolute inset-0'>
+        <Map
+          markets={markets || []}
+          vendors={vendors || []}
+          selectedMarket={selectedMarket}
+          selectedVendor={selectedVendor}
+          viewMode={viewMode}
+          onMarketSelect={handleMarketSelect}
+          onVendorSelect={handleVendorSelect}
+          onMapLoad={handleMapLoad}
+          interactive={true}
+        />
 
-          <div className='flex items-center space-x-4'>
-            {/* View Mode Toggle */}
-            <div className='flex bg-neutral-800 rounded-lg p-1'>
-              {[
-                { mode: 'markets' as const, label: 'Markets', icon: '🏪' },
-                { mode: 'vendors' as const, label: 'Vendors', icon: '👨‍🍳' },
-                { mode: 'research' as const, label: 'Research', icon: '📚' },
-              ].map(({ mode, label, icon }) => (
-                <button
-                  key={mode}
-                  onClick={() => handleViewModeChange(mode)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    viewMode === mode
-                      ? 'bg-primary text-white'
-                      : 'text-neutral-400 hover:text-white'
-                  }`}
-                >
-                  {icon} {label}
-                </button>
-              ))}
-            </div>
+        {/* Floating Search Header - Top Left of Map */}
+        <SearchHeader
+          viewMode={viewMode}
+          onViewModeChange={handleViewModeChange}
+          onSearch={handleSearch}
+          searchQuery={searchQuery}
+          isSidebarOpen={isSidebarOpen}
+          selectedMarket={selectedMarket}
+        />
+      </div>
 
-            {/* Market Count */}
-            <div className='text-sm text-neutral-400'>
-              {filteredMarkets.length} Markets • {vendors?.length || 0} Vendors
-            </div>
-          </div>
-        </div>
-      </header>
+      {/* Floating Sidebar - Left */}
+      <MapSidebar
+        isOpen={isSidebarOpen}
+        viewMode={viewMode}
+        markets={markets || []}
+        vendors={vendors || []}
+        selectedMarket={selectedMarket}
+        selectedVendor={selectedVendor}
+        onMarketSelect={handleMarketSelect}
+        onVendorSelect={handleVendorSelect}
+        onToggle={handleToggleSidebar}
+        searchQuery={searchQuery}
+        isDetailView={isDetailView}
+        onBackToList={handleBackToList}
+      />
 
-      <div className='flex-1 flex overflow-hidden'>
-        {/* Map Area */}
-        <div className='flex-1 relative bg-neutral-800'>
-          <Map
-            markets={filteredMarkets}
-            vendors={vendors || []}
-            selectedMarket={selectedMarket}
-            selectedVendor={selectedVendor}
-            viewMode={viewMode}
-            onMarketSelect={handleMarketSelect}
-            onVendorSelect={handleVendorSelect}
-            interactive={true}
-          />
-        </div>
+      {/* Floating Map Controls */}
+      <MapControls
+        onZoomIn={handleZoomIn}
+        onZoomOut={handleZoomOut}
+        onReset={handleReset}
+        onToggleSidebar={handleToggleSidebar}
+        isSidebarOpen={isSidebarOpen}
+      />
 
-        {/* Dynamic Side Panel */}
-        <div className='w-96 bg-secondary-light border-l border-neutral-700 overflow-y-auto flex-shrink-0'>
-          {viewMode === 'research' ? (
-            /* Research Panel */
-            <div className='p-6'>
-              <h2 className='text-xl font-bold text-white mb-6'>
-                Research Framework
-              </h2>
-              <div className='space-y-4'>
-                {researchPanels.map(panel => (
-                  <button
-                    key={panel.id}
-                    onClick={() => handlePanelToggle(panel)}
-                    className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-4 transition-colors'
-                  >
-                    <h3 className='font-semibold text-white mb-2'>
-                      {panel.title}
-                    </h3>
-                    <div
-                      className={`text-neutral-400 text-sm transition-all duration-300 ${
-                        activePanel?.id === panel.id
-                          ? 'max-h-96 opacity-100'
-                          : 'max-h-16 opacity-75'
-                      } overflow-hidden`}
-                    >
-                      {panel.content}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : selectedMarket ? (
-            /* Market Detail Panel */
-            <div className='p-6'>
-              <div className='relative h-48 rounded-lg overflow-hidden mb-4'>
-                <Image
-                  src={selectedMarket.image}
-                  alt={selectedMarket.name}
-                  fill
-                  className='object-cover'
-                  sizes='384px'
-                />
-                <div className='absolute top-4 right-4 bg-primary text-white px-2 py-1 rounded text-sm'>
-                  Est. {selectedMarket.established}
-                </div>
-              </div>
-
-              <h2 className='text-xl font-bold text-white mb-1'>
-                {selectedMarket.name}
-              </h2>
-              <p className='text-neutral-400 text-sm mb-2'>
-                {selectedMarket.chineseName} • {selectedMarket.location}
-              </p>
-              <div className='inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4'>
-                {selectedMarket.researchFocus}
-              </div>
-
-              <p className='text-neutral-300 text-sm mb-4 leading-relaxed'>
-                {selectedMarket.description}
-              </p>
-
-              <div className='bg-neutral-800 rounded-lg p-4 mb-4'>
-                <h4 className='text-accent font-semibold mb-2 text-sm'>
-                  Analytical Framework
-                </h4>
-                <p className='text-neutral-400 text-sm leading-relaxed'>
-                  {selectedMarket.analyticalNote}
-                </p>
-              </div>
-
-              <div className='mb-6'>
-                <h4 className='text-white font-semibold mb-3 text-sm'>
-                  Key Research Findings
-                </h4>
-                <ul className='space-y-2'>
-                  {selectedMarket.keyFindings.map(
-                    (finding: string, index: number) => (
-                      <li
-                        key={index}
-                        className='flex items-start space-x-2 text-sm'
-                      >
-                        <span className='text-primary mt-1'>📷</span>
-                        <span className='text-neutral-400'>{finding}</span>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-
-              {/* Vendor List */}
-              <div>
-                <h4 className='text-white font-semibold mb-3 text-sm'>
-                  Documented Vendors (
-                  {vendors?.filter((v: Vendor) =>
-                    v.markets?.some(
-                      (m: any) => m.market?.id === selectedMarket.id
-                    )
-                  ).length || 0}
-                  )
-                </h4>
-                <div className='space-y-2'>
-                  {vendors
-                    ?.filter((vendor: Vendor) =>
-                      vendor.markets?.some(
-                        (m: any) => m.market?.id === selectedMarket.id
-                      )
-                    )
-                    .map((vendor: Vendor) => (
-                      <button
-                        key={vendor.id}
-                        onClick={() => {
-                          handleVendorSelect(vendor)
-                          handleViewModeChange('vendors')
-                        }}
-                        className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-3 transition-colors'
-                      >
-                        <div className='font-medium text-white text-sm'>
-                          {vendor.name}
-                        </div>
-                        <div className='text-neutral-400 text-xs'>
-                          {vendor.specialties.join(', ')}
-                        </div>
-                      </button>
-                    ))}
-                </div>
-              </div>
-            </div>
-          ) : selectedVendor ? (
-            /* Vendor Detail Panel */
-            <div className='p-6'>
-              <div className='relative h-48 rounded-lg overflow-hidden mb-4'>
-                {selectedVendor.images && selectedVendor.images.length > 0 ? (
-                  <Image
-                    src={selectedVendor.images[0]}
-                    alt={selectedVendor.name}
-                    fill
-                    className='object-cover'
-                    sizes='384px'
-                  />
-                ) : (
-                  <div className='w-full h-full bg-neutral-700 flex items-center justify-center'>
-                    <span className='text-4xl'>🍜</span>
-                  </div>
-                )}
-              </div>
-
-              <h2 className='text-xl font-bold text-white mb-2'>
-                {selectedVendor.name}
-              </h2>
-              <p className='text-neutral-400 text-sm mb-2'>
-                {selectedVendor.chineseName}
-              </p>
-              <div className='flex flex-wrap gap-2 mb-4'>
-                {selectedVendor.specialties.map(
-                  (specialty: string, index: number) => (
-                    <span
-                      key={index}
-                      className='bg-primary/20 text-primary px-2 py-1 rounded-full text-xs'
-                    >
-                      {specialty}
-                    </span>
-                  )
-                )}
-              </div>
-
-              <p className='text-neutral-300 text-sm mb-4 leading-relaxed'>
-                {selectedVendor.description}
-              </p>
-
-              {selectedVendor.culturalSignificance && (
-                <div className='bg-neutral-800 rounded-lg p-4 mb-4'>
-                  <h4 className='text-accent font-semibold mb-2'>
-                    Cultural Significance
-                  </h4>
-                  <p className='text-neutral-400 text-sm leading-relaxed'>
-                    {selectedVendor.culturalSignificance}
-                  </p>
-                </div>
-              )}
-
-              {selectedVendor.researchNotes && (
-                <div className='bg-neutral-800 rounded-lg p-4 mb-4'>
-                  <h4 className='text-accent font-semibold mb-2'>
-                    Research Notes
-                  </h4>
-                  <p className='text-neutral-400 text-sm leading-relaxed'>
-                    {selectedVendor.researchNotes}
-                  </p>
-                </div>
-              )}
-
-              {selectedVendor.operatingHours && (
-                <div className='text-sm text-neutral-400 mb-4'>
-                  <strong>Hours:</strong> {selectedVendor.operatingHours}
-                </div>
-              )}
-
-              <button
-                onClick={() => handleVendorSelect(null)}
-                className='mt-4 w-full bg-secondary hover:bg-neutral-700 text-white py-2 px-4 rounded-lg transition-colors'
-              >
-                Back to Market View
-              </button>
-            </div>
-          ) : (
-            /* Default Panel */
-            <div className='p-6'>
-              <h2 className='text-xl font-bold text-white mb-4'>
-                {viewMode === 'markets'
-                  ? 'Select a Market'
-                  : 'Select a Market First'}
-              </h2>
-              <p className='text-neutral-400 text-sm mb-6'>
-                Click on a market marker to explore detailed research findings
-                and cultural analysis.
-              </p>
-
-              <div className='space-y-3'>
-                {filteredMarkets.map((market: Market) => (
-                  <button
-                    key={market.id}
-                    onClick={() => handleMarketSelect(market)}
-                    className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-4 transition-colors'
-                  >
-                    <h3 className='font-semibold text-white text-sm'>
-                      {market.name}
-                    </h3>
-                    <p className='text-primary text-xs mb-1'>
-                      {market.researchFocus}
-                    </p>
-                    <p className='text-neutral-400 text-xs line-clamp-2'>
-                      {market.description}
-                    </p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+      {/* Optional: Status Bar - Bottom */}
+      <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/80 text-white px-4 py-2 rounded-full text-sm hidden md:block'>
+        Taiwan Night Markets Research • {markets?.length || 0} Markets •{' '}
+        {vendors?.length || 0} Vendors
       </div>
     </div>
   )
