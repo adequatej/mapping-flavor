@@ -302,16 +302,16 @@ export default function MarketDetail() {
                   <p className='text-neutral-300 leading-relaxed'>
                     <strong className='text-white'>Analysis:</strong> These
                     observations support the central argument that cultural
-                    identity at {market.name} operates as strategic performance
+                    identity at {market.name} works as strategic performance
                     rather than authentic preservation. The evidence shows how
                     vendors navigate what James C. Scott (1990) calls "hidden
-                    transcripts"—maintaining private cultural practices while
-                    performing public versions adapted to tourist expectations.
-                    This demonstrates how post-colonial power dynamics shape
-                    cultural representation in commercial spaces, with vendors
-                    using cultural capital strategically to maximize economic
-                    outcomes while preserving authentic practices in private
-                    interactions.
+                    transcripts." This means maintaining private cultural
+                    practices while performing public versions adapted to
+                    tourist expectations. This shows how post-colonial power
+                    dynamics shape cultural representation in commercial spaces,
+                    with vendors using cultural capital strategically to
+                    maximize economic outcomes while preserving authentic
+                    practices in private interactions.
                   </p>
                 </div>
               </section>
@@ -325,12 +325,12 @@ export default function MarketDetail() {
 
                   <div className='prose prose-invert max-w-none mb-8'>
                     <p className='text-neutral-300 leading-relaxed'>
-                      The vendors at {market.name} represent a fascinating
-                      cross-section of how individual entrepreneurs navigate
+                      The vendors at {market.name} represent an interesting
+                      cross-section of how individual entrepreneurs handle
                       broader cultural and economic pressures. Following Wu and
                       Lin's (2013) methodology, I focused on understanding how
                       each vendor creates what they call "attractiveness" for
-                      different audiences while maintaining their own cultural
+                      different audiences while keeping their own cultural
                       identity.
                     </p>
                   </div>
@@ -434,38 +434,35 @@ export default function MarketDetail() {
                 <div className='prose prose-invert max-w-none space-y-4'>
                   <p className='text-neutral-300 leading-relaxed'>
                     <strong className='text-white'>Thesis Connection:</strong>{' '}
-                    The evidence from {market.name} demonstrates how Taiwan's
-                    night markets function as contested cultural spaces where
-                    different versions of "Taiwanese identity" are negotiated
-                    and performed. Rather than preserving authentic culture,
-                    vendors strategically adapt their cultural presentations to
-                    navigate post-colonial power dynamics and economic
-                    pressures.
+                    The evidence from {market.name} shows how Taiwan's night
+                    markets work as contested cultural spaces where different
+                    versions of "Taiwanese identity" are negotiated and
+                    performed. Rather than preserving authentic culture, vendors
+                    strategically adapt their cultural presentations to handle
+                    post-colonial power dynamics and economic pressures.
                   </p>
 
                   <p className='text-neutral-300 leading-relaxed'>
                     <strong className='text-white'>Counter-argument:</strong>{' '}
-                    Critics might argue that this analysis overlooks genuine
+                    Critics might argue that this analysis overlooks real
                     cultural preservation happening in night market spaces,
-                    pointing to Wu and Lin's (2013) characterization of these
-                    markets as "democratic cultural spaces." However, the
-                    evidence shows that even when cultural practices are
-                    preserved, they operate within power structures that
-                    determine which cultural narratives become visible and which
-                    remain hidden.
+                    pointing to Wu and Lin's (2013) description of these markets
+                    as "democratic cultural spaces." However, the evidence shows
+                    that even when cultural practices are preserved, they work
+                    within power structures that decide which cultural stories
+                    become visible and which stay hidden.
                   </p>
 
                   <p className='text-neutral-300 leading-relaxed'>
                     <strong className='text-white'>
                       Broader Implications:
                     </strong>{' '}
-                    This analysis of {market.name} contributes to understanding
-                    how cultural identity operates in post-colonial commercial
-                    spaces more broadly. The vendor strategies documented here
-                    reveal how cultural capital functions in everyday
-                    interactions, supporting broader arguments about the
-                    political nature of cultural representation in contemporary
-                    Taiwan.
+                    This analysis of {market.name} helps us understand how
+                    cultural identity works in post-colonial commercial spaces
+                    more broadly. The vendor strategies documented here show how
+                    cultural capital works in everyday interactions, supporting
+                    larger points about the political nature of cultural
+                    representation in modern Taiwan.
                   </p>
                 </div>
               </section>
@@ -500,13 +497,13 @@ export default function MarketDetail() {
                   <div className='bg-accent/10 border border-accent/20 rounded-lg p-4 mt-6'>
                     <p className='text-neutral-400 text-sm mb-0'>
                       <strong className='text-accent'>
-                        Researcher Positionality:
+                        Researcher Position:
                       </strong>{' '}
                       This analysis represents my perspective as a non-Taiwanese
                       researcher studying cultural preservation and identity in
                       night market spaces. These observations should be
                       considered alongside voices from the vendor community
-                      itself, and I acknowledge the limitations inherent in any
+                      itself, and I acknowledge the limitations built into any
                       outside perspective on cultural practices.
                     </p>
                   </div>

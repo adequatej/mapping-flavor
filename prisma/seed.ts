@@ -15,7 +15,7 @@ const markets = [
     description:
       'Taiwan\'s largest and most famous night market, serving as a primary case study for examining how vendors create "attractiveness" for tourists through cultural commodification.',
     analyticalNote:
-      'Analysis focuses on language switching patterns, dual pricing strategies, and spatial tourism infrastructure. Vendors demonstrate sophisticated audience recognition and cultural performance adaptation.',
+      'Analysis focuses on language switching patterns, dual pricing strategies, and spatial tourism infrastructure. Vendors show sophisticated audience recognition and cultural performance adaptation.',
     keyFindings: [
       'Language switching patterns between Mandarin and English for tourists',
       'Dual pricing strategies with tourist-oriented portions',
@@ -43,7 +43,7 @@ const markets = [
       'Hakka cultural markers maintained despite commercial pressures',
       'Intergenerational knowledge transfer through family recipes',
       'Audience-specific marketing preserving cultural authenticity',
-      'Strategic visibility of minority culture within dominant narratives',
+      'Strategic visibility of minority culture within dominant stories',
     ],
     image:
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
@@ -59,9 +59,9 @@ const markets = [
     established: '1950',
     researchFocus: 'Working Class Food Culture',
     description:
-      'Demonstrates how night markets function as democratic cultural spaces transcending economic boundaries, serving as community formation sites for working-class populations.',
+      'Shows how night markets work as democratic cultural spaces crossing economic boundaries, serving as community formation sites for working-class populations.',
     analyticalNote:
-      'Analysis reveals economic accessibility patterns, traditional preparation methods, and community formation dynamics that resist gentrification pressures.',
+      'Analysis shows economic accessibility patterns, traditional preparation methods, and community formation dynamics that resist gentrification pressures.',
     keyFindings: [
       'Economic accessibility patterns serving working-class communities',
       'Traditional preparation methods preserved through necessity',
@@ -82,7 +82,7 @@ const markets = [
     established: '1980',
     researchFocus: 'Tourism & Regional Identity',
     description:
-      'Examines how beach resort tourism shapes regional food identity and cultural performance, demonstrating adaptation strategies for seasonal tourism economies.',
+      'Looks at how beach resort tourism shapes regional food identity and cultural performance, showing adaptation strategies for seasonal tourism economies.',
     analyticalNote:
       'Research focuses on seasonal tourism impacts, regional vs. tourist-oriented offerings, and beach town cultural adaptations that balance local identity with visitor expectations.',
     keyFindings: [
@@ -103,7 +103,7 @@ const vendors = [
     name: 'Big Sausage Uncle',
     chineseName: '大腸包小腸阿伯',
     description:
-      'Famous for Taiwanese sausage (da chang bao xiao chang), this vendor exemplifies tourist-friendly presentation while maintaining traditional preparation methods. Demonstrates sophisticated audience recognition and cultural performance adaptation.',
+      'Famous for Taiwanese sausage (da chang bao xiao chang), this vendor shows tourist-friendly presentation while maintaining traditional preparation methods. Shows sophisticated audience recognition and cultural performance adaptation.',
     specialties: [
       'Taiwanese Sausage',
       'Da Chang Bao Xiao Chang',
@@ -125,7 +125,7 @@ const vendors = [
     name: "Mei-Li's Stinky Tofu",
     chineseName: '美麗臭豆腐',
     description:
-      'Traditional fermented tofu stand with dual-language signage catering to both locals and international tourists. Demonstrates cultural bridge-building through food education and patient explanation of traditional fermentation processes.',
+      'Traditional fermented tofu stand with dual-language signage serving both locals and international tourists. Shows cultural bridge-building through food education and patient explanation of traditional fermentation processes.',
     specialties: ['Stinky Tofu', 'Fermented Foods', 'Cultural Education'],
     latitude: 25.0878,
     longitude: 121.5239,
@@ -143,7 +143,7 @@ const vendors = [
     name: 'Night Market Bubble Tea King',
     chineseName: '夜市珍奶王',
     description:
-      'Modern bubble tea stand with Instagram-worthy presentation, representing the evolution of traditional Taiwanese drinks for social media culture. Demonstrates innovation within cultural tradition.',
+      'Modern bubble tea stand with Instagram-worthy presentation, representing the evolution of traditional Taiwanese drinks for social media culture. Shows innovation within cultural tradition.',
     specialties: ['Bubble Tea', 'Instagram Photography', 'Modern Presentation'],
     latitude: 25.0876,
     longitude: 121.5242,
@@ -163,7 +163,7 @@ const vendors = [
     name: "Grandma Chen's Hakka Noodles",
     chineseName: '陳阿嬤客家麵',
     description:
-      'Third-generation family business preserving traditional Hakka flat noodle recipes and preparation methods. Represents intergenerational knowledge transfer and minority culture preservation within commercial spaces.',
+      'Third-generation family business preserving traditional Hakka flat noodle recipes and preparation methods. Shows intergenerational knowledge transfer and minority culture preservation within commercial spaces.',
     specialties: [
       'Hakka Flat Noodles',
       'Traditional Recipes',
@@ -185,7 +185,7 @@ const vendors = [
     name: 'Heritage Pepper Buns',
     chineseName: '傳統胡椒餅',
     description:
-      'Traditional clay oven pepper buns with Hakka-style preparation methods. Maintains traditional baking techniques while serving diverse clientele, representing cultural preservation through authentic preparation.',
+      'Traditional clay oven pepper buns with Hakka-style preparation methods. Maintains traditional baking techniques while serving diverse clientele, showing cultural preservation through authentic preparation.',
     specialties: ['Pepper Buns', 'Clay Oven Baking', 'Hakka Preparation'],
     latitude: 25.0516,
     longitude: 121.5767,
@@ -203,7 +203,7 @@ const vendors = [
     name: 'Three Generations Tea Eggs',
     chineseName: '三代茶葉蛋',
     description:
-      'Family-run tea egg stand with traditional Hakka spice blends passed down through three generations. Demonstrates cultural continuity and the role of family recipes in preserving minority cultural identity.',
+      'Family-run tea egg stand with traditional Hakka spice blends passed down through three generations. Shows cultural continuity and the role of family recipes in preserving minority cultural identity.',
     specialties: ['Tea Eggs', 'Hakka Spices', 'Traditional Preparation'],
     latitude: 25.0514,
     longitude: 121.577,
@@ -214,7 +214,7 @@ const vendors = [
     researchNotes:
       'Three generations share cooking responsibilities, with active knowledge transfer. Uses traditional Hakka spice combinations distinct from mainstream preparations.',
     culturalSignificance:
-      'Exemplifies how simple dishes carry complex cultural knowledge and serve as vehicles for minority culture preservation.',
+      'Shows how simple dishes carry complex cultural knowledge and serve as ways to preserve minority culture.',
     marketId: 'raohe-street-market',
   },
 
@@ -223,7 +223,7 @@ const vendors = [
     name: "Old Wang's Snake Soup",
     chineseName: '老王蛇肉湯',
     description:
-      'Traditional snake soup serving working-class clientele, representing authentic working-class food culture and traditional Chinese medicine principles. Demonstrates economic accessibility and community formation.',
+      'Traditional snake soup serving working-class clientele, representing authentic working-class food culture and traditional Chinese medicine principles. Shows economic accessibility and community formation.',
     specialties: ['Snake Soup', 'Traditional Medicine', 'Working Class Food'],
     latitude: 25.0376,
     longitude: 121.501,
@@ -241,7 +241,7 @@ const vendors = [
     name: "Workers' Noodle Stand",
     chineseName: '工人麵攤',
     description:
-      'Affordable beef noodle soup serving as community gathering spot for working-class populations. Demonstrates democratic cultural space transcending economic boundaries through accessible pricing and communal dining.',
+      'Affordable beef noodle soup serving as community gathering spot for working-class populations. Shows democratic cultural space crossing economic boundaries through accessible pricing and communal dining.',
     specialties: [
       'Beef Noodle Soup',
       'Affordable Meals',
@@ -256,7 +256,7 @@ const vendors = [
     researchNotes:
       'Functions as community center with shared tables fostering social interaction. Pricing specifically maintained for working-class accessibility.',
     culturalSignificance:
-      'Exemplifies night markets as democratic spaces where economic barriers to cultural participation are minimized.',
+      'Shows night markets as democratic spaces where economic barriers to cultural participation are reduced.',
     marketId: 'huaxi-street-market',
   },
   {
@@ -283,7 +283,7 @@ const vendors = [
     name: 'Beach BBQ Seafood',
     chineseName: '海灘烤海鮮',
     description:
-      'Fresh local seafood with beach tourism appeal, demonstrating adaptation of traditional preparation methods for seasonal tourism economy. Balances local fishing culture with visitor expectations.',
+      'Fresh local seafood with beach tourism appeal, showing adaptation of traditional preparation methods for seasonal tourism economy. Balances local fishing culture with visitor expectations.',
     specialties: ['Fresh Seafood', 'Beach BBQ', 'Local Fishing'],
     latitude: 22.0038,
     longitude: 120.7472,
@@ -319,7 +319,7 @@ const vendors = [
     name: "Surfer's Late Night Noodles",
     chineseName: '衝浪客宵夜麵',
     description:
-      'Casual noodles popular with surfers and beach-goers, representing cultural adaptation to beach lifestyle and international surf culture. Demonstrates local-global cultural intersection.',
+      'Casual noodles popular with surfers and beach-goers, representing cultural adaptation to beach lifestyle and international surf culture. Shows local-global cultural intersection.',
     specialties: ['Late Night Noodles', 'Surf Culture', 'Beach Lifestyle'],
     latitude: 22.0037,
     longitude: 120.7473,

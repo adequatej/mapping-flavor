@@ -26,18 +26,17 @@ export default function About() {
                     Introduction
                   </h2>
                   <p className='text-lg text-neutral-300 leading-relaxed'>
-                    Taiwan's night markets have long been celebrated as
-                    democratic cultural spaces where traditional food practices
-                    flourish alongside modern commercial pressures (Wu & Lin,
-                    2013). However, this characterization obscures the complex
-                    power dynamics that determine which versions of "Taiwanese
-                    identity" become visible, celebrated, or marginalized within
-                    these spaces. Walking through Shilin Night Market, watching
-                    vendors switch between Taiwanese and broken English while
-                    serving different menus to tourists versus locals, reveals
-                    how cultural identity operates not as a fixed essence but as
-                    a contested performance shaped by post-colonial politics,
-                    economic necessity, and competing claims to authenticity.
+                    Taiwan's night markets are often called democratic cultural
+                    spaces where traditional food practices exist alongside
+                    modern business pressures (Wu & Lin, 2013). But this view
+                    hides the complex power dynamics that decide which versions
+                    of "Taiwanese identity" get noticed, celebrated, or pushed
+                    aside in these spaces. Walking through Shilin Night Market,
+                    watching vendors switch between Taiwanese and broken English
+                    while serving different menus to tourists versus locals,
+                    shows how cultural identity works not as something fixed but
+                    as a performance shaped by post-colonial politics, economic
+                    needs, and competing claims about what's authentic.
                   </p>
                 </div>
               </div>
@@ -101,12 +100,12 @@ export default function About() {
                     Thesis Statement
                   </h3>
                   <p className='text-xl text-neutral-200 leading-relaxed'>
-                    Taiwan's night markets function as contested cultural spaces
+                    Taiwan's night markets work as contested cultural spaces
                     where different versions of "Taiwanese identity" are
-                    negotiated, performed, and sometimes erased—revealing how
-                    post-colonial food politics operate in everyday commercial
-                    spaces while demonstrating digital documentation's potential
-                    to democratize cultural representation.
+                    negotiated, performed, and sometimes erased. This shows how
+                    post-colonial food politics work in everyday commercial
+                    spaces while showing digital documentation's potential to
+                    democratize cultural representation.
                   </p>
                 </div>
               </div>
@@ -126,22 +125,22 @@ export default function About() {
                 <p className='text-neutral-300 leading-relaxed'>
                   This investigation builds on Yu-Jen Chen's analysis of ethnic
                   politics in Taiwan's national cuisine (Chen, 2011), which
-                  shows how state institutions selectively promote certain foods
-                  as "authentically Taiwanese" while marginalizing others,
-                  particularly Indigenous foodways. Yet Chen's work focuses
-                  primarily on official discourse, leaving questions about how
-                  these dynamics play out in everyday commercial spaces where
-                  vendors must navigate competing cultural claims.
+                  shows how state institutions choose to promote certain foods
+                  as "authentically Taiwanese" while pushing aside others,
+                  particularly Indigenous food traditions. Yet Chen's work
+                  focuses mainly on official discussion, leaving questions about
+                  how these dynamics play out in everyday commercial spaces
+                  where vendors must handle competing cultural claims.
                 </p>
                 <p className='text-neutral-300 leading-relaxed'>
-                  What emerges from observing night market vendor practices is a
-                  complex negotiation between post-colonial resistance and
-                  economic survival. Vendors simultaneously resist Chinese
-                  culinary hegemony while adapting to tourist expectations,
-                  preserve Hakka heritage while appealing to mainstream tastes,
-                  and maintain family recipes while responding to market
-                  pressures—showing cultural identity as an active, strategic
-                  performance rather than passive tradition.
+                  Watching night market vendor practices shows a complex
+                  negotiation between post-colonial resistance and economic
+                  survival. Vendors resist Chinese culinary dominance while
+                  adapting to tourist expectations, preserve Hakka heritage
+                  while appealing to mainstream tastes, and maintain family
+                  recipes while responding to market pressures. This shows
+                  cultural identity as an active, strategic performance rather
+                  than passive tradition.
                 </p>
               </div>
             </div>
@@ -170,12 +169,12 @@ export default function About() {
                     Post-Colonial Food Identity
                   </h3>
                   <p className='text-neutral-300 leading-relaxed'>
-                    How night markets resist and/or embrace Chinese culinary
-                    hegemony, showing tensions between official "One China"
-                    cultural narratives and everyday Taiwanese cultural
-                    practices. Analysis draws on Edward Said's orientalism
-                    framework (Said, 1978) applied to food tourism and cultural
-                    commodification.
+                    How night markets resist or embrace Chinese culinary
+                    dominance, showing tensions between official "One China"
+                    cultural stories and everyday Taiwanese cultural practices.
+                    Analysis uses Edward Said's orientalism framework (Said,
+                    1978) applied to food tourism and cultural
+                    commercialization.
                   </p>
                 </div>
 
@@ -184,10 +183,10 @@ export default function About() {
                     Indigenous vs. Settler Foodways
                   </h3>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Examining how Taiwanese Aboriginal influences compete with
+                    Looking at how Taiwanese Aboriginal influences compete with
                     Han migration patterns in night market food culture, showing
-                    which cultural narratives gain visibility and which remain
-                    marginalized in these supposedly "democratic" spaces.
+                    which cultural stories get noticed and which stay pushed
+                    aside in these supposedly "democratic" spaces.
                   </p>
                 </div>
 
@@ -196,10 +195,10 @@ export default function About() {
                     Hakka Cultural Preservation
                   </h3>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Night markets as sites where minority Hakka culture
-                    negotiates survival within dominant Minnan and Chinese
-                    cultural frameworks, showing how economic spaces become
-                    vehicles for cultural resistance and adaptation.
+                    Night markets as places where minority Hakka culture works
+                    to survive within dominant Minnan and Chinese cultural
+                    frameworks, showing how economic spaces become vehicles for
+                    cultural resistance and adaptation.
                   </p>
                 </div>
               </div>
@@ -223,11 +222,10 @@ export default function About() {
                     Economic Democratization
                   </h3>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Critiquing Wu and Lin's (2013) characterization of night
-                    markets as "democratic cultural spaces" by examining how
-                    economic constraints, spatial politics, and cultural capital
-                    still determine whose voices are heard and whose remain
-                    invisible.
+                    Critiquing Wu and Lin's (2013) description of night markets
+                    as "democratic cultural spaces" by looking at how economic
+                    constraints, spatial politics, and cultural capital still
+                    decide whose voices are heard and whose stay invisible.
                   </p>
                 </div>
 
@@ -236,10 +234,10 @@ export default function About() {
                     Digital Democratization Potential
                   </h3>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Exploring how digital documentation might show and
+                    Looking at how digital documentation might show and
                     potentially democratize cultural representation by capturing
                     the multiple, contested versions of "Taiwanese identity"
-                    that coexist within night market spaces.
+                    that exist together within night market spaces.
                   </p>
                 </div>
               </div>
@@ -263,8 +261,8 @@ export default function About() {
               <p className='text-lg text-neutral-300 leading-relaxed text-center'>
                 This research uses critical ethnographic observation across four
                 Taiwan night markets, following Chen and Huang's (2014)
-                framework for analyzing vendor behaviors while incorporating
-                postcolonial and cultural studies approaches that examine power
+                framework for analyzing vendor behaviors while using
+                postcolonial and cultural studies approaches that look at power
                 dynamics in everyday cultural spaces.
               </p>
             </div>
@@ -304,9 +302,9 @@ export default function About() {
                   </h3>
                 </div>
                 <p className='text-neutral-300 leading-relaxed mb-4'>
-                  Applying Edward Said's (1978) orientalism framework and Pierre
+                  Using Edward Said's (1978) orientalism framework and Pierre
                   Bourdieu's (1984) cultural capital theory to analyze how
-                  cultural authenticity is constructed, performed, and contested
+                  cultural authenticity is built, performed, and contested
                   within commercial spaces shaped by colonial and postcolonial
                   power relations.
                 </p>
@@ -327,9 +325,10 @@ export default function About() {
                 </div>
                 <p className='text-neutral-300 leading-relaxed mb-4'>
                   Experimental use of digital platforms to capture multiple,
-                  simultaneous cultural narratives that traditional heritage
-                  documentation often flattens or erases, exploring technology's
-                  potential for democratizing cultural representation.
+                  simultaneous cultural stories that traditional heritage
+                  documentation often flattens or erases, looking at
+                  technology's potential for democratizing cultural
+                  representation.
                 </p>
                 <div className='text-sm text-primary font-medium'>
                   Digital Innovation
