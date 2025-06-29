@@ -1,4 +1,4 @@
-// markets page
+// Research sites overview - displays night markets with cultural analysis framework
 'use client'
 
 import Image from 'next/image'
@@ -109,35 +109,78 @@ export default function Markets() {
         {/* Header */}
         <div className='max-w-4xl mx-auto text-center mb-16'>
           <h1 className='font-bold text-4xl md:text-5xl text-white mb-6'>
-            Market <span className='text-primary'>Observations</span>
+            Cultural Identity <span className='text-primary'>Negotiations</span>
           </h1>
           <p className='text-xl text-neutral-300 leading-relaxed mb-4'>
-            Four nights, four markets, four different ways of being Taiwanese
+            Four markets, four different ways cultural identity gets performed,
+            contested, and negotiated
           </p>
           <p className='text-neutral-400'>
-            Each market told me something different about cultural identity,
-            tourism, and who gets to define "authentic" Taiwan
+            Each site shows how vendors navigate between tourist expectations,
+            economic pressures, and cultural preservation
           </p>
         </div>
 
-        {/* Research Note */}
+        {/* Argument Framework */}
         <div className='bg-secondary-light rounded-xl p-8 mb-12 max-w-4xl mx-auto'>
+          <h2 className='text-2xl font-bold text-white mb-6'>
+            <span className='text-primary'>Research Framework</span>
+          </h2>
+          <p className='text-neutral-300 leading-relaxed mb-6'>
+            Each night market in this study represents a different aspect of how
+            cultural identity works in Taiwan's commercial spaces. Rather than
+            treating these markets as simple tourist attractions or "authentic"
+            cultural sites, this analysis examines how different versions of
+            "Taiwanese identity" get negotiated, performed, and sometimes erased
+            in everyday interactions between vendors and customers.
+          </p>
+          <div className='grid md:grid-cols-2 gap-6'>
+            <div>
+              <h3 className='text-white font-semibold mb-3'>
+                Identity Performance vs. Cultural Preservation
+              </h3>
+              <p className='text-neutral-400 text-sm leading-relaxed'>
+                Each market shows how vendors balance performing "authentic
+                Taiwan" for tourists while maintaining actual cultural
+                practices. This reveals the gap between what gets marketed as
+                Taiwanese culture and what vendors actually preserve in their
+                daily work.
+              </p>
+            </div>
+            <div>
+              <h3 className='text-white font-semibold mb-3'>
+                Power Dynamics in Cultural Spaces
+              </h3>
+              <p className='text-neutral-400 text-sm leading-relaxed'>
+                These markets demonstrate how economic constraints, spatial
+                politics, and cultural capital determine whose cultural
+                narratives become visible and whose remain hidden, challenging
+                claims about night markets as "democratic" cultural spaces.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Research Note */}
+        <div className='bg-neutral-900 rounded-xl p-8 mb-12 max-w-4xl mx-auto'>
           <h2 className='text-2xl font-bold text-white mb-4'>
-            <span className='text-accent'>A Note on Method</span>
+            <span className='text-accent'>Methodology</span>
           </h2>
           <p className='text-neutral-300 leading-relaxed mb-4'>
-            I spent several evenings walking through these markets with my phone
-            camera and notes, documenting what I saw, heard, and felt. This
-            isn't formal ethnography. I didn't do structured interviews or
-            systematic data collection other than the coordinates from pictures
-            of certain vendors. Instead, I tried to pay attention to the small
-            moments that reveal how culture actually works in these spaces.
+            This research uses critical ethnographic observation across four
+            Taiwan night markets, following Chen and Huang's (2014) framework
+            for analyzing vendor behaviors while incorporating postcolonial
+            approaches that examine power dynamics in cultural spaces. Each
+            market visit involved documenting language switching, menu
+            variations for different audiences, spatial organization, and
+            vendor-customer interactions.
           </p>
           <p className='text-neutral-400 text-sm'>
-            <strong>Caveat:</strong> These are my observations as an outsider,
-            shaped by my own perspective and the particular moments I happened
-            to witness. They're starting points for thinking, not definitive
-            conclusions.
+            <strong>Research Limitations:</strong> These observations represent
+            specific moments in time and are shaped by my position as an outside
+            researcher. They serve as evidence for broader patterns of cultural
+            identity negotiation rather than definitive statements about vendor
+            experiences.
           </p>
         </div>
 

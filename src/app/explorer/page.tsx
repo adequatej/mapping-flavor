@@ -1,11 +1,23 @@
 'use client'
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { setFilters, setSelectedMarket } from '@/store/slices/marketsSlice'
+import { fetchMarkets, setSelectedMarket } from '@/store/slices/marketsSlice'
 import { setActivePanel, setViewMode } from '@/store/slices/uiSlice'
-import { setSelectedVendor } from '@/store/slices/vendorsSlice'
+import { fetchVendors, setSelectedVendor } from '@/store/slices/vendorsSlice'
 import { Market, Vendor } from '@/types'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { useEffect } from 'react'
+
+// Dynamically import Map to avoid SSR issues
+const Map = dynamic(() => import('@/components/maps/Map'), {
+  ssr: false,
+  loading: () => (
+    <div className='w-full h-full bg-neutral-800 flex items-center justify-center'>
+      <div className='text-white'>Loading map...</div>
+    </div>
+  ),
+})
 
 interface ResearchPanel {
   id: string
@@ -13,181 +25,6 @@ interface ResearchPanel {
   content: string
   category: 'methodology' | 'findings' | 'theory' | 'sources'
 }
-
-const markets: Market[] = [
-  {
-    id: 'shilin',
-    name: 'Shilin Night Market',
-    chineseName: '士林夜市',
-    latitude: 25.0881,
-    longitude: 121.5244,
-    location: 'Shilin District, Taipei',
-    established: '1899',
-    researchFocus: 'Tourism vs. Authenticity',
-    description:
-      'Taiwan\'s largest night market, examining how vendors create "attractiveness" for tourists through cultural commodification (Chen & Huang, 2014).',
-    analyticalNote:
-      'Following Chen & Huang\'s supply-side analysis, this market exemplifies how vendors create "attractiveness" for tourists through cultural commodification.',
-    keyFindings: [
-      'Visual documentation of dual pricing strategies',
-      'Language switching patterns in vendor interactions',
-      'Spatial organization reflecting tourism infrastructure',
-    ],
-    image: 'https://picsum.photos/800/400?random=1',
-    isActive: true,
-    vendors: [
-      {
-        id: 'v1',
-        name: "Chen's Stinky Tofu",
-        specialty: 'Fermented Tofu',
-        cultural_significance: 'Traditional fermentation techniques',
-        latitude: 25.0881,
-        longitude: 121.5244,
-        marketId: 'shilin',
-        isActive: true,
-      },
-      {
-        id: 'v2',
-        name: "Lin's Bubble Tea",
-        specialty: 'Taiwanese Tea Culture',
-        cultural_significance: 'Modern Taiwanese innovation',
-        latitude: 25.0882,
-        longitude: 121.5245,
-        marketId: 'shilin',
-        isActive: true,
-      },
-    ],
-  },
-  {
-    id: 'raohe',
-    name: 'Raohe Street Night Market',
-    chineseName: '饒河街觀光夜市',
-    latitude: 25.0508,
-    longitude: 121.5763,
-    location: 'Songshan District, Taipei',
-    established: '1987',
-    researchFocus: 'Hakka Heritage & Digital Preservation',
-    description:
-      "Historic market demonstrating minority culture navigation in mainstream commercial spaces, relevant to Chen's ethnic politics framework.",
-    analyticalNote:
-      'Critical site for understanding how digital documentation can preserve underrepresented cultural practices (Barbash et al., 2024).',
-    keyFindings: [
-      'Photographic documentation of Hakka cooking methods',
-      'Intergenerational knowledge transfer patterns',
-      'Analysis of Hakka dishes marketed to different audiences',
-    ],
-    image: 'https://picsum.photos/800/400?random=2',
-    isActive: true,
-    vendors: [
-      {
-        id: 'v3',
-        name: "Wang's Hakka Lei Cha",
-        specialty: 'Traditional Hakka Tea Rice',
-        cultural_significance: 'Hakka cultural preservation',
-        latitude: 25.0508,
-        longitude: 121.5763,
-        marketId: 'raohe',
-        isActive: true,
-      },
-      {
-        id: 'v4',
-        name: 'Traditional Pork Pepper Buns',
-        specialty: 'Pepper Buns',
-        cultural_significance: 'Cross-cultural adaptation',
-        latitude: 25.0509,
-        longitude: 121.5764,
-        marketId: 'raohe',
-        isActive: true,
-      },
-    ],
-  },
-  {
-    id: 'huaxi',
-    name: 'Huaxi Street Night Market',
-    chineseName: '華西街夜市',
-    latitude: 25.0377,
-    longitude: 121.5005,
-    location: 'Wanhua District, Taipei',
-    established: '1962',
-    researchFocus: 'Democratic Cultural Spaces',
-    description:
-      "One of Taiwan's oldest markets, demonstrating how food accessibility creates inclusive cultural participation (Wu & Lin, 2013).",
-    analyticalNote:
-      'Essential for analyzing how night markets function as democratic spaces challenging class-based exclusions.',
-    keyFindings: [
-      'Economic accessibility patterns and community formation',
-      'Social interactions across demographics',
-      'Traditional preparation methods in working-class context',
-    ],
-    image: 'https://picsum.photos/800/400?random=3',
-    isActive: true,
-    vendors: [
-      {
-        id: 'v5',
-        name: 'Old Taipei Snake Soup',
-        specialty: 'Traditional Medicine Food',
-        cultural_significance: 'Traditional Chinese medicine practices',
-        latitude: 25.0377,
-        longitude: 121.5005,
-        marketId: 'huaxi',
-        isActive: true,
-      },
-      {
-        id: 'v6',
-        name: 'Family Noodle Stand',
-        specialty: 'Beef Noodle Soup',
-        cultural_significance: 'Post-war cultural adaptation',
-        latitude: 25.0378,
-        longitude: 121.5006,
-        marketId: 'huaxi',
-        isActive: true,
-      },
-    ],
-  },
-  {
-    id: 'kenting',
-    name: 'Kenting Night Market',
-    chineseName: '墾丁夜市',
-    latitude: 21.9594,
-    longitude: 120.8069,
-    location: 'Kenting, Pingtung County',
-    established: '1980s',
-    researchFocus: 'Tourism & Regional Identity',
-    description:
-      'Beach resort night market exploring how tourism shapes regional food identity and cultural performance in vacation destinations.',
-    analyticalNote:
-      "Testing ground for Giaccardi's participatory heritage model, examining how tourist-oriented markets balance commercial appeal with cultural authenticity.",
-    keyFindings: [
-      'Visual documentation of beach town food adaptations',
-      'Photographic evidence of seasonal tourism impact',
-      'Analysis of regional vs. tourist-oriented cultural offerings',
-    ],
-    image: 'https://picsum.photos/800/400?random=4',
-    isActive: true,
-    vendors: [
-      {
-        id: 'v7',
-        name: 'Pingtung Specialty Stands',
-        specialty: 'Regional Southern Taiwan Cuisine',
-        cultural_significance: 'Local Pingtung food traditions',
-        latitude: 21.9594,
-        longitude: 120.8069,
-        marketId: 'kenting',
-        isActive: true,
-      },
-      {
-        id: 'v8',
-        name: 'Beach Resort Fusion',
-        specialty: 'Tourist-Oriented Fusion Food',
-        cultural_significance: 'Tourism-adapted local cuisine',
-        latitude: 21.9595,
-        longitude: 120.807,
-        marketId: 'kenting',
-        isActive: true,
-      },
-    ],
-  },
-]
 
 const researchPanels: ResearchPanel[] = [
   {
@@ -198,44 +35,66 @@ const researchPanels: ResearchPanel[] = [
       'Following Wu & Lin (2013) and Chen & Huang (2014), I analyze vendor behaviors and cultural performances from a supply-side perspective.',
   },
   {
-    id: 'chen-framework',
-    title: "Chen's National Cuisine Politics",
-    category: 'theory',
-    content:
-      "Yu-Jen Chen's analysis of ethnic politics in Taiwan's national cuisine framing reveals how government promotion of certain foods (Minnan/Hakka) over others (Indigenous) shapes cultural identity. Night markets both reflect and resist these official narratives.",
-  },
-  {
     id: 'digital-heritage',
-    title: 'Digital Heritage Theory',
-    category: 'theory',
+    title: 'Digital Heritage Preservation',
+    category: 'methodology',
     content:
-      'Following Srinivasan & Luther (2016) and Giaccardi (2012), this platform demonstrates how digital tools can democratize cultural preservation while maintaining community agency in representation, moving beyond traditional top-down heritage models.',
+      'Using Barbash et al. (2024) framework for participatory digital documentation to preserve underrepresented cultural practices.',
   },
   {
-    id: 'tourism-commodification',
-    title: 'Tourism & Cultural Commodification',
+    id: 'cultural-identity',
+    title: 'Cultural Identity & Food Tourism',
     category: 'findings',
     content:
-      'Chen & Huang\'s supply-side analysis reveals how vendors create "attractiveness" for tourists through cultural performances, raising critical questions about authenticity in globalized cultural spaces.',
+      'Night markets serve as sites where cultural identity is both performed and commodified for different audiences.',
+  },
+  {
+    id: 'democratic-spaces',
+    title: 'Democratic Cultural Spaces',
+    category: 'theory',
+    content:
+      'Following Wu & Lin (2013), night markets function as democratic spaces that challenge class-based cultural exclusions.',
+  },
+  {
+    id: 'theoretical-framework',
+    title: 'Theoretical Framework',
+    category: 'theory',
+    content:
+      "Applying Giaccardi's participatory heritage model to understand how night markets balance commercial appeal with cultural authenticity.",
+  },
+  {
+    id: 'sources',
+    title: 'Key Sources',
+    category: 'sources',
+    content:
+      'Chen & Huang (2014), Wu & Lin (2013), Barbash et al. (2024), and Giaccardi (2012) provide the theoretical foundation for this research.',
   },
 ]
 
 export default function Explorer() {
   const dispatch = useAppDispatch()
 
-  const selectedMarket = useAppSelector(state => state.markets.selectedMarket)
-  const selectedVendor = useAppSelector(state => state.vendors.selectedVendor)
-  const activePanel = useAppSelector(state => state.ui.activePanel)
-  const viewMode = useAppSelector(state => state.ui.viewMode)
-  const filters = useAppSelector(state => state.markets.filters)
-  const markets = useAppSelector(state => state.markets.markets)
+  // Get state from Redux
+  const marketsState = useAppSelector(state => state.markets)
+  const vendorsState = useAppSelector(state => state.vendors)
+  const uiState = useAppSelector(state => state.ui)
 
-  const filteredMarkets = markets.filter((market: Market) => {
-    if (!filters.researchFocus) return true
-    return market.researchFocus
-      .toLowerCase()
-      .includes(filters.researchFocus.toLowerCase())
-  })
+  const markets = marketsState.markets
+  const marketsLoading = marketsState.loading
+  const selectedMarket = marketsState.selectedMarket
+
+  const vendors = vendorsState.vendors
+  const vendorsLoading = vendorsState.loading
+  const selectedVendor = vendorsState.selectedVendor
+
+  const viewMode = uiState.viewMode
+  const activePanel = uiState.activePanel
+
+  // Load data on mount
+  useEffect(() => {
+    dispatch(fetchMarkets())
+    dispatch(fetchVendors())
+  }, [dispatch])
 
   const handleMarketSelect = (market: Market | null) => {
     dispatch(setSelectedMarket(market))
@@ -249,16 +108,19 @@ export default function Explorer() {
     dispatch(setViewMode(mode))
   }
 
-  const handleFilterChange = (researchFocus: string) => {
-    dispatch(
-      setFilters({
-        researchFocus: researchFocus === 'all' ? '' : researchFocus,
-      })
-    )
-  }
-
   const handlePanelToggle = (panel: ResearchPanel | null) => {
     dispatch(setActivePanel(activePanel?.id === panel?.id ? null : panel))
+  }
+
+  // Filter markets based on research focus if needed
+  const filteredMarkets = markets || []
+
+  if (marketsLoading || vendorsLoading) {
+    return (
+      <div className='h-screen flex items-center justify-center bg-secondary'>
+        <div className='text-white text-xl'>Loading research data...</div>
+      </div>
+    )
   }
 
   return (
@@ -299,18 +161,10 @@ export default function Explorer() {
               ))}
             </div>
 
-            {/* Filter Dropdown */}
-            <select
-              value={filters.researchFocus || 'all'}
-              onChange={e => handleFilterChange(e.target.value)}
-              className='bg-neutral-800 text-white border border-neutral-600 rounded-lg px-3 py-2 text-sm'
-            >
-              <option value='all'>All Research Focuses</option>
-              <option value='tourism'>Tourism vs. Authenticity</option>
-              <option value='hakka'>Hakka Heritage</option>
-              <option value='democratic'>Democratic Spaces</option>
-              <option value='digital'>Digital Heritage</option>
-            </select>
+            {/* Market Count */}
+            <div className='text-sm text-neutral-400'>
+              {filteredMarkets.length} Markets • {vendors?.length || 0} Vendors
+            </div>
           </div>
         </div>
       </header>
@@ -318,82 +172,16 @@ export default function Explorer() {
       <div className='flex-1 flex overflow-hidden'>
         {/* Map Area */}
         <div className='flex-1 relative bg-neutral-800'>
-          {/* Simulated Map */}
-          <div className='w-full h-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden'>
-            {/* Taiwan Island Shape (simplified) */}
-            <div className='absolute inset-0 flex items-center justify-center'>
-              <div className='relative w-96 h-96 bg-green-800 rounded-full transform rotate-12 opacity-30'></div>
-            </div>
-
-            {/* Market Markers */}
-            {filteredMarkets.map(market => (
-              <button
-                key={market.id}
-                onClick={() => handleMarketSelect(market)}
-                className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-                  selectedMarket?.id === market.id
-                    ? 'scale-125 z-20'
-                    : 'hover:scale-110 z-10'
-                }`}
-                style={{
-                  left: `${40 + (market.longitude - 121.5) * 1000}%`,
-                  top: `${60 - (market.latitude - 25.0) * 1000}%`,
-                }}
-              >
-                <div
-                  className={`w-6 h-6 rounded-full border-2 border-white ${
-                    selectedMarket?.id === market.id
-                      ? 'bg-primary animate-pulse'
-                      : 'bg-accent hover:bg-primary'
-                  } shadow-lg`}
-                ></div>
-                <div className='absolute top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-2 py-1 rounded text-xs whitespace-nowrap'>
-                  {market.name}
-                </div>
-              </button>
-            ))}
-
-            {/* Vendor Markers (when market is selected) */}
-            {selectedMarket &&
-              viewMode === 'vendors' &&
-              selectedMarket.vendors?.map((vendor: Vendor) => (
-                <button
-                  key={vendor.id}
-                  onClick={() => handleVendorSelect(vendor)}
-                  className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-                    selectedVendor?.id === vendor.id
-                      ? 'scale-125'
-                      : 'hover:scale-110'
-                  }`}
-                  style={{
-                    left: `${40 + (vendor.longitude - 121.5) * 1000}%`,
-                    top: `${60 - (vendor.latitude - 25.0) * 1000}%`,
-                  }}
-                >
-                  <div
-                    className={`w-4 h-4 rounded-full border border-white ${
-                      selectedVendor?.id === vendor.id
-                        ? 'bg-yellow-400'
-                        : 'bg-orange-500 hover:bg-yellow-400'
-                    } shadow-lg`}
-                  ></div>
-                </button>
-              ))}
-
-            {/* Map Controls */}
-            <div className='absolute bottom-4 left-4 bg-black/70 rounded-lg p-3 text-white text-sm'>
-              <div className='flex items-center space-x-2 mb-2'>
-                <div className='w-3 h-3 bg-accent rounded-full'></div>
-                <span>Night Markets</span>
-              </div>
-              {viewMode === 'vendors' && (
-                <div className='flex items-center space-x-2'>
-                  <div className='w-3 h-3 bg-orange-500 rounded-full'></div>
-                  <span>Vendors</span>
-                </div>
-              )}
-            </div>
-          </div>
+          <Map
+            markets={filteredMarkets}
+            vendors={vendors || []}
+            selectedMarket={selectedMarket}
+            selectedVendor={selectedVendor}
+            viewMode={viewMode}
+            onMarketSelect={handleMarketSelect}
+            onVendorSelect={handleVendorSelect}
+            interactive={true}
+          />
         </div>
 
         {/* Dynamic Side Panel */}
@@ -471,62 +259,127 @@ export default function Explorer() {
                   Key Research Findings
                 </h4>
                 <ul className='space-y-2'>
-                  {selectedMarket.keyFindings.map((finding, index) => (
-                    <li
-                      key={index}
-                      className='flex items-start space-x-2 text-sm'
-                    >
-                      <span className='text-primary mt-1'>📷</span>
-                      <span className='text-neutral-400'>{finding}</span>
-                    </li>
-                  ))}
+                  {selectedMarket.keyFindings.map(
+                    (finding: string, index: number) => (
+                      <li
+                        key={index}
+                        className='flex items-start space-x-2 text-sm'
+                      >
+                        <span className='text-primary mt-1'>📷</span>
+                        <span className='text-neutral-400'>{finding}</span>
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
 
               {/* Vendor List */}
               <div>
                 <h4 className='text-white font-semibold mb-3 text-sm'>
-                  Documented Vendors
+                  Documented Vendors (
+                  {vendors?.filter((v: Vendor) =>
+                    v.markets?.some(
+                      (m: any) => m.market?.id === selectedMarket.id
+                    )
+                  ).length || 0}
+                  )
                 </h4>
                 <div className='space-y-2'>
-                  {selectedMarket.vendors?.map((vendor: Vendor) => (
-                    <button
-                      key={vendor.id}
-                      onClick={() => {
-                        handleVendorSelect(vendor)
-                        handleViewModeChange('vendors')
-                      }}
-                      className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-3 transition-colors'
-                    >
-                      <div className='font-medium text-white text-sm'>
-                        {vendor.name}
-                      </div>
-                      <div className='text-neutral-400 text-xs'>
-                        {vendor.specialty}
-                      </div>
-                    </button>
-                  ))}
+                  {vendors
+                    ?.filter((vendor: Vendor) =>
+                      vendor.markets?.some(
+                        (m: any) => m.market?.id === selectedMarket.id
+                      )
+                    )
+                    .map((vendor: Vendor) => (
+                      <button
+                        key={vendor.id}
+                        onClick={() => {
+                          handleVendorSelect(vendor)
+                          handleViewModeChange('vendors')
+                        }}
+                        className='w-full text-left bg-neutral-800 hover:bg-neutral-700 rounded-lg p-3 transition-colors'
+                      >
+                        <div className='font-medium text-white text-sm'>
+                          {vendor.name}
+                        </div>
+                        <div className='text-neutral-400 text-xs'>
+                          {vendor.specialties.join(', ')}
+                        </div>
+                      </button>
+                    ))}
                 </div>
               </div>
             </div>
           ) : selectedVendor ? (
             /* Vendor Detail Panel */
             <div className='p-6'>
+              <div className='relative h-48 rounded-lg overflow-hidden mb-4'>
+                {selectedVendor.images && selectedVendor.images.length > 0 ? (
+                  <Image
+                    src={selectedVendor.images[0]}
+                    alt={selectedVendor.name}
+                    fill
+                    className='object-cover'
+                    sizes='384px'
+                  />
+                ) : (
+                  <div className='w-full h-full bg-neutral-700 flex items-center justify-center'>
+                    <span className='text-4xl'>🍜</span>
+                  </div>
+                )}
+              </div>
+
               <h2 className='text-xl font-bold text-white mb-2'>
                 {selectedVendor.name}
               </h2>
-              <p className='text-primary font-medium mb-4'>
-                {selectedVendor.specialty}
+              <p className='text-neutral-400 text-sm mb-2'>
+                {selectedVendor.chineseName}
+              </p>
+              <div className='flex flex-wrap gap-2 mb-4'>
+                {selectedVendor.specialties.map(
+                  (specialty: string, index: number) => (
+                    <span
+                      key={index}
+                      className='bg-primary/20 text-primary px-2 py-1 rounded-full text-xs'
+                    >
+                      {specialty}
+                    </span>
+                  )
+                )}
+              </div>
+
+              <p className='text-neutral-300 text-sm mb-4 leading-relaxed'>
+                {selectedVendor.description}
               </p>
 
-              <div className='bg-neutral-800 rounded-lg p-4'>
-                <h4 className='text-accent font-semibold mb-2'>
-                  Cultural Significance
-                </h4>
-                <p className='text-neutral-400 text-sm leading-relaxed'>
-                  {selectedVendor.cultural_significance}
-                </p>
-              </div>
+              {selectedVendor.culturalSignificance && (
+                <div className='bg-neutral-800 rounded-lg p-4 mb-4'>
+                  <h4 className='text-accent font-semibold mb-2'>
+                    Cultural Significance
+                  </h4>
+                  <p className='text-neutral-400 text-sm leading-relaxed'>
+                    {selectedVendor.culturalSignificance}
+                  </p>
+                </div>
+              )}
+
+              {selectedVendor.researchNotes && (
+                <div className='bg-neutral-800 rounded-lg p-4 mb-4'>
+                  <h4 className='text-accent font-semibold mb-2'>
+                    Research Notes
+                  </h4>
+                  <p className='text-neutral-400 text-sm leading-relaxed'>
+                    {selectedVendor.researchNotes}
+                  </p>
+                </div>
+              )}
+
+              {selectedVendor.operatingHours && (
+                <div className='text-sm text-neutral-400 mb-4'>
+                  <strong>Hours:</strong> {selectedVendor.operatingHours}
+                </div>
+              )}
 
               <button
                 onClick={() => handleVendorSelect(null)}
@@ -549,7 +402,7 @@ export default function Explorer() {
               </p>
 
               <div className='space-y-3'>
-                {filteredMarkets.map(market => (
+                {filteredMarkets.map((market: Market) => (
                   <button
                     key={market.id}
                     onClick={() => handleMarketSelect(market)}
