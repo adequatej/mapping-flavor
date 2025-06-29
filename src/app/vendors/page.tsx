@@ -51,6 +51,34 @@ export default function Vendors() {
     []
   )
 
+  // Helper function to truncate descriptions for card display
+  const truncateDescription = (
+    description: string,
+    maxLength: number = 120
+  ) => {
+    if (description.length <= maxLength) return description
+
+    // Find the last complete sentence within the limit
+    const truncated = description.substring(0, maxLength)
+    const lastSentenceEnd = Math.max(
+      truncated.lastIndexOf('.'),
+      truncated.lastIndexOf('!'),
+      truncated.lastIndexOf('?')
+    )
+
+    if (lastSentenceEnd > maxLength * 0.6) {
+      return description.substring(0, lastSentenceEnd + 1)
+    }
+
+    // If no good sentence break, find the last space
+    const lastSpace = truncated.lastIndexOf(' ')
+    if (lastSpace > maxLength * 0.7) {
+      return description.substring(0, lastSpace) + '...'
+    }
+
+    return truncated + '...'
+  }
+
   // Fetch markets for filter dropdown first
   useEffect(() => {
     const fetchMarkets = async () => {
@@ -307,8 +335,8 @@ export default function Vendors() {
                   )}
 
                   {/* Description */}
-                  <p className='text-neutral-300 text-sm leading-relaxed mb-4 line-clamp-3'>
-                    {vendor.description}
+                  <p className='text-neutral-300 text-sm leading-relaxed mb-4'>
+                    {truncateDescription(vendor.description)}
                   </p>
 
                   {/* Operating Hours */}
