@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 
-// Dynamically import the Map component to avoid SSR issues with Mapbox as its complicated
+// Dynamic import wrapper for Map component - prevents server-side rendering conflicts with Mapbox GL
 const Map = dynamic(() => import('@/components/maps/Map'), {
   ssr: false,
   loading: () => (

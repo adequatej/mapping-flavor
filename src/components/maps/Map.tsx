@@ -5,7 +5,6 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { useEffect, useRef, useState } from 'react'
 
 // Initialize Mapbox
-// You can get a free token at https://account.mapbox.com/
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
 interface MapProps {
@@ -16,6 +15,7 @@ interface MapProps {
   viewMode?: 'markets' | 'vendors' | 'research'
   onMarketSelect?: (market: Market | null) => void
   onVendorSelect?: (vendor: Vendor | null) => void
+  onMapLoad?: (zoom: number, center: [number, number]) => void
   interactive?: boolean
 }
 
@@ -27,6 +27,7 @@ export default function Map({
   viewMode = 'markets',
   onMarketSelect,
   onVendorSelect,
+  onMapLoad,
   interactive = false,
 }: MapProps) {
   const mapContainer = useRef<HTMLDivElement>(null)
@@ -46,9 +47,11 @@ export default function Map({
       center: [lng, lat],
       zoom: zoom,
       maxBounds: [
-        [bounds.west, bounds.south],
-        [bounds.east, bounds.north],
+        [bounds.west - 1.5, bounds.south - 1.0],
+        [bounds.east + 1.5, bounds.north + 1.0],
       ],
+      minZoom: 6, // Prevent zooming out past Taiwan - ensures Taiwan stays visible
+      maxZoom: 18,
       // Minimal performance settings
       antialias: false,
       trackResize: false,
@@ -56,9 +59,13 @@ export default function Map({
 
     map.current.on('load', () => {
       setMapLoaded(true)
+      if (onMapLoad) {
+        const center = map.current!.getCenter()
+        onMapLoad(map.current!.getZoom(), [center.lng, center.lat])
+      }
     })
 
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
+    // Don't add default navigation controls since we have custom ones
 
     return () => {
       if (map.current) {
@@ -66,7 +73,19 @@ export default function Map({
         map.current = null
       }
     }
-  }, [lng, lat, zoom, bounds])
+  }, []) // Remove lng, lat, zoom, bounds from dependencies to prevent re-initialization
+
+  // Respond to zoom and center changes from Redux
+  useEffect(() => {
+    if (!map.current || !mapLoaded) return
+
+    // Update map zoom and center when Redux state changes
+    map.current.easeTo({
+      center: [lng, lat],
+      zoom: zoom,
+      duration: 300,
+    })
+  }, [lng, lat, zoom, mapLoaded])
 
   // Clear all markers
   const clearMarkers = () => {
@@ -138,32 +157,117 @@ export default function Map({
       vendor.markets?.some((m: any) => m.market?.id === selectedMarket.id)
     )
 
-    marketVendors.forEach(vendor => {
+    marketVendors.forEach((vendor, index) => {
       if (!vendor.latitude || !vendor.longitude) return
 
-      // Use simple Mapbox marker for vendors
-      const marker = new mapboxgl.Marker({
-        color: selectedVendor?.id === vendor.id ? '#f97316' : '#a3a3a3',
-        scale: selectedVendor?.id === vendor.id ? 1.1 : 0.8,
+      // Add slight offset to vendor coordinates to spread them around the market
+      // This prevents overlapping and makes them more visible
+      const offsetRadius = 0.002 // About 200 meters
+      const angle =
+        index * (360 / Math.max(marketVendors.length, 1)) * (Math.PI / 180)
+      const offsetLat = vendor.latitude + offsetRadius * Math.cos(angle)
+      const offsetLng = vendor.longitude + offsetRadius * Math.sin(angle)
+
+      // Create custom vendor marker element (food cart style)
+      const el = document.createElement('div')
+      el.className = 'vendor-marker'
+      el.style.cssText = `
+        width: 32px;
+        height: 32px;
+        background: ${selectedVendor?.id === vendor.id ? '#f97316' : '#fb923c'};
+        border: 3px solid white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transform: ${selectedVendor?.id === vendor.id ? 'scale(1.2)' : 'scale(1)'};
+        transition: all 0.2s ease;
+        position: relative;
+      `
+
+      // Add food emoji based on specialty
+      const getFoodEmoji = (specialties: string[]) => {
+        const specialty = specialties[0]?.toLowerCase() || ''
+        if (specialty.includes('noodle') || specialty.includes('soup'))
+          return '🍜'
+        if (specialty.includes('dumpling') || specialty.includes('bao'))
+          return '🥟'
+        if (
+          specialty.includes('meat') ||
+          specialty.includes('beef') ||
+          specialty.includes('pork')
+        )
+          return '🍖'
+        if (specialty.includes('seafood') || specialty.includes('fish'))
+          return '🐟'
+        if (specialty.includes('dessert') || specialty.includes('sweet'))
+          return '🧁'
+        if (
+          specialty.includes('drink') ||
+          specialty.includes('tea') ||
+          specialty.includes('juice')
+        )
+          return '🧋'
+        if (specialty.includes('vegetable') || specialty.includes('tofu'))
+          return '🥬'
+        if (specialty.includes('rice') || specialty.includes('fried'))
+          return '🍚'
+        return '🍽️' // Default food icon
+      }
+
+      el.innerHTML = getFoodEmoji(vendor.specialties)
+
+      // Add hover effect
+      el.addEventListener('mouseenter', () => {
+        if (selectedVendor?.id !== vendor.id) {
+          el.style.transform = 'scale(1.1)'
+          el.style.background = '#f97316'
+        }
       })
-        .setLngLat([vendor.longitude, vendor.latitude])
+
+      el.addEventListener('mouseleave', () => {
+        if (selectedVendor?.id !== vendor.id) {
+          el.style.transform = 'scale(1)'
+          el.style.background = '#fb923c'
+        }
+      })
+
+      const marker = new mapboxgl.Marker(el)
+        .setLngLat([offsetLng, offsetLat])
         .addTo(map.current!)
 
-      // Simple click handler
+      // Click handler
       if (onVendorSelect) {
-        marker.getElement().addEventListener('click', () => {
+        el.addEventListener('click', () => {
           onVendorSelect(vendor)
         })
       }
 
-      // Simple popup
+      // Enhanced popup for vendors
       const popup = new mapboxgl.Popup({
         offset: 25,
         closeButton: false,
+        className: 'vendor-popup',
       }).setHTML(`
-        <div>
-          <h3>${vendor.name}</h3>
-          <p>${vendor.specialties.join(', ')}</p>
+        <div style="padding: 8px; min-width: 180px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="font-size: 18px;">${getFoodEmoji(vendor.specialties)}</span>
+            <h3 style="margin: 0; font-size: 14px; font-weight: 600; color: #1f2937;">${vendor.name}</h3>
+          </div>
+          <p style="margin: 0 0 6px 0; font-size: 12px; color: #6b7280;">${vendor.chineseName || ''}</p>
+          <div style="display: flex; flex-wrap: gap: 4px;">
+            ${vendor.specialties
+              .slice(0, 2)
+              .map(
+                specialty =>
+                  `<span style="background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 12px; font-size: 10px;">${specialty}</span>`
+              )
+              .join('')}
+          </div>
+          ${vendor.operatingHours ? `<p style="margin: 6px 0 0 0; font-size: 11px; color: #6b7280;">⏰ ${vendor.operatingHours}</p>` : ''}
         </div>
       `)
 
@@ -173,7 +277,6 @@ export default function Map({
   }, [
     vendors,
     selectedMarket,
-    selectedVendor,
     viewMode,
     mapLoaded,
     onVendorSelect,
@@ -228,12 +331,15 @@ export default function Map({
         <div className='absolute bottom-4 left-4 bg-black/80 rounded-lg p-3 text-white text-sm'>
           <div className='flex items-center space-x-2 mb-2'>
             <div className='w-3 h-3 bg-primary rounded-full'></div>
-            <span>Night Markets</span>
+            <span>Cultural Sites</span>
           </div>
           {viewMode === 'vendors' && (
             <div className='flex items-center space-x-2'>
-              <div className='w-3 h-3 bg-orange-500 rounded-full'></div>
-              <span>Vendors</span>
+              <div
+                className='w-3 h-3 bg-orange-500 rounded border border-white'
+                style={{ borderRadius: '4px' }}
+              ></div>
+              <span>Food Heritage 🍽️</span>
             </div>
           )}
         </div>
