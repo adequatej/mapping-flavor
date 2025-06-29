@@ -77,8 +77,8 @@ const markets = [
     name: 'Kenting Night Market',
     chineseName: '墾丁夜市',
     location: 'Hengchun Township, Pingtung County',
-    latitude: 21.9435,
-    longitude: 120.7934,
+    latitude: 22.0038,
+    longitude: 120.7471,
     established: '1980',
     researchFocus: 'Tourism & Regional Identity',
     description:
@@ -285,8 +285,8 @@ const vendors = [
     description:
       'Fresh local seafood with beach tourism appeal, demonstrating adaptation of traditional preparation methods for seasonal tourism economy. Balances local fishing culture with visitor expectations.',
     specialties: ['Fresh Seafood', 'Beach BBQ', 'Local Fishing'],
-    latitude: 21.9435,
-    longitude: 120.7935,
+    latitude: 22.0038,
+    longitude: 120.7472,
     images: [
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     ],
@@ -303,8 +303,8 @@ const vendors = [
     description:
       'Local tropical fruits prepared as smoothies for beach tourists, representing regional agricultural identity and adaptation to tourism preferences. Uses indigenous fruit varieties with modern presentation.',
     specialties: ['Tropical Fruits', 'Smoothies', 'Regional Agriculture'],
-    latitude: 21.9436,
-    longitude: 120.7933,
+    latitude: 22.0039,
+    longitude: 120.747,
     images: [
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     ],
@@ -321,8 +321,8 @@ const vendors = [
     description:
       'Casual noodles popular with surfers and beach-goers, representing cultural adaptation to beach lifestyle and international surf culture. Demonstrates local-global cultural intersection.',
     specialties: ['Late Night Noodles', 'Surf Culture', 'Beach Lifestyle'],
-    latitude: 21.9434,
-    longitude: 120.7936,
+    latitude: 22.0037,
+    longitude: 120.7473,
     images: [
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     ],
@@ -353,19 +353,46 @@ async function main() {
     for (const vendor of vendors) {
       const { marketId, ...vendorData } = vendor
 
-      const createdVendor = await prisma.vendor.create({
-        data: vendorData,
-      })
-      console.log(`✓ Created vendor: ${vendor.name}`)
-
-      // Link vendor to market
-      await prisma.marketVendor.create({
-        data: {
-          marketId: marketId,
-          vendorId: createdVendor.id,
+      // Use upsert to prevent duplicate vendors based on name and market
+      const createdVendor = await prisma.vendor.upsert({
+        where: {
+          // Create a unique constraint based on name - we'll need to add this to schema
+          // For now, let's use a combination approach
+          id: `${vendor.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${marketId}`,
+        },
+        update: vendorData,
+        create: {
+          id: `${vendor.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${marketId}`,
+          ...vendorData,
         },
       })
-      console.log(`  → Linked to ${markets.find(m => m.id === marketId)?.name}`)
+      console.log(`✓ Created/updated vendor: ${vendor.name}`)
+
+      // Link vendor to market (check if relationship already exists)
+      const existingRelation = await prisma.marketVendor.findUnique({
+        where: {
+          marketId_vendorId: {
+            marketId: marketId,
+            vendorId: createdVendor.id,
+          },
+        },
+      })
+
+      if (!existingRelation) {
+        await prisma.marketVendor.create({
+          data: {
+            marketId: marketId,
+            vendorId: createdVendor.id,
+          },
+        })
+        console.log(
+          `  → Linked to ${markets.find(m => m.id === marketId)?.name}`
+        )
+      } else {
+        console.log(
+          `  → Already linked to ${markets.find(m => m.id === marketId)?.name}`
+        )
+      }
     }
 
     console.log('\n🎉 Database seeding completed successfully!')
