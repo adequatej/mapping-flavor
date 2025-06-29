@@ -75,6 +75,61 @@ export default function MarketDetail() {
     return truncated + '...'
   }
 
+  // Market-specific theoretical frameworks
+  const getMarketTheory = (marketId: string, marketName: string) => {
+    switch (marketId) {
+      case 'shilin-night-market':
+        return {
+          title: 'Identity Commodification and Cultural Performance',
+          topicSentence: `${marketName} shows how vendors strategically perform "authentic Taiwanese culture" for tourist consumption while maintaining separate cultural practices for local customers, revealing the gap between commodified identity and lived cultural experience.`,
+          theoreticalConnection: `This cultural performance dynamic aligns with Edward Said's (1978) analysis of orientalism, where cultural representations serve tourist expectations rather than reflecting actual cultural practices. Vendors at ${marketName} navigate what Said identifies as the power relationship between observer and observed, adapting their cultural presentations to match tourist assumptions about "authentic Taiwan" while preserving different cultural practices in interactions with local customers. This demonstrates how tourism creates what James C. Scott (1990) calls "public transcripts" - performances of cultural authenticity that conceal more complex cultural practices maintained in private interactions.`,
+          evidenceTitle:
+            'Evidence: Cultural Performance and Tourist Adaptation',
+          conclusionFocus:
+            'identity commodification and the performance of authenticity in tourist-oriented commercial spaces',
+        }
+      case 'raohe-street-market':
+        return {
+          title: 'Hakka Heritage Preservation in Urban Commercial Spaces',
+          topicSentence: `${marketName} functions as a critical site for Hakka cultural preservation within Taiwan's urban commercial landscape, showing how minority vendors maintain cultural distinctiveness while adapting to mainstream market pressures and diverse customer expectations.`,
+          theoreticalConnection: `This preservation dynamic illustrates Pierre Bourdieu's (1984) concept of cultural capital operating within minority cultural contexts. Hakka vendors at ${marketName} deploy their distinct cultural knowledge - traditional preparation methods, regional dialects, family recipes - as forms of cultural capital that differentiate their offerings within Taiwan's broader culinary landscape. However, this cultural capital operates within what Antonio Gramsci would identify as hegemonic structures that privilege mainstream Taiwanese/Chinese cultural practices, requiring strategic navigation of cultural visibility and adaptation.`,
+          evidenceTitle:
+            'Evidence: Hakka Cultural Markers and Intergenerational Knowledge Transfer',
+          conclusionFocus:
+            'minority culture preservation and the strategic visibility of Hakka identity within dominant cultural spaces',
+        }
+      case 'huaxi-street-market':
+        return {
+          title: 'Working-Class Food Culture and Economic Accessibility',
+          topicSentence: `${marketName} demonstrates how night markets function as democratic cultural spaces that transcend economic boundaries, serving as community formation sites for working-class populations while resisting gentrification pressures through accessible pricing and authentic cultural practices.`,
+          theoreticalConnection: `This working-class cultural space challenges Wu and Lin's (2013) characterization of night markets as simply "democratic cultural spaces" by revealing how class-based economic accessibility creates genuinely inclusive cultural participation. Following Henri Lefebvre's concept of "the right to the city," ${marketName} represents a space where economic barriers to cultural participation are actively minimized, creating what James C. Scott (1990) would recognize as a space for working-class cultural autonomy that operates outside middle-class cultural institutions.`,
+          evidenceTitle:
+            'Evidence: Economic Accessibility and Community Formation',
+          conclusionFocus:
+            'working-class cultural autonomy and the role of economic accessibility in creating genuinely democratic cultural spaces',
+        }
+      case 'kenting-night-market':
+        return {
+          title: 'Tourism Economy and Regional Cultural Adaptation',
+          topicSentence: `${marketName} reveals how seasonal tourism economies shape regional food identity and cultural performance in southern Taiwan, demonstrating adaptation strategies that balance local fishing and agricultural traditions with visitor expectations from Taiwan's beach resort economy.`,
+          theoreticalConnection: `This regional adaptation process reflects what Arjun Appadurai calls "glocalization" - the adaptation of local cultural practices to global tourism flows while maintaining regional distinctiveness. Vendors at ${marketName} navigate between preserving southern Taiwan's distinct food culture and adapting to tourism expectations, creating what Roland Robertson would identify as "glocal" cultural forms that are simultaneously local and oriented toward global tourism markets.`,
+          evidenceTitle:
+            'Evidence: Seasonal Tourism Impacts and Regional Identity Adaptation',
+          conclusionFocus:
+            'regional cultural adaptation to tourism economies and the negotiation between local identity and visitor expectations',
+        }
+      default:
+        return {
+          title: 'Cultural Identity Negotiation',
+          topicSentence: `${marketName} shows how vendors strategically navigate cultural identity performance while maintaining authentic cultural practices.`,
+          theoreticalConnection: `This cultural dynamic illustrates broader patterns of identity negotiation in commercial spaces.`,
+          evidenceTitle:
+            'Evidence: Cultural Performance and Identity Navigation',
+          conclusionFocus: 'cultural identity negotiation in commercial spaces',
+        }
+    }
+  }
+
   useEffect(() => {
     if (!marketId) return
 
@@ -165,6 +220,8 @@ export default function MarketDetail() {
     return null
   }
 
+  const theory = getMarketTheory(market.id, market.name)
+
   return (
     <div className='min-h-screen py-16'>
       <div className='container mx-auto px-4'>
@@ -218,16 +275,12 @@ export default function MarketDetail() {
               {/* Main Argument Section */}
               <section>
                 <h2 className='text-2xl font-bold text-white mb-6'>
-                  Cultural Identity as Tourist Performance
+                  {theory.title}
                 </h2>
                 <div className='prose prose-lg prose-invert max-w-none'>
                   <p className='text-neutral-300 leading-relaxed text-lg mb-6'>
                     <strong className='text-white'>Topic Sentence:</strong>{' '}
-                    {market.name} shows how vendors strategically perform
-                    "authentic Taiwanese culture" for tourist consumption while
-                    maintaining separate cultural practices for local customers,
-                    revealing the gap between commodified identity and lived
-                    cultural experience.
+                    {theory.topicSentence}
                   </p>
 
                   <p className='text-neutral-300 leading-relaxed mb-6'>
@@ -235,15 +288,7 @@ export default function MarketDetail() {
                   </p>
 
                   <p className='text-neutral-300 leading-relaxed'>
-                    This cultural performance dynamic aligns with Edward Said's
-                    (1978) analysis of orientalism, where cultural
-                    representations serve tourist expectations rather than
-                    reflecting actual cultural practices. Vendors at{' '}
-                    {market.name} navigate what Said identifies as the power
-                    relationship between observer and observed, adapting their
-                    cultural presentations to match tourist assumptions about
-                    "authentic Taiwan" while preserving different cultural
-                    practices in interactions with local customers.
+                    {theory.theoreticalConnection}
                   </p>
                 </div>
               </section>
@@ -251,7 +296,7 @@ export default function MarketDetail() {
               {/* Evidence and Analysis */}
               <section className='bg-secondary-light rounded-lg p-8'>
                 <h2 className='text-2xl font-bold text-white mb-6'>
-                  Evidence: Language Switching and Menu Adaptation
+                  {theory.evidenceTitle}
                 </h2>
                 <div className='prose prose-lg prose-invert max-w-none'>
                   <p className='text-neutral-300 leading-relaxed mb-4'>
@@ -262,12 +307,11 @@ export default function MarketDetail() {
                   <p className='text-neutral-300 leading-relaxed'>
                     Following Chen and Huang's (2014) framework for analyzing
                     vendor behaviors, observations at {market.name} document
-                    systematic differences in how vendors present their cultural
-                    identity to different customer groups. This evidence
-                    supports Pierre Bourdieu's (1984) theory of cultural
-                    capital, showing how vendors deploy different cultural
-                    performances based on their assessment of customer
-                    expectations and economic potential.
+                    systematic patterns that support this theoretical analysis.
+                    This evidence demonstrates how cultural identity operates as
+                    both economic strategy and authentic cultural practice,
+                    revealing the complex negotiations vendors make between
+                    market pressures and cultural preservation.
                   </p>
                 </div>
               </section>
@@ -429,7 +473,7 @@ export default function MarketDetail() {
               {/* Conclusion and Broader Implications */}
               <section className='bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-8'>
                 <h2 className='text-2xl font-bold text-white mb-6'>
-                  Conclusion: Cultural Identity Negotiation at {market.name}
+                  Conclusion: {theory.conclusionFocus}
                 </h2>
                 <div className='prose prose-invert max-w-none space-y-4'>
                   <p className='text-neutral-300 leading-relaxed'>
@@ -457,12 +501,11 @@ export default function MarketDetail() {
                     <strong className='text-white'>
                       Broader Implications:
                     </strong>{' '}
-                    This analysis of {market.name} helps us understand how
-                    cultural identity works in post-colonial commercial spaces
-                    more broadly. The vendor strategies documented here show how
-                    cultural capital works in everyday interactions, supporting
-                    larger points about the political nature of cultural
-                    representation in modern Taiwan.
+                    This analysis of {market.name} contributes to understanding{' '}
+                    {theory.conclusionFocus}. The vendor strategies documented
+                    here show how cultural capital works in everyday
+                    interactions, supporting larger points about the political
+                    nature of cultural representation in modern Taiwan.
                   </p>
                 </div>
               </section>

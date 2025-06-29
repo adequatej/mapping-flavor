@@ -407,12 +407,13 @@ export default function About() {
                     Shilin Night Market
                   </h3>
                   <p className='text-primary text-sm mb-3 font-medium'>
-                    Identity Commodification
+                    Tourism vs. Authenticity
                   </p>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Tourism vs. authenticity dynamics, cultural performance for
-                    outsiders, application of Said's (1978) orientalism to food
-                    tourism.
+                    How vendors strategically perform "authentic Taiwanese
+                    culture" for tourist consumption while maintaining separate
+                    cultural practices for locals, revealing the gap between
+                    commodified identity and lived cultural experience.
                   </p>
                 </div>
 
@@ -421,11 +422,12 @@ export default function About() {
                     Raohe Street Night Market
                   </h3>
                   <p className='text-accent text-sm mb-3 font-medium'>
-                    Hakka Heritage Preservation
+                    Hakka Heritage & Visibility
                   </p>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Minority culture survival in majority spaces, economic
-                    strategies for cultural preservation.
+                    How minority Hakka vendors maintain cultural distinctiveness
+                    while adapting to mainstream market pressures, showing
+                    strategic navigation of cultural visibility and adaptation.
                   </p>
                 </div>
               </div>
@@ -436,12 +438,12 @@ export default function About() {
                     Huaxi Street Night Market
                   </h3>
                   <p className='text-primary text-sm mb-3 font-medium'>
-                    Working-Class Food Culture
+                    Working Class Food Culture
                   </p>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Economic accessibility and community formation, examining
-                    how working-class food culture operates within broader power
-                    structures.
+                    How night markets function as democratic cultural spaces
+                    crossing economic boundaries, serving as community formation
+                    sites while resisting gentrification pressures.
                   </p>
                 </div>
 
@@ -450,12 +452,12 @@ export default function About() {
                     Kenting Night Market
                   </h3>
                   <p className='text-accent text-sm mb-3 font-medium'>
-                    Tourist-Local Cultural Negotiation
+                    Tourism & Regional Identity
                   </p>
                   <p className='text-neutral-300 leading-relaxed'>
-                    Southern Taiwan's tourist dynamics, how vendors navigate
-                    between local Taiwanese identity and tourist expectations in
-                    a resort context.
+                    How seasonal tourism economies shape regional food identity
+                    in southern Taiwan, showing adaptation strategies that
+                    balance local traditions with visitor expectations.
                   </p>
                 </div>
               </div>
