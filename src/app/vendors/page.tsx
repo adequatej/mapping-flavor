@@ -50,6 +50,7 @@ export default function Vendors() {
   const [markets, setMarkets] = useState<Array<{ id: string; name: string }>>(
     []
   )
+  const [showAcademicFramework, setShowAcademicFramework] = useState(false)
 
   // Helper function to truncate descriptions for card display
   const truncateDescription = (
@@ -126,8 +127,10 @@ export default function Vendors() {
         if (selectedMarket) {
           params.append('marketId', selectedMarket)
         }
+        // Set a high limit to fetch all vendors
+        params.append('limit', '100')
 
-        const url = `/api/vendors${params.toString() ? `?${params.toString()}` : ''}`
+        const url = `/api/vendors?${params.toString()}`
         const response = await fetch(url)
 
         if (!response.ok) {
@@ -212,8 +215,91 @@ export default function Vendors() {
           </p>
         </div>
 
+        {/* Research Approach - Simplified */}
+        <div className='bg-secondary-light rounded-xl p-8 mb-8 max-w-4xl mx-auto'>
+          <h2 className='text-2xl font-bold text-white mb-6'>
+            About These Vendor Profiles
+          </h2>
+
+          <div className='grid md:grid-cols-2 gap-8 mb-6'>
+            <div className='bg-primary/10 rounded-lg p-6 border-l-4 border-primary'>
+              <h3 className='text-lg font-bold text-white mb-3'>
+                What Each Profile Shows
+              </h3>
+              <p className='text-neutral-300 leading-relaxed text-sm'>
+                Each vendor demonstrates specific strategies for balancing
+                cultural authenticity with economic survival. These individual
+                stories provide concrete evidence for the broader patterns
+                identified in the market case studies.
+              </p>
+            </div>
+            <div className='bg-accent/10 rounded-lg p-6 border-l-4 border-accent'>
+              <h3 className='text-lg font-bold text-white mb-3'>
+                Research Method
+              </h3>
+              <p className='text-neutral-300 leading-relaxed text-sm'>
+                All vendor information comes from direct fieldwork observation
+                and interviews. Vendors gave consent to participate, and
+                personal details may be anonymized for privacy protection.
+              </p>
+            </div>
+          </div>
+
+          {/* Collapsible Academic Framework */}
+          <div className='border-t border-neutral-700 pt-6'>
+            <div className='flex items-center justify-between mb-4'>
+              <h3 className='text-lg font-bold text-white'>
+                Academic Framework & Citations
+              </h3>
+              <button
+                onClick={() => setShowAcademicFramework(!showAcademicFramework)}
+                className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+              >
+                {showAcademicFramework
+                  ? 'Hide Details'
+                  : 'Show Academic Framework'}
+              </button>
+            </div>
+
+            {showAcademicFramework && (
+              <div className='bg-neutral-900 rounded-lg p-6'>
+                <p className='text-neutral-300 leading-relaxed mb-4 text-sm'>
+                  Following Chen and Huang's (2014) methodology for analyzing
+                  vendor behavior patterns, these profiles document how
+                  individual entrepreneurs navigate the cultural identity
+                  politics identified in Taiwan's night market case studies.
+                  Each vendor profile demonstrates specific strategies for
+                  managing what Said (1978) calls "orientalist" cultural
+                  performance, Scott's (1990) "public and hidden transcripts,"
+                  and Bourdieu's (1984) deployment of cultural capital within
+                  contested commercial spaces.
+                </p>
+                <p className='text-neutral-300 leading-relaxed text-sm'>
+                  These vendors provide concrete evidence for the broader
+                  theoretical argument that Taiwan's night markets function as
+                  contested cultural spaces where different versions of
+                  "Taiwanese identity" are negotiated, performed, and sometimes
+                  erased through individual entrepreneurial strategies.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Evidence Connection */}
+        <div className='bg-primary/10 rounded-lg p-6 mb-8 max-w-4xl mx-auto text-center'>
+          <p className='text-neutral-300 leading-relaxed'>
+            <strong className='text-white'>How This Works:</strong> Each vendor
+            profile provides specific evidence for the cultural dynamics
+            described in the market case studies. Use the market filter below to
+            see how vendors from the same location demonstrate similar patterns,
+            or browse all profiles to see how strategies vary across different
+            cultural contexts.
+          </p>
+        </div>
+
         {/* Market Filter */}
-        <div className='max-w-4xl mx-auto mb-8'>
+        <div className='max-w-4xl mx-auto mb-12'>
           <div className='bg-neutral-900 rounded-xl p-6'>
             <div className='flex flex-wrap items-center gap-4'>
               <label className='text-white font-medium'>
@@ -247,36 +333,6 @@ export default function Vendors() {
               )}
             </div>
           </div>
-        </div>
-
-        {/* Academic Framework */}
-        <div className='bg-secondary-light rounded-xl p-8 mb-12 max-w-4xl mx-auto'>
-          <h2 className='text-2xl font-bold text-white mb-4'>
-            <span className='text-accent'>Theoretical Framework</span>
-          </h2>
-          <p className='text-neutral-300 leading-relaxed mb-4'>
-            Following Chen and Huang's (2014) methodology for analyzing vendor
-            behavior patterns, these profiles document how individual
-            entrepreneurs navigate the cultural identity politics identified in
-            Taiwan's night market case studies. Each vendor profile demonstrates
-            specific strategies for managing what Said (1978) calls
-            "orientalist" cultural performance, Scott's (1990) "public and
-            hidden transcripts," and Bourdieu's (1984) deployment of cultural
-            capital within contested commercial spaces.
-          </p>
-          <p className='text-neutral-300 leading-relaxed mb-4'>
-            These vendors provide concrete evidence for the broader theoretical
-            argument that Taiwan's night markets function as contested cultural
-            spaces where different versions of "Taiwanese identity" are
-            negotiated, performed, and sometimes erased through individual
-            entrepreneurial strategies.
-          </p>
-          <p className='text-neutral-400 text-sm'>
-            <strong>Methodology:</strong> All vendor information was collected
-            through ethnographic fieldwork with informed consent. Names and
-            identifying details may be anonymized to protect participant privacy
-            while maintaining analytical integrity.
-          </p>
         </div>
 
         {/* Vendors Grid */}
@@ -395,56 +451,32 @@ export default function Vendors() {
           </div>
         )}
 
-        {/* Research Context */}
-        <div className='mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-8 max-w-4xl mx-auto'>
-          <h3 className='text-2xl font-bold text-white mb-6 text-center'>
-            Analytical Framework: Vendor Evidence for Market Case Studies
-          </h3>
-          <div className='grid md:grid-cols-2 gap-8'>
-            <div>
-              <h4 className='text-white font-semibold mb-3'>
-                Supporting Evidence Structure
-              </h4>
-              <p className='text-neutral-300 text-sm mb-4'>
-                Each vendor profile provides detailed evidence for the cultural
-                dynamics identified in the four market case studies: identity
-                commodification (Shilin), minority culture preservation (Raohe),
-                working-class autonomy (Huaxi), and regional adaptation
-                (Kenting). Individual entrepreneurial strategies demonstrate how
-                broader theoretical concepts operate in practice.
-              </p>
-            </div>
-            <div>
-              <h4 className='text-white font-semibold mb-3'>
-                Ethnographic Methodology
-              </h4>
-              <p className='text-neutral-300 text-sm mb-4'>
-                Following standard ethnographic practices for studying contested
-                cultural spaces, this research documents vendor navigation of
-                cultural identity politics through participant observation,
-                informal interviews, and behavioral analysis. All documentation
-                maintains ethical standards while preserving analytical depth
-                necessary for academic analysis.
-              </p>
-            </div>
-          </div>
-          <div className='mt-8 bg-neutral-900 rounded-lg p-6'>
-            <h4 className='text-white font-semibold mb-3 text-center'>
-              Connection to Thesis Argument
-            </h4>
-            <p className='text-neutral-300 text-sm text-center'>
-              <strong>
-                These vendor profiles demonstrate how Taiwan's night markets
-                function as contested cultural spaces where different versions
-                of "Taiwanese identity" are negotiated, performed, and sometimes
-                erased
-              </strong>{' '}
-              - with each individual entrepreneur employing specific strategies
-              to navigate post-colonial food politics and cultural
-              representation within commercial contexts.
+        {/* Next Steps Guidance */}
+        {vendors.length > 0 && (
+          <div className='mt-16 bg-accent/10 rounded-lg p-6 max-w-4xl mx-auto text-center'>
+            <p className='text-neutral-300 leading-relaxed mb-4'>
+              <strong className='text-white'>Dive Deeper:</strong> Click any
+              vendor profile above for detailed case study analysis, including
+              academic theory and cultural context. Each profile connects
+              directly to its market case study and demonstrates specific
+              theoretical concepts in practice.
             </p>
+            <div className='flex flex-wrap justify-center gap-3'>
+              <Link
+                href='/markets'
+                className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+              >
+                Return to Market Case Studies
+              </Link>
+              <Link
+                href='/explorer'
+                className='bg-accent hover:bg-accent-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+              >
+                Explore Interactive Map
+              </Link>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

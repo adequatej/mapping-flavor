@@ -184,6 +184,16 @@ export default function Markets() {
           </p>
         </div>
 
+        {/* Content Bridge */}
+        <div className='bg-primary/10 rounded-lg p-6 mb-12 max-w-4xl mx-auto text-center'>
+          <p className='text-neutral-300 leading-relaxed'>
+            <strong className='text-white'>The Four Case Studies Below</strong>{' '}
+            each demonstrate a different aspect of cultural identity politics in
+            Taiwan's night markets. Click any market to see detailed analysis of
+            how vendors navigate cultural expectations in that specific space.
+          </p>
+        </div>
+
         {/* Markets Grid */}
         <div className='space-y-12'>
           {markets.map((market, index) => (
@@ -284,8 +294,33 @@ export default function Markets() {
           ))}
         </div>
 
+        {/* Next Steps Guidance */}
+        <div className='mt-16 bg-accent/10 rounded-lg p-6 max-w-4xl mx-auto text-center'>
+          <p className='text-neutral-300 leading-relaxed mb-4'>
+            <strong className='text-white'>Continue Reading:</strong> Each
+            market page contains detailed cultural analysis and vendor case
+            studies. For the complete argument, read all four markets or explore
+            individual vendor stories that demonstrate these patterns in
+            practice.
+          </p>
+          <div className='flex flex-wrap justify-center gap-3'>
+            <Link
+              href='/vendors'
+              className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+            >
+              View All Vendor Evidence
+            </Link>
+            <Link
+              href='/explorer'
+              className='bg-accent hover:bg-accent-dark text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm'
+            >
+              Interactive Market Explorer
+            </Link>
+          </div>
+        </div>
+
         {/* Reflection Section */}
-        <div className='mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-8'>
+        <div className='mt-8 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-8'>
           <h3 className='text-2xl font-bold text-white mb-6 text-center'>
             Still Figuring It Out
           </h3>
