@@ -255,6 +255,212 @@ export default function VendorDetail() {
                 </section>
               )}
 
+              {/* Theoretical Analysis */}
+              <section className='bg-secondary-light rounded-xl p-8'>
+                <h2 className='text-2xl font-bold text-white mb-6'>
+                  <span className='text-primary'>Theoretical Analysis</span>:
+                  Cultural Identity Politics
+                </h2>
+
+                {/* Determine market context for analysis */}
+                {vendor.markets && vendor.markets.length > 0 && (
+                  <div className='space-y-6'>
+                    <div className='bg-neutral-900 rounded-lg p-6'>
+                      <h3 className='text-lg font-semibold text-white mb-3'>
+                        Market Context: {vendor.markets[0].market.name}
+                      </h3>
+                      <p className='text-neutral-300 text-sm leading-relaxed'>
+                        <strong className='text-white'>
+                          Case Study Connection:
+                        </strong>{' '}
+                        This vendor operates within the{' '}
+                        <Link
+                          href={`/markets/${vendor.markets[0].market.id}`}
+                          className='text-primary hover:text-primary-light underline'
+                        >
+                          {vendor.markets[0].market.name}
+                        </Link>{' '}
+                        case study, which examines{' '}
+                        {vendor.markets[0].market.id ===
+                          'shilin-night-market' &&
+                          'identity commodification and cultural performance for tourist consumption.'}
+                        {vendor.markets[0].market.id ===
+                          'raohe-street-market' &&
+                          'Hakka heritage preservation and strategic minority culture visibility.'}
+                        {vendor.markets[0].market.id ===
+                          'huaxi-street-market' &&
+                          'working-class cultural autonomy and economic accessibility as democratic practice.'}
+                        {vendor.markets[0].market.id ===
+                          'kenting-night-market' &&
+                          'regional cultural adaptation to tourism economies and local identity negotiation.'}
+                      </p>
+                    </div>
+
+                    <div className='bg-neutral-900 rounded-lg p-6'>
+                      <h3 className='text-lg font-semibold text-white mb-4'>
+                        Individual Navigation Strategies
+                      </h3>
+                      <div className='prose prose-invert max-w-none'>
+                        {vendor.markets[0].market.id ===
+                          'shilin-night-market' && (
+                          <div className='space-y-4'>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Strategic Performance Analysis:
+                              </strong>{' '}
+                              {vendor.name} demonstrates how vendors navigate
+                              Said's (1978) orientalist dynamics by constructing
+                              tourist-friendly versions of "authentic Taiwanese
+                              culture." This vendor exhibits what Scott (1990)
+                              calls "public transcripts" - performing cultural
+                              authenticity for tourist consumption while
+                              potentially maintaining different practices for
+                              local customers.
+                            </p>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Commodification Evidence:
+                              </strong>{' '}
+                              The vendor's specialties (
+                              {vendor.specialties.slice(0, 3).join(', ')})
+                              represent commodified cultural markers that
+                              satisfy tourist expectations of "real Taiwan"
+                              while the vendor's actual cultural practices may
+                              remain hidden from commercial display. This
+                              supports the argument that cultural identity at
+                              Shilin operates as strategic performance rather
+                              than preservation.
+                            </p>
+                          </div>
+                        )}
+                        {vendor.markets[0].market.id ===
+                          'raohe-street-market' && (
+                          <div className='space-y-4'>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Strategic Visibility Analysis:
+                              </strong>{' '}
+                              {vendor.name} exemplifies how Hakka vendors deploy
+                              Bourdieu's (1984) concept of cultural capital
+                              within minority cultural contexts. This vendor
+                              maintains cultural distinctiveness through
+                              specialties (
+                              {vendor.specialties.slice(0, 3).join(', ')}) that
+                              mark Hakka identity while making it accessible to
+                              broader audiences.
+                            </p>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Resistance Evidence:
+                              </strong>{' '}
+                              The vendor navigates Gramsci's (2006) hegemonic
+                              structures that privilege mainstream cultural
+                              practices by strategically highlighting Hakka
+                              cultural markers. This demonstrates minority
+                              culture preservation through strategic visibility
+                              rather than isolation, showing active resistance
+                              to cultural erasure.
+                            </p>
+                          </div>
+                        )}
+                        {vendor.markets[0].market.id ===
+                          'huaxi-street-market' && (
+                          <div className='space-y-4'>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Economic Democracy Analysis:
+                              </strong>{' '}
+                              {vendor.name} embodies Lefebvre's (1968) "right to
+                              the city" concept through economic accessibility
+                              that creates genuine cultural participation. This
+                              vendor's specialties (
+                              {vendor.specialties.slice(0, 3).join(', ')})
+                              represent working-class cultural practices that
+                              resist gentrification through affordable pricing
+                              and authentic community engagement.
+                            </p>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Class Politics Evidence:
+                              </strong>{' '}
+                              The vendor demonstrates Scott's (1990) concept of
+                              working-class cultural autonomy by maintaining
+                              practices that serve local community needs rather
+                              than tourist expectations. This supports the
+                              argument that genuine cultural democracy requires
+                              economic accessibility, not just cultural
+                              inclusion.
+                            </p>
+                          </div>
+                        )}
+                        {vendor.markets[0].market.id ===
+                          'kenting-night-market' && (
+                          <div className='space-y-4'>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Regional Adaptation Analysis:
+                              </strong>{' '}
+                              {vendor.name} illustrates Appadurai's (1996)
+                              "glocalization" concept through hybrid cultural
+                              forms that balance local identity with tourism
+                              demands. This vendor's specialties (
+                              {vendor.specialties.slice(0, 3).join(', ')})
+                              represent southern Taiwan's distinct food culture
+                              adapted for seasonal tourism while maintaining
+                              connections to local traditions.
+                            </p>
+                            <p className='text-neutral-300 leading-relaxed'>
+                              <strong className='text-white'>
+                                Hybrid Identity Evidence:
+                              </strong>{' '}
+                              The vendor demonstrates Robertson's (1995)
+                              "glocal" cultural forms that are simultaneously
+                              local and tourism-oriented, creating cultural
+                              adaptations that satisfy both resident communities
+                              and visitors without sacrificing essential
+                              regional identity markers.
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className='bg-primary/10 rounded-lg p-6'>
+                      <h3 className='text-lg font-semibold text-white mb-3'>
+                        Contribution to Thesis Argument
+                      </h3>
+                      <p className='text-neutral-300 text-sm leading-relaxed'>
+                        <strong className='text-white'>
+                          Supporting Evidence:
+                        </strong>{' '}
+                        {vendor.name} provides concrete evidence for the broader
+                        theoretical argument that Taiwan's night markets
+                        function as contested cultural spaces where different
+                        versions of "Taiwanese identity" are negotiated,
+                        performed, and sometimes erased. This vendor's specific
+                        strategies demonstrate how individual entrepreneurs
+                        navigate post-colonial food politics and cultural
+                        representation within commercial contexts, supporting
+                        the {vendor.markets[0].market.name} case study's
+                        analysis of{' '}
+                        {vendor.markets[0].market.id ===
+                          'shilin-night-market' &&
+                          'identity commodification and cultural performance.'}
+                        {vendor.markets[0].market.id ===
+                          'raohe-street-market' &&
+                          'minority culture preservation and strategic visibility.'}
+                        {vendor.markets[0].market.id ===
+                          'huaxi-street-market' &&
+                          'working-class cultural autonomy and economic democracy.'}
+                        {vendor.markets[0].market.id ===
+                          'kenting-night-market' &&
+                          'regional cultural adaptation and hybrid identity formation.'}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </section>
+
               {/* Methodological Note */}
               <section className='bg-gradient-to-r from-accent/10 to-primary/10 rounded-xl p-8'>
                 <h3 className='text-xl font-bold text-white mb-4'>

@@ -18,11 +18,43 @@ export default function Sources() {
       sources: [
         {
           citation:
+            'Appadurai, A. (1996). Modernity at Large: Cultural Dimensions of Globalization. University of Minnesota Press.',
+          summary:
+            'Examines how global cultural flows create new forms of local adaptation, introducing concepts of "glocalization" where local practices adapt to global pressures while maintaining distinctiveness.',
+          relevance:
+            'Provides theoretical framework for understanding how night market vendors balance local cultural authenticity with global tourism expectations, particularly relevant for southern Taiwan markets.',
+        },
+        {
+          citation:
             'Bourdieu, P. (1984). Distinction: A Social Critique of the Judgement of Taste. Harvard University Press.',
           summary:
             'Shows how cultural knowledge and tastes function as forms of capital that determine social position, explaining how economic constraints shape cultural expression and access.',
           relevance:
             'Shows how economic pressures in night markets determine which cultural narratives vendors can express, revealing that cultural democracy is more limited than it appears.',
+        },
+        {
+          citation:
+            'Gramsci, A. (2006). Prison Notebooks: Selections from Cultural Writings. Harvard University Press.',
+          summary:
+            'Develops the concept of cultural hegemony, examining how dominant cultural practices maintain power through consent rather than force, and how subordinated groups navigate these structures.',
+          relevance:
+            'Essential for understanding how mainstream Taiwanese/Chinese cultural practices dominate night market spaces, requiring minority cultures like Hakka to strategically navigate visibility and adaptation.',
+        },
+        {
+          citation:
+            'Lefebvre, H. (1968). The Right to the City. In E. Kofman & E. Lebas (Eds.), Writings on Cities. Blackwell.',
+          summary:
+            'Argues that urban spaces should be accessible to all citizens regardless of economic status, and that genuine democratic participation requires spaces where economic barriers are minimized.',
+          relevance:
+            'Provides framework for analyzing how night markets function as working-class cultural spaces that resist gentrification and maintain economic accessibility for cultural participation.',
+        },
+        {
+          citation:
+            'Robertson, R. (1995). Glocalization: Time-Space and Homogeneity-Heterogeneity. In M. Featherstone, S. Lash, & R. Robertson (Eds.), Global Modernities (pp. 25-44). Sage.',
+          summary:
+            'Introduces the concept of "glocalization" - the simultaneous occurrence of universalizing and particularizing tendencies in contemporary cultural processes, showing how global and local forces interact.',
+          relevance:
+            'Explains how night market vendors create cultural forms that are simultaneously local (maintaining regional distinctiveness) and global (oriented toward tourism markets).',
         },
         {
           citation: 'Said, E. W. (1978). Orientalism. Pantheon Books.',

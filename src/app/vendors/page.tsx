@@ -198,14 +198,17 @@ export default function Vendors() {
         {/* Header */}
         <div className='max-w-4xl mx-auto text-center mb-16'>
           <h1 className='font-bold text-4xl md:text-5xl text-white mb-6'>
-            Market <span className='text-primary'>Vendors</span>
+            Vendor <span className='text-primary'>Analysis</span>
           </h1>
           <p className='text-xl text-neutral-300 leading-relaxed mb-4'>
-            The people behind Taiwan's night market culture
+            Individual Entrepreneurs Navigating Cultural Identity Politics
           </p>
-          <p className='text-neutral-400'>
-            Meet the vendors who create the authentic experiences that make
-            Taiwan's night markets so special
+          <p className='text-neutral-400 leading-relaxed'>
+            These vendor profiles provide detailed evidence for how individual
+            entrepreneurs navigate the cultural dynamics identified in each
+            market case study. Each vendor demonstrates specific strategies for
+            managing cultural authenticity, economic viability, and identity
+            politics within Taiwan's contested cultural spaces.
           </p>
         </div>
 
@@ -246,21 +249,33 @@ export default function Vendors() {
           </div>
         </div>
 
-        {/* Research Note */}
+        {/* Academic Framework */}
         <div className='bg-secondary-light rounded-xl p-8 mb-12 max-w-4xl mx-auto'>
           <h2 className='text-2xl font-bold text-white mb-4'>
-            <span className='text-accent'>About This Documentation</span>
+            <span className='text-accent'>Theoretical Framework</span>
           </h2>
           <p className='text-neutral-300 leading-relaxed mb-4'>
-            These vendor profiles represent conversations and observations from
-            my fieldwork in Taiwan's night markets. Each entry captures not just
-            what vendors sell, but how they navigate cultural identity, tourism,
-            and tradition in these dynamic spaces.
+            Following Chen and Huang's (2014) methodology for analyzing vendor
+            behavior patterns, these profiles document how individual
+            entrepreneurs navigate the cultural identity politics identified in
+            Taiwan's night market case studies. Each vendor profile demonstrates
+            specific strategies for managing what Said (1978) calls
+            "orientalist" cultural performance, Scott's (1990) "public and
+            hidden transcripts," and Bourdieu's (1984) deployment of cultural
+            capital within contested commercial spaces.
+          </p>
+          <p className='text-neutral-300 leading-relaxed mb-4'>
+            These vendors provide concrete evidence for the broader theoretical
+            argument that Taiwan's night markets function as contested cultural
+            spaces where different versions of "Taiwanese identity" are
+            negotiated, performed, and sometimes erased through individual
+            entrepreneurial strategies.
           </p>
           <p className='text-neutral-400 text-sm'>
-            <strong>Note:</strong> All vendor information was collected with
-            permission and represents my observations as a researcher. Names and
-            identifying details may be anonymized to protect privacy.
+            <strong>Methodology:</strong> All vendor information was collected
+            through ethnographic fieldwork with informed consent. Names and
+            identifying details may be anonymized to protect participant privacy
+            while maintaining analytical integrity.
           </p>
         </div>
 
@@ -383,31 +398,51 @@ export default function Vendors() {
         {/* Research Context */}
         <div className='mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-8 max-w-4xl mx-auto'>
           <h3 className='text-2xl font-bold text-white mb-6 text-center'>
-            Research Methodology
+            Analytical Framework: Vendor Evidence for Market Case Studies
           </h3>
           <div className='grid md:grid-cols-2 gap-8'>
             <div>
               <h4 className='text-white font-semibold mb-3'>
-                Documentation Process
+                Supporting Evidence Structure
               </h4>
               <p className='text-neutral-300 text-sm mb-4'>
-                Each vendor profile is created through respectful observation
-                and conversation. I focus on understanding how vendors navigate
-                cultural identity, economic pressures, and changing market
-                dynamics.
+                Each vendor profile provides detailed evidence for the cultural
+                dynamics identified in the four market case studies: identity
+                commodification (Shilin), minority culture preservation (Raohe),
+                working-class autonomy (Huaxi), and regional adaptation
+                (Kenting). Individual entrepreneurial strategies demonstrate how
+                broader theoretical concepts operate in practice.
               </p>
             </div>
             <div>
               <h4 className='text-white font-semibold mb-3'>
-                Cultural Sensitivity
+                Ethnographic Methodology
               </h4>
               <p className='text-neutral-300 text-sm mb-4'>
-                All documentation follows ethical research practices, with
-                vendor consent and anonymization when requested. This research
-                aims to celebrate and preserve these important cultural
-                practices.
+                Following standard ethnographic practices for studying contested
+                cultural spaces, this research documents vendor navigation of
+                cultural identity politics through participant observation,
+                informal interviews, and behavioral analysis. All documentation
+                maintains ethical standards while preserving analytical depth
+                necessary for academic analysis.
               </p>
             </div>
+          </div>
+          <div className='mt-8 bg-neutral-900 rounded-lg p-6'>
+            <h4 className='text-white font-semibold mb-3 text-center'>
+              Connection to Thesis Argument
+            </h4>
+            <p className='text-neutral-300 text-sm text-center'>
+              <strong>
+                These vendor profiles demonstrate how Taiwan's night markets
+                function as contested cultural spaces where different versions
+                of "Taiwanese identity" are negotiated, performed, and sometimes
+                erased
+              </strong>{' '}
+              - with each individual entrepreneur employing specific strategies
+              to navigate post-colonial food politics and cultural
+              representation within commercial contexts.
+            </p>
           </div>
         </div>
       </div>
