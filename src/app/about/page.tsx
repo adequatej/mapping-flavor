@@ -1,6 +1,14 @@
+'use client'
+
 import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export default function About() {
+  const [showAdvancedFramework, setShowAdvancedFramework] = useState(false)
+  const [readingMode, setReadingMode] = useState<'academic' | 'accessible'>(
+    'accessible'
+  )
   return (
     <div className='min-h-screen py-16'>
       <div className='container mx-auto px-4'>
@@ -15,6 +23,56 @@ export default function About() {
             <div className='w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto'></div>
           </div>
 
+          {/* Reading Guide and Mode Toggle */}
+          <div className='bg-neutral-900 rounded-xl p-6 mb-12'>
+            <div className='flex flex-col md:flex-row md:items-center justify-between gap-4'>
+              {/* Navigation Hints */}
+              <div className='flex-1'>
+                <p className='text-neutral-300 text-sm leading-relaxed'>
+                  <span className='text-white font-medium'>
+                    New to this research?
+                  </span>{' '}
+                  Start with{' '}
+                  <Link
+                    href='/markets'
+                    className='text-primary hover:text-primary-light underline'
+                  >
+                    Market Case Studies
+                  </Link>{' '}
+                  for accessible cultural stories, or continue reading for
+                  complete academic context.
+                </p>
+              </div>
+
+              {/* Reading Level Toggle */}
+              <div className='flex items-center gap-3'>
+                <span className='text-neutral-400 text-sm'>Reading Level:</span>
+                <div className='flex bg-neutral-800 rounded-lg p-1'>
+                  <button
+                    onClick={() => setReadingMode('accessible')}
+                    className={`px-3 py-1 rounded text-sm transition-colors ${
+                      readingMode === 'accessible'
+                        ? 'bg-primary text-white'
+                        : 'text-neutral-400 hover:text-white'
+                    }`}
+                  >
+                    Accessible
+                  </button>
+                  <button
+                    onClick={() => setReadingMode('academic')}
+                    className={`px-3 py-1 rounded text-sm transition-colors ${
+                      readingMode === 'academic'
+                        ? 'bg-primary text-white'
+                        : 'text-neutral-400 hover:text-white'
+                    }`}
+                  >
+                    Academic
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Main Content Grid */}
           <div className='grid lg:grid-cols-3 gap-8'>
             {/* Introduction Text - Takes up 2 columns */}
@@ -25,19 +83,32 @@ export default function About() {
                     <div className='w-2 h-8 bg-primary rounded-full mr-4'></div>
                     Introduction
                   </h2>
-                  <p className='text-lg text-neutral-300 leading-relaxed'>
-                    Taiwan's night markets are often called democratic cultural
-                    spaces where traditional food practices exist alongside
-                    modern business pressures (Wu & Lin, 2013). But this view
-                    hides the complex power dynamics that decide which versions
-                    of "Taiwanese identity" get noticed, celebrated, or pushed
-                    aside in these spaces. Walking through Shilin Night Market,
-                    watching vendors switch between Taiwanese and broken English
-                    while serving different menus to tourists versus locals,
-                    shows how cultural identity works not as something fixed but
-                    as a performance shaped by post-colonial politics, economic
-                    needs, and competing claims about what's authentic.
-                  </p>
+                  {readingMode === 'accessible' ? (
+                    <p className='text-lg text-neutral-300 leading-relaxed'>
+                      Taiwan's night markets are complex cultural spaces where
+                      vendors balance tradition with modern business needs.
+                      Walking through these markets, you'll notice vendors
+                      switching languages and serving different foods to
+                      tourists versus locals. This shows how cultural identity
+                      isn't fixed but performed differently depending on the
+                      audience and economic pressures.
+                    </p>
+                  ) : (
+                    <p className='text-lg text-neutral-300 leading-relaxed'>
+                      Taiwan's night markets are often called democratic
+                      cultural spaces where traditional food practices exist
+                      alongside modern business pressures (Wu & Lin, 2013). But
+                      this view hides the complex power dynamics that decide
+                      which versions of "Taiwanese identity" get noticed,
+                      celebrated, or pushed aside in these spaces. Walking
+                      through Shilin Night Market, watching vendors switch
+                      between Taiwanese and broken English while serving
+                      different menus to tourists versus locals, shows how
+                      cultural identity works not as something fixed but as a
+                      performance shaped by post-colonial politics, economic
+                      needs, and competing claims about what's authentic.
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -159,89 +230,113 @@ export default function About() {
         {/* Critical Analysis Focus Areas */}
         <section className='mb-20'>
           <div className='bg-secondary-light rounded-xl p-8'>
-            <h2 className='font-bold text-4xl text-white mb-10 text-center'>
-              Critical Analysis <span className='text-primary'>Framework</span>
-            </h2>
-            <div className='grid md:grid-cols-2 gap-10'>
-              <div className='space-y-8'>
-                <div className='border-l-4 border-primary pl-6'>
-                  <h3 className='text-xl font-semibold text-white mb-4'>
-                    Post-Colonial Food Identity
-                  </h3>
-                  <p className='text-neutral-300 leading-relaxed'>
-                    How night markets resist or embrace Chinese culinary
-                    dominance, showing tensions between official "One China"
-                    cultural stories and everyday Taiwanese cultural practices.
-                    Analysis uses Edward Said's orientalism framework (Said,
-                    1978) applied to food tourism and cultural
-                    commercialization.
-                  </p>
-                </div>
-
-                <div className='border-l-4 border-accent pl-6'>
-                  <h3 className='text-xl font-semibold text-white mb-4'>
-                    Indigenous vs. Settler Foodways
-                  </h3>
-                  <p className='text-neutral-300 leading-relaxed'>
-                    Looking at how Taiwanese Aboriginal influences compete with
-                    Han migration patterns in night market food culture, showing
-                    which cultural stories get noticed and which stay pushed
-                    aside in these supposedly "democratic" spaces.
-                  </p>
-                </div>
-
-                <div className='border-l-4 border-primary pl-6'>
-                  <h3 className='text-xl font-semibold text-white mb-4'>
-                    Hakka Cultural Preservation
-                  </h3>
-                  <p className='text-neutral-300 leading-relaxed'>
-                    Night markets as places where minority Hakka culture works
-                    to survive within dominant Minnan and Chinese cultural
-                    frameworks, showing how economic spaces become vehicles for
-                    cultural resistance and adaptation.
-                  </p>
-                </div>
-              </div>
-
-              <div className='space-y-8'>
-                <div className='border-l-4 border-accent pl-6'>
-                  <h3 className='text-xl font-semibold text-white mb-4'>
-                    Generational Memory
-                  </h3>
-                  <p className='text-neutral-300 leading-relaxed'>
-                    How family recipes encode political and cultural history,
-                    particularly the transmission of pre-1949 mainland Chinese
-                    traditions, Japanese colonial influences, and distinctly
-                    Taiwanese innovations across generations of night market
-                    vendors.
-                  </p>
-                </div>
-
-                <div className='border-l-4 border-primary pl-6'>
-                  <h3 className='text-xl font-semibold text-white mb-4'>
-                    Economic Democratization
-                  </h3>
-                  <p className='text-neutral-300 leading-relaxed'>
-                    Critiquing Wu and Lin's (2013) description of night markets
-                    as "democratic cultural spaces" by looking at how economic
-                    constraints, spatial politics, and cultural capital still
-                    decide whose voices are heard and whose stay invisible.
-                  </p>
-                </div>
-
-                <div className='border-l-4 border-accent pl-6'>
-                  <h3 className='text-xl font-semibold text-white mb-4'>
-                    Digital Democratization Potential
-                  </h3>
-                  <p className='text-neutral-300 leading-relaxed'>
-                    Looking at how digital documentation might show and
-                    potentially democratize cultural representation by capturing
-                    the multiple, contested versions of "Taiwanese identity"
-                    that exist together within night market spaces.
-                  </p>
-                </div>
-              </div>
+            <div className='flex flex-col md:flex-row md:items-center justify-between mb-8'>
+              <h2 className='font-bold text-4xl text-white mb-4 md:mb-0'>
+                Critical Analysis{' '}
+                <span className='text-primary'>Framework</span>
+              </h2>
+              <button
+                onClick={() => setShowAdvancedFramework(!showAdvancedFramework)}
+                className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors self-start md:self-center'
+              >
+                {showAdvancedFramework
+                  ? 'Hide Advanced Framework'
+                  : 'Show Advanced Framework'}
+              </button>
             </div>
+
+            {/* Always visible summary */}
+            <div className='text-center mb-8'>
+              <p className='text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto'>
+                This research examines six key areas where cultural identity
+                politics play out in Taiwan's night markets, from post-colonial
+                food dynamics to digital documentation potential.
+              </p>
+            </div>
+
+            {showAdvancedFramework && (
+              <div className='grid md:grid-cols-2 gap-10'>
+                <div className='space-y-8'>
+                  <div className='border-l-4 border-primary pl-6'>
+                    <h3 className='text-xl font-semibold text-white mb-4'>
+                      Post-Colonial Food Identity
+                    </h3>
+                    <p className='text-neutral-300 leading-relaxed'>
+                      How night markets resist or embrace Chinese culinary
+                      dominance, showing tensions between official "One China"
+                      cultural stories and everyday Taiwanese cultural
+                      practices. Analysis uses Edward Said's orientalism
+                      framework (Said, 1978) applied to food tourism and
+                      cultural commercialization.
+                    </p>
+                  </div>
+
+                  <div className='border-l-4 border-accent pl-6'>
+                    <h3 className='text-xl font-semibold text-white mb-4'>
+                      Indigenous vs. Settler Foodways
+                    </h3>
+                    <p className='text-neutral-300 leading-relaxed'>
+                      Looking at how Taiwanese Aboriginal influences compete
+                      with Han migration patterns in night market food culture,
+                      showing which cultural stories get noticed and which stay
+                      pushed aside in these supposedly "democratic" spaces.
+                    </p>
+                  </div>
+
+                  <div className='border-l-4 border-primary pl-6'>
+                    <h3 className='text-xl font-semibold text-white mb-4'>
+                      Hakka Cultural Preservation
+                    </h3>
+                    <p className='text-neutral-300 leading-relaxed'>
+                      Night markets as places where minority Hakka culture works
+                      to survive within dominant Minnan and Chinese cultural
+                      frameworks, showing how economic spaces become vehicles
+                      for cultural resistance and adaptation.
+                    </p>
+                  </div>
+                </div>
+
+                <div className='space-y-8'>
+                  <div className='border-l-4 border-accent pl-6'>
+                    <h3 className='text-xl font-semibold text-white mb-4'>
+                      Generational Memory
+                    </h3>
+                    <p className='text-neutral-300 leading-relaxed'>
+                      How family recipes encode political and cultural history,
+                      particularly the transmission of pre-1949 mainland Chinese
+                      traditions, Japanese colonial influences, and distinctly
+                      Taiwanese innovations across generations of night market
+                      vendors.
+                    </p>
+                  </div>
+
+                  <div className='border-l-4 border-primary pl-6'>
+                    <h3 className='text-xl font-semibold text-white mb-4'>
+                      Economic Democratization
+                    </h3>
+                    <p className='text-neutral-300 leading-relaxed'>
+                      Critiquing Wu and Lin's (2013) description of night
+                      markets as "democratic cultural spaces" by looking at how
+                      economic constraints, spatial politics, and cultural
+                      capital still decide whose voices are heard and whose stay
+                      invisible.
+                    </p>
+                  </div>
+
+                  <div className='border-l-4 border-accent pl-6'>
+                    <h3 className='text-xl font-semibold text-white mb-4'>
+                      Digital Democratization Potential
+                    </h3>
+                    <p className='text-neutral-300 leading-relaxed'>
+                      Looking at how digital documentation might show and
+                      potentially democratize cultural representation by
+                      capturing the multiple, contested versions of "Taiwanese
+                      identity" that exist together within night market spaces.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -636,6 +731,59 @@ export default function About() {
               >
                 Sources page
               </a>
+            </p>
+          </div>
+        </section>
+
+        {/* Navigation Guidance */}
+        <section className='mt-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-8'>
+          <h3 className='text-2xl font-bold text-white mb-6 text-center'>
+            Explore the Research
+          </h3>
+          <div className='grid md:grid-cols-2 gap-8 mb-8'>
+            <div className='bg-neutral-900 rounded-lg p-6'>
+              <h4 className='text-lg font-semibold text-white mb-4'>
+                🗺️ Start with the Case Studies
+              </h4>
+              <p className='text-neutral-300 text-sm mb-4 leading-relaxed'>
+                Explore the four market case studies to see how these
+                theoretical concepts work in practice. Each market demonstrates
+                different cultural dynamics and strategies.
+              </p>
+              <Link
+                href='/markets'
+                className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors inline-block text-sm'
+              >
+                View Market Case Studies
+              </Link>
+            </div>
+            <div className='bg-neutral-900 rounded-lg p-6'>
+              <h4 className='text-lg font-semibold text-white mb-4'>
+                👥 See Individual Evidence
+              </h4>
+              <p className='text-neutral-300 text-sm mb-4 leading-relaxed'>
+                Read detailed vendor profiles that provide specific evidence for
+                the theoretical arguments. Each profile shows how individual
+                entrepreneurs navigate cultural identity politics.
+              </p>
+              <Link
+                href='/vendors'
+                className='bg-accent hover:bg-accent-dark text-white font-medium py-2 px-4 rounded-lg transition-colors inline-block text-sm'
+              >
+                Browse Vendor Profiles
+              </Link>
+            </div>
+          </div>
+          <div className='text-center'>
+            <p className='text-neutral-400 text-sm leading-relaxed'>
+              Or use the{' '}
+              <Link
+                href='/explorer'
+                className='text-primary hover:text-primary-light underline'
+              >
+                Interactive Map
+              </Link>{' '}
+              to explore markets and vendors geographically
             </p>
           </div>
         </section>
