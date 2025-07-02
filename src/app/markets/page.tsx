@@ -167,13 +167,13 @@ export default function Markets() {
             <span className='text-accent'>Methodology</span>
           </h2>
           <p className='text-neutral-300 leading-relaxed mb-4'>
-            This research uses critical ethnographic observation across four
+            This research uses critical observational analysis across four
             Taiwan night markets, following Chen and Huang's (2014) framework
             for analyzing vendor behaviors while incorporating postcolonial
-            approaches that examine power dynamics in cultural spaces. Each
-            market visit involved documenting language switching, menu
-            variations for different audiences, spatial organization, and
-            vendor-customer interactions.
+            approaches (Said, 1978; Scott, 1990) that examine power dynamics in
+            cultural spaces. Analysis focuses on publicly observable patterns:
+            language switching, menu variations for different audiences, spatial
+            organization, and vendor-customer interactions.
           </p>
           <p className='text-neutral-400 text-sm'>
             <strong>Research Limitations:</strong> These observations represent
@@ -186,12 +186,38 @@ export default function Markets() {
 
         {/* Content Bridge */}
         <div className='bg-primary/10 rounded-lg p-6 mb-12 max-w-4xl mx-auto text-center'>
-          <p className='text-neutral-300 leading-relaxed'>
+          <p className='text-neutral-300 leading-relaxed mb-4'>
             <strong className='text-white'>The Four Case Studies Below</strong>{' '}
-            each demonstrate a different aspect of cultural identity politics in
-            Taiwan's night markets. Click any market to see detailed analysis of
-            how vendors navigate cultural expectations in that specific space.
+            each show a different way that "Taiwanese identity" gets contested
+            and negotiated in night markets:
           </p>
+          <div className='grid md:grid-cols-2 gap-4 text-sm'>
+            <div className='text-left'>
+              <p className='text-white font-medium'>Shilin:</p>
+              <p className='text-neutral-400'>
+                Identity performed differently for tourists vs locals
+              </p>
+            </div>
+            <div className='text-left'>
+              <p className='text-white font-medium'>Raohe:</p>
+              <p className='text-neutral-400'>
+                Ethnic minorities competing for space within "Taiwanese"
+                identity
+              </p>
+            </div>
+            <div className='text-left'>
+              <p className='text-white font-medium'>Huaxi:</p>
+              <p className='text-neutral-400'>
+                Working-class authentic practices vs commodified culture
+              </p>
+            </div>
+            <div className='text-left'>
+              <p className='text-white font-medium'>Kenting:</p>
+              <p className='text-neutral-400'>
+                Local identity adapting to external tourism pressures
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Markets Grid */}
