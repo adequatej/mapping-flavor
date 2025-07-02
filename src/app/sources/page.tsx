@@ -92,12 +92,11 @@ export default function Sources() {
       sources: [
         {
           citation:
-            'Srinivasan, R., & Luther, A. (2016). Digital Museums and Diverse Cultural Knowledges: Moving Past the Traditional Catalog. Museum Anthropology Review, 10(2), 47–71.',
-          url: 'https://www.researchgate.net/publication/220175180_Digital_Museums_and_Diverse_Cultural_Knowledges_Moving_Past_the_Traditional_Catalog',
+            'Barbash, M., Petrenko, N., & Yepyk, L. (2024). Cultural Preservation and Digital Heritage: Challenges and Opportunities. Amazonia Investiga, 13(75), 262–274.',
           summary:
-            'Argues for digital heritage approaches where communities control how their own cultural stories are told and shared, challenging traditional museum systems that impose outside perspectives.',
+            'Explores both opportunities and challenges in digital cultural preservation, emphasizing the importance of community collaboration and accuracy in representation.',
           relevance:
-            'Supports my approach of creating this culturally respectful digital platform that gives communities control over their heritage representation.',
+            'Guides development of preservation features while highlighting the need for authentic, community-collaborative approaches.',
         },
         {
           citation:
@@ -109,11 +108,12 @@ export default function Sources() {
         },
         {
           citation:
-            'Barbash, M., Petrenko, N., & Yepyk, L. (2024). Cultural Preservation and Digital Heritage: Challenges and Opportunities. Amazonia Investiga, 13(75), 262–274.',
+            'Srinivasan, R., & Luther, A. (2016). Digital Museums and Diverse Cultural Knowledges: Moving Past the Traditional Catalog. Museum Anthropology Review, 10(2), 47–71.',
+          url: 'https://www.researchgate.net/publication/220175180_Digital_Museums_and_Diverse_Cultural_Knowledges_Moving_Past_the_Traditional_Catalog',
           summary:
-            'Explores both opportunities and challenges in digital cultural preservation, emphasizing the importance of community collaboration and accuracy in representation.',
+            'Argues for digital heritage approaches where communities control how their own cultural stories are told and shared, challenging traditional museum systems that impose outside perspectives.',
           relevance:
-            'Guides development of preservation features while highlighting the need for authentic, community-collaborative approaches.',
+            'Supports my approach of creating this culturally respectful digital platform that gives communities control over their heritage representation.',
         },
       ],
     },
@@ -157,19 +157,19 @@ export default function Sources() {
       sources: [
         {
           citation:
-            "Tang, C. (2024). Taiwan's Night Market Culture; How to Enjoy Taiwanese Night Markets Like a Local. ABTaiwanProject.",
-          summary:
-            'Provides practical insights into night market culture, focusing on must-try dishes and social dynamics from a local perspective.',
-          relevance:
-            'Offers grounded, practical knowledge that enhances the authenticity of cultural descriptions and validates academic observations with local expertise.',
-        },
-        {
-          citation:
             "Su, S. (2023). Let's Go to the Night Market! A Movable Feast of Taiwanese Treats. Ministry of Foreign Affairs, Republic of China (Taiwan).",
           summary:
             "Official overview of Taiwan's night markets emphasizing their role as cultural hubs and community spaces for both locals and tourists.",
           relevance:
             'Provides official government perspective on night market cultural significance, useful for understanding how cultural policy shapes market dynamics.',
+        },
+        {
+          citation:
+            "Tang, C. (2024). Taiwan's Night Market Culture; How to Enjoy Taiwanese Night Markets Like a Local. ABTaiwanProject.",
+          summary:
+            'Provides practical insights into night market culture, focusing on must-try dishes and social dynamics from a local perspective.',
+          relevance:
+            'Offers grounded, practical knowledge that enhances the authenticity of cultural descriptions and validates academic observations with local expertise.',
         },
       ],
     },
