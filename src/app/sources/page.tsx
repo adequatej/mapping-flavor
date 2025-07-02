@@ -18,58 +18,58 @@ export default function Sources() {
       sources: [
         {
           citation:
-            'Appadurai, A. (1996). Modernity at Large: Cultural Dimensions of Globalization. University of Minnesota Press.',
+            'Appadurai, Arjun. Modernity at Large: Cultural Dimensions of Globalization. University of Minnesota Press, 1996.',
           summary:
-            'Examines how global cultural flows create new forms of local adaptation, introducing concepts of "glocalization" where local practices adapt to global pressures while maintaining distinctiveness.',
+            'Shows how local cultures adapt to global influences while keeping their unique character, introducing the concept of "glocalization" where communities blend global trends with local traditions.',
           relevance:
-            'Provides theoretical framework for understanding how night market vendors balance local cultural authenticity with global tourism expectations, particularly relevant for southern Taiwan markets.',
+            'Helps explain how night market vendors balance authentic local culture with tourist expectations, especially important for understanding southern Taiwan markets.',
         },
         {
           citation:
-            'Bourdieu, P. (1984). Distinction: A Social Critique of the Judgement of Taste. Harvard University Press.',
+            'Bourdieu, Pierre. Distinction: A Social Critique of the Judgement of Taste. Harvard University Press, 1984.',
           summary:
-            'Shows how cultural knowledge and tastes function as forms of capital that determine social position, explaining how economic constraints shape cultural expression and access.',
+            'Explains how cultural knowledge works like money having the "right" cultural knowledge gives you social advantages, while economic pressures limit what cultures can be expressed.',
           relevance:
-            'Shows how economic pressures in night markets determine which cultural narratives vendors can express, revealing that cultural democracy is more limited than it appears.',
+            'Shows how money pressures in night markets control which cultural stories vendors can tell, revealing that cultural democracy is more limited than it appears.',
         },
         {
           citation:
-            'Gramsci, A. (2006). Prison Notebooks: Selections from Cultural Writings. Harvard University Press.',
+            'Gramsci, Antonio. Selections from the Prison Notebooks. International Publishers, 1971.',
           summary:
-            'Develops the concept of cultural hegemony, examining how dominant cultural practices maintain power through consent rather than force, and how subordinated groups navigate these structures.',
+            'Explains how dominant cultures stay in power not through force but by making their way of life seem "normal" and natural, while minority groups must find smart ways to survive within these systems.',
           relevance:
-            'Essential for understanding how mainstream Taiwanese/Chinese cultural practices dominate night market spaces, requiring minority cultures like Hakka to strategically navigate visibility and adaptation.',
+            'Essential for understanding how mainstream Taiwanese/Chinese culture dominates night market spaces, forcing minority cultures like Hakka to find strategic ways to stay visible.',
         },
         {
           citation:
-            'Lefebvre, H. (1968). The Right to the City. In E. Kofman & E. Lebas (Eds.), Writings on Cities. Blackwell.',
+            'Lefebvre, Henri. "The Right to the City." Writings on Cities, edited by Eleonore Kofman and Elizabeth Lebas, Blackwell, 1968.',
           summary:
-            'Argues that urban spaces should be accessible to all citizens regardless of economic status, and that genuine democratic participation requires spaces where economic barriers are minimized.',
+            'Argues that city spaces should be open to everyone regardless of how much money they have, and that real democracy needs affordable spaces where all people can participate.',
           relevance:
-            'Provides framework for analyzing how night markets function as working-class cultural spaces that resist gentrification and maintain economic accessibility for cultural participation.',
+            'Helps analyze how night markets work as working-class cultural spaces that fight against expensive development and keep culture accessible to everyone.',
         },
         {
           citation:
-            'Robertson, R. (1995). Glocalization: Time-Space and Homogeneity-Heterogeneity. In M. Featherstone, S. Lash, & R. Robertson (Eds.), Global Modernities (pp. 25-44). Sage.',
+            'Robertson, Roland. "Glocalization: Time-Space and Homogeneity-Heterogeneity." Global Modernities, edited by Mike Featherstone, Scott Lash, and Roland Robertson, Sage, 1995, pp. 25-44.',
           summary:
-            'Introduces the concept of "glocalization" - the simultaneous occurrence of universalizing and particularizing tendencies in contemporary cultural processes, showing how global and local forces interact.',
+            'Introduces "glocalization" the idea that cultures become both more global and more local at the same time, showing how worldwide trends and local traditions blend together.',
           relevance:
-            'Explains how night market vendors create cultural forms that are simultaneously local (maintaining regional distinctiveness) and global (oriented toward tourism markets).',
+            'Explains how night market vendors create cultural practices that are both local (keeping regional traditions) and global (appealing to international tourists).',
         },
         {
-          citation: 'Said, E. W. (1978). Orientalism. Pantheon Books.',
+          citation: 'Said, Edward W. Orientalism. Pantheon Books, 1978.',
           summary:
-            'Foundational work examining how Western representations of the "Orient" serve to justify and maintain power relations, showing how cultural representations are political acts that reinforce hierarchies.',
+            'Groundbreaking work showing how Western stereotypes about "Eastern" cultures serve to maintain Western power, demonstrating that cultural representations are political acts that support inequality.',
           relevance:
-            'Important for analyzing how tourist-oriented cultural performances in night markets may reinforce certain narratives about Taiwan and its relationship to broader Asian cultural dynamics.',
+            'Important for analyzing how tourist-focused cultural performances in night markets may reinforce stereotypes about Taiwan and shape how Taiwan relates to other Asian cultures.',
         },
         {
           citation:
-            'Scott, J. C. (1990). Domination and the Arts of Resistance: Hidden Transcripts. Yale University Press.',
+            'Scott, James C. Domination and the Arts of Resistance: Hidden Transcripts. Yale University Press, 1990.',
           summary:
-            'Examines how subordinated groups develop "hidden transcripts" - forms of resistance and cultural preservation that operate beneath dominant power structures, distinct from public performances required by those in power.',
+            'Shows how oppressed groups develop "hidden transcripts" private ways of resisting and preserving their culture that operate beneath what powerful groups can see, different from the public performances required by those in power.',
           relevance:
-            'Provides framework for understanding how night market vendors navigate between public cultural performances for tourists/authorities and private preservation of authentic cultural practices.',
+            'Helps understand how night market vendors balance public cultural performances for tourists and authorities with private preservation of authentic cultural practices.',
         },
       ],
     },
@@ -78,7 +78,7 @@ export default function Sources() {
       sources: [
         {
           citation:
-            'Chen, Y.-J. (2011). Ethnic Politics in the Framing of National Cuisine: State Banquets and the Proliferation of Ethnic Cuisine in Taiwan. Food, Culture & Society, 14(3), 315–333.',
+            'Chen, Yu-Jen. "Ethnic Politics in the Framing of National Cuisine: State Banquets and the Proliferation of Ethnic Cuisine in Taiwan." Food, Culture & Society, vol. 14, no. 3, 2011, pp. 315–333.',
           doi: 'https://doi.org/10.2752/175174411X12961586033483',
           summary:
             "Examines how Taiwan's government has used food as a tool for building national identity, particularly through the promotion of Minnan and Hakka cuisines while marginalizing Indigenous foods.",
@@ -95,17 +95,17 @@ export default function Sources() {
             'Srinivasan, R., & Luther, A. (2016). Digital Museums and Diverse Cultural Knowledges: Moving Past the Traditional Catalog. Museum Anthropology Review, 10(2), 47–71.',
           url: 'https://www.researchgate.net/publication/220175180_Digital_Museums_and_Diverse_Cultural_Knowledges_Moving_Past_the_Traditional_Catalog',
           summary:
-            'Argues for participatory, inclusive digital heritage models that allow communities to define and share their own cultural narratives, challenging traditional museum cataloging systems.',
+            'Argues for digital heritage approaches where communities control how their own cultural stories are told and shared, challenging traditional museum systems that impose outside perspectives.',
           relevance:
-            'Supports my approach of creating culturally respectful digital platforms that empower community voices in heritage preservation.',
+            'Supports my approach of creating this culturally respectful digital platform that gives communities control over their heritage representation.',
         },
         {
           citation:
             'Giaccardi, E. (2012). Heritage and Social Media: Understanding Heritage in a Participatory Culture. Routledge.',
           summary:
-            'Examines how social media transforms cultural heritage preservation, enabling participatory curation and community-driven cultural narratives.',
+            'Studies how social media changes cultural heritage preservation, allowing communities to participate in curating and sharing their own cultural stories.',
           relevance:
-            'Provides theoretical foundation for integrating social features and community participation in digital cultural documentation.',
+            'Provides theoretical framework for digital heritage approaches that respect community perspectives, informing the platform emphasis on culturally sensitive documentation methods.',
         },
         {
           citation:
@@ -122,19 +122,19 @@ export default function Sources() {
       sources: [
         {
           citation:
-            'Chen, Y.-C., & Huang, H.-L. (2014). The Attractiveness of Tourist Night Markets in Taiwan – A Supply-Side View. Asia Pacific Journal of Tourism Research, 19(6), 687–705.',
+            'Chen, Yu-Chen, and Hsin-Ling Huang. "The Attractiveness of Tourist Night Markets in Taiwan: A Supply-Side View." Asia Pacific Journal of Tourism Research, vol. 19, no. 6, 2014, pp. 687–705.',
           summary:
-            'Analyzes how vendors create "attractiveness" for tourists through cultural performances and market experiences, examining the business motivations behind cultural commodification.',
+            'Studies how vendors make their stalls appealing to tourists through cultural performances and market experiences, examining the business reasons behind turning culture into products.',
           relevance:
-            'Provides framework for analyzing vendor behavior and cultural performance strategies, particularly relevant for understanding identity commodification at Shilin Night Market.',
+            'Provides framework for analyzing vendor behavior and cultural performance strategies, especially important for understanding identity commercialization at Shilin Night Market.',
         },
         {
           citation:
-            'Wu, C.-H., & Lin, Y.-H. (2013). To Explore Taiwanese Night Markets Culture and Tourism Experience and Behaviour. Procedia - Social and Behavioral Sciences, 40, 435–440.',
+            'Wu, Chia-Hung, and Yu-Hsiang Lin. "To Explore Taiwanese Night Markets Culture and Tourism Experience and Behaviour." Procedia - Social and Behavioral Sciences, vol. 40, 2013, pp. 435–440.',
           summary:
-            'Explores tourist engagement with night markets, focusing on behaviors, consumption patterns, and cultural interactions as social spaces for cultural exchange.',
+            'Studies how tourists engage with night markets, looking at behaviors, buying patterns, and cultural interactions as social spaces for cultural exchange.',
           relevance:
-            'Provides framework for "democratic cultural spaces" claim that this research critiques, showing gaps between idealized and actual power dynamics in night market interactions.',
+            'Provides the "democratic cultural spaces" idea that this research challenges, helping reveal gaps between ideal visions and actual power dynamics in night market interactions.',
         },
       ],
     },
@@ -146,22 +146,22 @@ export default function Sources() {
           citation:
             'Giglitto, D., & Ciolfi, L. (2023). Digital Approaches to Inclusion and Participation in Cultural Heritage: Insights from Research and Practice in Europe. International Journal of Heritage Studies, 29(1), 1–17.',
           summary:
-            'Explores digital strategies for promoting inclusivity in cultural heritage projects, highlighting case studies where marginalized communities contribute their perspectives.',
+            'Studies digital methods for making cultural heritage projects more inclusive, highlighting examples where marginalized communities contribute their own perspectives.',
           relevance:
-            'Provides framework for ensuring the platform is accessible and engaging for diverse users, emphasizing inclusive representation.',
+            'Helps ensure the platform is accessible to diverse users and emphasizes inclusive representation of different cultural perspectives.',
         },
       ],
     },
     {
-      category: 'Popular & Cultural Sources',
+      category: 'Cultural Context & Official Sources',
       sources: [
         {
           citation:
-            "Tang, C. (2025). Taiwan's Night Market Culture; How to Enjoy Taiwanese Night Markets Like a Local. ABTaiwanProject.",
+            "Tang, C. (2024). Taiwan's Night Market Culture; How to Enjoy Taiwanese Night Markets Like a Local. ABTaiwanProject.",
           summary:
             'Provides practical insights into night market culture, focusing on must-try dishes and social dynamics from a local perspective.',
           relevance:
-            'Offers grounded, practical knowledge that enhances the authenticity of platform content and user guidance.',
+            'Offers grounded, practical knowledge that enhances the authenticity of cultural descriptions and validates academic observations with local expertise.',
         },
         {
           citation:
@@ -169,7 +169,7 @@ export default function Sources() {
           summary:
             "Official overview of Taiwan's night markets emphasizing their role as cultural hubs and community spaces for both locals and tourists.",
           relevance:
-            "Provides official perspective on night market cultural significance, supporting the platform's educational and cultural preservation goals.",
+            'Provides official government perspective on night market cultural significance, useful for understanding how cultural policy shapes market dynamics.',
         },
       ],
     },
@@ -193,26 +193,23 @@ export default function Sources() {
           </p>
         </div>
 
-        {/* Academic Note */}
+        {/* Research Overview */}
         <div className='bg-secondary-light rounded-xl p-8 mb-12 max-w-4xl mx-auto'>
           <h2 className='text-2xl font-bold text-white mb-4'>
-            <span className='text-accent'>Theoretical Framework</span>
+            <span className='text-accent'>How These Sources Work Together</span>
           </h2>
           <p className='text-neutral-300 leading-relaxed mb-4'>
-            This research uses critical ethnographic observation combined with
-            postcolonial and cultural studies theory to examine how cultural
-            identity operates in Taiwan's night market spaces. The analysis
-            draws primarily on Edward Said's orientalism framework, Pierre
-            Bourdieu's cultural capital theory, and James C. Scott's concept of
-            hidden transcripts to understand power dynamics in cultural
-            representation.
+            This research observes how cultural identity works in Taiwan's night
+            market spaces. The analysis uses Edward Said's ideas about cultural
+            stereotypes, Pierre Bourdieu's concept of cultural knowledge as
+            power, and James C. Scott's ideas about hidden resistance to
+            understand how power shapes cultural representation.
           </p>
           <p className='text-neutral-400 text-sm'>
-            <strong>Methodology:</strong> Evidence gathered through participant
-            observation at four Taiwan night markets, analyzed using Chen and
-            Huang's (2014) vendor behavior framework while incorporating
-            postcolonial approaches that examine power dynamics in everyday
-            cultural spaces.
+            <strong>Research Method:</strong> Evidence gathered by observing
+            vendor behavior at four Taiwan night markets, analyzed using Chen
+            and Huang's (2014) framework for understanding how vendors balance
+            cultural authenticity with business needs.
           </p>
         </div>
 

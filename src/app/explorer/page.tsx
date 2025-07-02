@@ -160,6 +160,16 @@ export default function Explorer() {
     }
   }
 
+  // Market filter handler for vendor mode
+  const handleMarketFilter = (marketId: string | null) => {
+    if (marketId) {
+      const market = markets?.find(m => m.id === marketId)
+      dispatch(setSelectedMarket(market || null))
+    } else {
+      dispatch(setSelectedMarket(null))
+    }
+  }
+
   const handleVendorSelect = (vendor: Vendor | null) => {
     dispatch(setSelectedVendor(vendor))
 
@@ -215,6 +225,7 @@ export default function Explorer() {
           searchQuery={searchQuery}
           isSidebarOpen={isSidebarOpen}
           selectedMarket={selectedMarket}
+          onMarketFilter={handleMarketFilter}
         />
       </div>
 

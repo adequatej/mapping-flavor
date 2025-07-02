@@ -244,9 +244,9 @@ export default function MarketDetail() {
                     Taiwanese, and broken English. The air fills with sizzling
                     sounds and sweet, spicy smells. Tourists line up for
                     Instagram-worthy food while locals navigate quickly to their
-                    favorite spots. This is where Taiwan's food culture meets
-                    the world, creating a unique space where tradition and
-                    performance blend together every night.
+                    favorite spots (Tang, 2024). This is where Taiwan's food
+                    culture meets the world, creating a unique space where
+                    tradition and performance blend together every night.
                   </p>
                 )}
                 {market.id === 'raohe-street-market' && (
@@ -311,22 +311,26 @@ export default function MarketDetail() {
                 {market.id === 'raohe-street-market' && (
                   <p className='text-neutral-300 leading-relaxed text-lg'>
                     <strong className='text-white'>
-                      This market shows how Hakka vendors keep their cultural
-                      traditions alive while adapting to what mainstream
-                      customers expect.
+                      This market shows how Hakka vendors negotiate space for
+                      their distinct identity within mainstream "Taiwanese
+                      culture" by strategically showing and hiding cultural
+                      differences.
                     </strong>{' '}
-                    It serves as an important place for preserving Hakka culture
-                    in the city.
+                    It reveals how Taiwan's cultural identity is actually
+                    contested between different ethnic communities rather than
+                    being unified.
                   </p>
                 )}
                 {market.id === 'huaxi-street-market' && (
                   <p className='text-neutral-300 leading-relaxed text-lg'>
                     <strong className='text-white'>
-                      This market works as a place where everyone can afford to
-                      eat and belong, regardless of how much money they have.
+                      This market shows how working-class vendors maintain
+                      authentic Taiwanese cultural practices that resist both
+                      tourist expectations and middle-class cultural trends.
                     </strong>{' '}
-                    It creates community for working people while keeping prices
-                    low so everyone can participate.
+                    Here vendors preserve traditional community-focused food
+                    culture instead of performing "authentic Taiwan" for
+                    outsiders.
                   </p>
                 )}
                 {market.id === 'kenting-night-market' && (
@@ -349,6 +353,12 @@ export default function MarketDetail() {
                 What You Can Observe
               </h2>
               <div className='prose prose-lg prose-invert max-w-none'>
+                <p className='text-neutral-300 leading-relaxed mb-6'>
+                  Following Chen and Huang's vendor behavior analysis framework
+                  (Chen and Huang 45-67), these observable patterns reveal how
+                  vendors navigate cultural identity politics in their daily
+                  interactions:
+                </p>
                 {market.id === 'shilin-night-market' && (
                   <>
                     <p className='text-neutral-300 leading-relaxed mb-4'>
@@ -383,27 +393,32 @@ export default function MarketDetail() {
                   <>
                     <p className='text-neutral-300 leading-relaxed mb-4'>
                       <strong className='text-white'>
-                        Hakka Language Use:
+                        Strategic Language Switching:
                       </strong>{' '}
-                      Older vendors speak Hakka with each other and with Hakka
-                      customers. Younger family members translate between Hakka
-                      grandparents and non-Hakka customers. Signs often include
-                      Hakka characters alongside Chinese.
+                      Vendors speak Hakka with Hakka customers but immediately
+                      switch to Mandarin with non-Hakka customers. Hakka
+                      cultural markers are highlighted when serving Hakka
+                      customers but downplayed with mainstream Taiwanese
+                      customers.
                     </p>
                     <p className='text-neutral-300 leading-relaxed mb-4'>
                       <strong className='text-white'>
-                        Traditional Techniques:
+                        Cultural Negotiation:
                       </strong>{' '}
-                      You can watch vendors use specific hand movements and
-                      tools families pass down through generations. Preparation
-                      methods differ from mainstream Chinese cooking, with
-                      distinctive spice combinations and timing.
+                      Vendors must decide when to emphasize Hakka
+                      distinctiveness versus when to present their food as
+                      generally "Taiwanese." Some dishes are labeled as Hakka
+                      specialties while others are presented as standard
+                      Taiwanese food.
                     </p>
                     <p className='text-neutral-300 leading-relaxed'>
-                      <strong className='text-white'>Cultural Markers:</strong>{' '}
-                      Hakka food items are clearly labeled and vendors proudly
-                      explain their cultural significance when asked. They often
-                      share family histories connected to the recipes.
+                      <strong className='text-white'>
+                        Competing Identity Claims:
+                      </strong>{' '}
+                      You can observe vendors navigating between preserving
+                      Hakka traditions and fitting into mainstream ideas about
+                      "authentic Taiwanese food." Different vendors make
+                      different choices about cultural visibility.
                     </p>
                   </>
                 )}
@@ -411,27 +426,31 @@ export default function MarketDetail() {
                   <>
                     <p className='text-neutral-300 leading-relaxed mb-4'>
                       <strong className='text-white'>
-                        Worker Customer Base:
+                        Authentic Community Practices:
                       </strong>{' '}
-                      You see construction workers in uniform eating before 6
-                      AM. Night shift workers grab food after midnight. Office
-                      employees in business clothes buy quick dinners during
-                      rush hour.
+                      Vendors serve the same simple, traditional foods to
+                      everyone without special tourist menus or presentations.
+                      No English signs or Instagram-friendly styling. Food
+                      preparation follows family traditions rather than tourist
+                      expectations.
                     </p>
                     <p className='text-neutral-300 leading-relaxed mb-4'>
-                      <strong className='text-white'>Pricing Behavior:</strong>{' '}
-                      Vendors often give extra portions to regular customers.
-                      Students get discounts without asking. Prices stay the
-                      same regardless of customer appearance or demand.
+                      <strong className='text-white'>
+                        Local Customer Relationships:
+                      </strong>{' '}
+                      Vendors know regular customers by name and remember their
+                      usual orders. Conversations happen in local dialects about
+                      work, family, and neighborhood news. People eat standing
+                      together regardless of job or income level.
                     </p>
                     <p className='text-neutral-300 leading-relaxed'>
                       <strong className='text-white'>
-                        Community Interaction:
+                        Resistance to Commodification:
                       </strong>{' '}
-                      Vendors know customers by name and remember their usual
-                      orders. Conversations include job updates, family news,
-                      and local gossip. People eat standing together regardless
-                      of social class.
+                      Vendors reject tourist-oriented changes and maintain
+                      consistent community-focused practices. They prioritize
+                      serving local working people over attracting visitors or
+                      higher-income customers.
                     </p>
                   </>
                 )}
@@ -472,9 +491,9 @@ export default function MarketDetail() {
                   {market.id === 'shilin-night-market' &&
                     'These different behaviors with tourists versus locals prove that cultural identity becomes strategic performance rather than authentic expression. The language switching demonstrates what postcolonial theorists call "orientalist dynamics" in action.'}
                   {market.id === 'raohe-street-market' &&
-                    'The strategic use of Hakka language and cultural markers shows how minority communities navigate cultural preservation within dominant systems. This demonstrates active cultural resistance rather than passive tradition maintenance.'}
+                    'The strategic use of Hakka language and cultural markers reveals how "Taiwanese identity" is actually contested between different ethnic groups. This shows that even local identity is not unified but involves ongoing negotiation about which traditions count as "authentically Taiwanese."'}
                   {market.id === 'huaxi-street-market' &&
-                    'The consistent pricing and community recognition patterns prove that economic accessibility creates genuine cultural democracy. This challenges theories that cultural participation requires cultural capital.'}
+                    'The consistent pricing and authentic community practices show how working-class vendors create alternative versions of "Taiwanese identity" that resist commodification. This demonstrates cultural authenticity operating outside tourist and middle-class expectations.'}
                   {market.id === 'kenting-night-market' &&
                     'The seasonal adaptations show how local communities maintain cultural autonomy while responding to tourism pressures. This demonstrates successful "glocalization" rather than cultural loss.'}
                 </p>
@@ -518,20 +537,19 @@ export default function MarketDetail() {
                         </p>
 
                         <p className='text-neutral-300 leading-relaxed'>
-                          This cultural performance dynamic aligns with Edward
-                          Said's (1978) analysis of orientalism, where cultural
-                          representations serve tourist expectations rather than
-                          reflecting actual cultural practices. Vendors at
-                          Shilin Night Market navigate what Said identifies as
-                          the power relationship between observer and observed,
-                          adapting their cultural presentations to match tourist
+                          This cultural performance dynamic reflects how
+                          cultural representations serve tourist expectations
+                          rather than reflecting actual cultural practices.
+                          Vendors at Shilin Night Market navigate the power
+                          relationship between observer and observed, adapting
+                          their cultural presentations to match tourist
                           assumptions about "authentic Taiwan" while preserving
                           different cultural practices in interactions with
-                          local customers. This demonstrates how tourism creates
-                          what James C. Scott (1990) calls "public transcripts"
-                          - performances of cultural authenticity that conceal
-                          more complex cultural practices maintained in private
-                          interactions.
+                          local customers (Said 1-28). This demonstrates how
+                          tourism creates "public transcripts," performances of
+                          cultural authenticity that conceal more complex
+                          cultural practices maintained in private interactions
+                          (Scott 2-16).
                         </p>
                       </div>
                     </>
@@ -556,19 +574,18 @@ export default function MarketDetail() {
                         </p>
 
                         <p className='text-neutral-300 leading-relaxed'>
-                          This preservation dynamic illustrates Pierre
-                          Bourdieu's (1984) concept of cultural capital
-                          operating within minority cultural contexts. Hakka
+                          This preservation dynamic illustrates how cultural
+                          knowledge operates as a form of social power within
+                          minority cultural contexts (Bourdieu 114-25). Hakka
                           vendors at Raohe Street Market deploy their distinct
-                          cultural knowledge - traditional preparation methods,
-                          regional dialects, family recipes - as forms of
-                          cultural capital that differentiate their offerings
-                          within Taiwan's broader culinary landscape. However,
-                          this cultural capital operates within what Antonio
-                          Gramsci (2006) would identify as hegemonic structures
+                          cultural knowledge: traditional preparation methods,
+                          regional dialects, family recipes as forms of cultural
+                          capital that differentiate their offerings within
+                          Taiwan's broader culinary landscape. However, this
+                          cultural capital operates within hegemonic structures
                           that privilege mainstream Taiwanese/Chinese cultural
                           practices, requiring strategic navigation of cultural
-                          visibility and adaptation.
+                          visibility and adaptation (Gramsci 12-43).
                         </p>
                       </div>
                     </>
@@ -592,17 +609,16 @@ export default function MarketDetail() {
                         </p>
 
                         <p className='text-neutral-300 leading-relaxed'>
-                          This working-class cultural space challenges Wu and
-                          Lin's (2013) characterization of night markets by
-                          revealing how affordable pricing creates genuinely
-                          inclusive cultural participation. Following Henri
-                          Lefebvre's (1968) concept of "the right to the city,"
-                          Huaxi Street Market represents a space where vendors
-                          actively minimize economic barriers to cultural
-                          participation, creating what James C. Scott (1990)
-                          would recognize as a space for working-class cultural
-                          autonomy that operates outside middle-class cultural
-                          institutions.
+                          This working-class cultural space challenges common
+                          characterizations of night markets by revealing how
+                          affordable pricing creates genuinely inclusive
+                          cultural participation (Wu and Lin 45-67). Following
+                          the concept of "the right to the city," Huaxi Street
+                          Market represents a space where vendors actively
+                          minimize economic barriers to cultural participation
+                          (Lefebvre 147-59), creating a space for working-class
+                          cultural autonomy that operates outside middle-class
+                          cultural institutions (Scott 183-201).
                         </p>
                       </div>
                     </>
@@ -627,16 +643,15 @@ export default function MarketDetail() {
                         </p>
 
                         <p className='text-neutral-300 leading-relaxed'>
-                          This regional adaptation process reflects what Arjun
-                          Appadurai (1996) calls "glocalization" - the
-                          adaptation of local cultural practices to global
-                          tourism flows while maintaining regional
-                          distinctiveness. Vendors at Kenting Night Market
-                          navigate between preserving southern Taiwan's distinct
-                          food culture and adapting to tourism expectations,
-                          creating what Roland Robertson (1995) would identify
-                          as "glocal" cultural forms that are simultaneously
-                          local and oriented toward global tourism markets.
+                          This regional adaptation process reflects
+                          "glocalization," the adaptation of local cultural
+                          practices to global tourism flows while maintaining
+                          regional distinctiveness (Appadurai 178-99). Vendors
+                          at Kenting Night Market navigate between preserving
+                          southern Taiwan's distinct food culture and adapting
+                          to tourism expectations, creating "glocal" cultural
+                          forms that are simultaneously local and oriented
+                          toward global tourism markets (Robertson 25-44).
                         </p>
                       </div>
                     </>
@@ -779,48 +794,178 @@ export default function MarketDetail() {
                         Additional Scholarly Debates
                       </h4>
 
-                      <div className='space-y-4'>
-                        <p className='text-neutral-300 leading-relaxed'>
-                          <strong className='text-white'>
-                            Methodological Criticism:
-                          </strong>{' '}
-                          Some scholars might question ethnographic observation
-                          as insufficient for understanding complex cultural
-                          dynamics, arguing that longer-term participant
-                          observation or community-based participatory research
-                          would yield more valid results. However, the patterns
-                          documented across multiple sites using consistent
-                          observational methods provide reliable evidence for
-                          the theoretical claims presented.
-                        </p>
+                      {market.id === 'shilin-night-market' && (
+                        <div className='space-y-4'>
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Tourism and Cultural Representation:
+                            </strong>{' '}
+                            The tension between orientalist dynamics and tourism
+                            development presents a key theoretical challenge.
+                            While tourism can provide economic benefits, this
+                            research demonstrates how tourist expectations for
+                            "authentic" experiences can replace genuine cultural
+                            practices rather than preserving them, creating
+                            distorted cultural representations (Said 1-28).
+                          </p>
 
-                        <p className='text-neutral-300 leading-relaxed'>
-                          <strong className='text-white'>
-                            Cultural Essentialism Debate:
-                          </strong>{' '}
-                          Critics might argue that analyzing "authentic" versus
-                          "performed" culture reinforces problematic notions of
-                          cultural purity. This research acknowledges that all
-                          culture involves performance, but distinguishes
-                          between performances chosen by communities versus
-                          those demanded by external economic pressures - a
-                          distinction crucial for understanding power dynamics
-                          in cultural representation.
-                        </p>
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Agency within Power Structures:
+                            </strong>{' '}
+                            This analysis builds on concepts of resistance
+                            within power structures to show how vendors maintain
+                            significant agency in cultural representation
+                            despite tourism economic pressures. The documented
+                            strategies reveal active cultural negotiation rather
+                            than passive response to market demands (Scott
+                            2-16).
+                          </p>
 
-                        <p className='text-neutral-300 leading-relaxed'>
-                          <strong className='text-white'>
-                            Economic Determinism Concern:
-                          </strong>{' '}
-                          Some may argue that focusing on economic factors
-                          reduces complex cultural phenomena to simple market
-                          dynamics. However, this analysis demonstrates that
-                          economic constraints create specific conditions for
-                          cultural negotiation without determining cultural
-                          outcomes - vendors retain agency within economic
-                          constraints.
-                        </p>
-                      </div>
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Performance and Power Dynamics:
+                            </strong>{' '}
+                            Following critiques of cultural representation (Said
+                            1-28) and analysis of public transcripts (Scott
+                            2-16), this research recognizes all culture involves
+                            performance while distinguishing between
+                            community-chosen versus externally-demanded
+                            performances. This distinction proves crucial for
+                            understanding power dynamics in tourist spaces.
+                          </p>
+                        </div>
+                      )}
+
+                      {market.id === 'raohe-street-market' && (
+                        <div className='space-y-4'>
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Cultural Capital and Minority Identity:
+                            </strong>{' '}
+                            Building on theories of cultural capital, this
+                            research demonstrates how Hakka vendors deploy their
+                            distinct cultural knowledge as economic assets while
+                            maintaining cultural authenticity. When controlled
+                            by community members, commercial spaces can provide
+                            economic sustainability for cultural preservation
+                            that traditional preservation methods often lack
+                            (Bourdieu 114-25).
+                          </p>
+
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Hegemonic Structures and Adaptation:
+                            </strong>{' '}
+                            Following analysis of hegemonic structures, this
+                            research shows how Hakka vendors navigate dominant
+                            cultural systems without losing cultural
+                            distinctiveness. Strategic adaptation can actually
+                            strengthen minority identity by creating economic
+                            viability and community visibility within dominant
+                            cultural frameworks (Gramsci 12-43).
+                          </p>
+
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Cultural Resistance and Resilience:
+                            </strong>{' '}
+                            The evidence demonstrates how Hakka vendors maintain
+                            distinct cultural markers while participating in
+                            broader economic systems, supporting concepts of
+                            cultural resistance within hegemonic structures.
+                            This reveals cultural resilience rather than loss,
+                            challenging assumptions about inevitable cultural
+                            assimilation (Gramsci 12-43).
+                          </p>
+                        </div>
+                      )}
+
+                      {market.id === 'huaxi-street-market' && (
+                        <div className='space-y-4'>
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Challenging Wu & Lin's Democratic Spaces:
+                            </strong>{' '}
+                            This research builds on Wu & Lin's (2013)
+                            characterization of night markets as democratic
+                            spaces while revealing deeper mechanisms. Economic
+                            accessibility creates conditions for cultural
+                            participation without determining cultural content,
+                            demonstrating how working-class communities create
+                            cultural autonomy beyond simple market access.
+                          </p>
+
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Right to the City Framework:
+                            </strong>{' '}
+                            Following Lefebvre's (1968) "right to the city"
+                            concept, this research shows how working-class
+                            cultural practices create genuine community
+                            participation that elite cultural spaces cannot
+                            replicate. Vendors actively minimize economic
+                            barriers to cultural participation, creating
+                            inclusive spaces.
+                          </p>
+
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Cultural Autonomy and Resistance:
+                            </strong>{' '}
+                            The documented community solidarity and economic
+                            practices support Scott's (1990) analysis of
+                            working-class resistance strategies. This provides
+                            models for cultural preservation through collective
+                            action rather than institutional protection,
+                            demonstrating cultural autonomy within economic
+                            constraints.
+                          </p>
+                        </div>
+                      )}
+
+                      {market.id === 'kenting-night-market' && (
+                        <div className='space-y-4'>
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Glocalization and Cultural Adaptation:
+                            </strong>{' '}
+                            Following Appadurai's (1996) concept of
+                            "glocalization," this research demonstrates how
+                            communities can maintain cultural autonomy while
+                            adapting to tourism when they control the terms of
+                            cultural representation. Local cultural practices
+                            adapt to global tourism flows while maintaining
+                            regional distinctiveness.
+                          </p>
+
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Seasonal Adaptation Strategies:
+                            </strong>{' '}
+                            The evidence supports Appadurai's (1996) analysis of
+                            cultural flows by showing how vendors maintain
+                            year-round cultural practices while adapting
+                            seasonal presentations for tourism. This
+                            demonstrates sustainable cultural adaptation rather
+                            than cultural replacement, challenging assumptions
+                            about tourism's inevitably destructive impact.
+                          </p>
+
+                          <p className='text-neutral-300 leading-relaxed'>
+                            <strong className='text-white'>
+                              Glocal Cultural Forms:
+                            </strong>{' '}
+                            Building on Robertson's (1995) theory of "glocal"
+                            cultural forms, this analysis demonstrates how
+                            communities can successfully navigate global tourism
+                            pressures while maintaining local cultural
+                            distinctiveness. The documented strategies reveal
+                            genuine cultural evolution rather than cultural
+                            compromise.
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -927,14 +1072,82 @@ export default function MarketDetail() {
                           <div className='bg-primary/10 rounded p-3'>
                             <p className='text-neutral-300 text-xs'>
                               <strong className='text-white'>Analysis:</strong>{' '}
-                              {market.id === 'shilin-night-market' &&
-                                'Demonstrates strategic cultural performance for tourist consumption.'}
-                              {market.id === 'raohe-street-market' &&
-                                'Shows Hakka cultural preservation through strategic visibility.'}
-                              {market.id === 'huaxi-street-market' &&
-                                'Embodies working-class cultural autonomy through economic accessibility.'}
-                              {market.id === 'kenting-night-market' &&
-                                'Illustrates regional cultural adaptation to tourism demands.'}
+                              {market.id === 'shilin-night-market' && (
+                                <>
+                                  {vendorData.vendor.name ===
+                                    'Big Sausage Uncle' &&
+                                    'Demonstrates tourist-focused presentation with traditional preparation methods, showing sophisticated audience recognition.'}
+                                  {vendorData.vendor.name ===
+                                    "Mei-Li's Stinky Tofu" &&
+                                    'Serves as cultural ambassador, introducing challenging traditional foods to international audiences while preserving authentic methods.'}
+                                  {vendorData.vendor.name ===
+                                    'Night Market Bubble Tea King' &&
+                                    'Shows how traditional Taiwanese drinks adapt to global social media culture while maintaining cultural identity.'}
+                                  {![
+                                    'Big Sausage Uncle',
+                                    "Mei-Li's Stinky Tofu",
+                                    'Night Market Bubble Tea King',
+                                  ].includes(vendorData.vendor.name) &&
+                                    'Demonstrates strategic cultural performance for tourist consumption.'}
+                                </>
+                              )}
+                              {market.id === 'raohe-street-market' && (
+                                <>
+                                  {vendorData.vendor.name ===
+                                    "Grandma Chen's Hakka Noodles" &&
+                                    'Critical site for Hakka cultural preservation, demonstrating how minority cultures maintain identity through food traditions.'}
+                                  {vendorData.vendor.name ===
+                                    'Heritage Pepper Buns' &&
+                                    'Preserves traditional baking methods while demonstrating Hakka cultural distinctiveness within Taiwanese food culture.'}
+                                  {vendorData.vendor.name ===
+                                    'Three Generations Tea Eggs' &&
+                                    'Shows how simple dishes carry complex cultural knowledge and serve as ways to preserve minority culture.'}
+                                  {![
+                                    "Grandma Chen's Hakka Noodles",
+                                    'Heritage Pepper Buns',
+                                    'Three Generations Tea Eggs',
+                                  ].includes(vendorData.vendor.name) &&
+                                    'Shows Hakka cultural preservation through strategic visibility.'}
+                                </>
+                              )}
+                              {market.id === 'huaxi-street-market' && (
+                                <>
+                                  {vendorData.vendor.name ===
+                                    "Old Wang's Snake Soup" &&
+                                    'Maintains traditional food culture that resists gentrification, serving as authentic community gathering space.'}
+                                  {vendorData.vendor.name ===
+                                    "Workers' Noodle Stand" &&
+                                    'Shows night markets as democratic spaces where economic barriers to cultural participation are reduced.'}
+                                  {vendorData.vendor.name ===
+                                    'Night Shift Dumplings' &&
+                                    'Shows how night markets support working-class community needs beyond tourism, serving essential social infrastructure role.'}
+                                  {![
+                                    "Old Wang's Snake Soup",
+                                    "Workers' Noodle Stand",
+                                    'Night Shift Dumplings',
+                                  ].includes(vendorData.vendor.name) &&
+                                    'Embodies working-class cultural autonomy through economic accessibility.'}
+                                </>
+                              )}
+                              {market.id === 'kenting-night-market' && (
+                                <>
+                                  {vendorData.vendor.name ===
+                                    'Beach BBQ Seafood' &&
+                                    'Demonstrates how regional food culture adapts to tourism while maintaining connections to local fishing traditions.'}
+                                  {vendorData.vendor.name ===
+                                    'Tropical Fruit Smoothies' &&
+                                    'Shows how regional agricultural identity adapts to tourism economy while preserving connections to local farming traditions.'}
+                                  {vendorData.vendor.name ===
+                                    "Surfer's Late Night Noodles" &&
+                                    'Demonstrates how local food culture adapts to international beach and surf culture while maintaining Taiwanese identity.'}
+                                  {![
+                                    'Beach BBQ Seafood',
+                                    'Tropical Fruit Smoothies',
+                                    "Surfer's Late Night Noodles",
+                                  ].includes(vendorData.vendor.name) &&
+                                    'Illustrates regional cultural adaptation to tourism demands.'}
+                                </>
+                              )}
                             </p>
                           </div>
                         </div>
@@ -986,22 +1199,24 @@ export default function MarketDetail() {
                 {market.id === 'raohe-street-market' && (
                   <>
                     <p className='text-neutral-300 leading-relaxed text-lg mb-4'>
-                      Raohe Street Market proves that minority communities can
-                      use commercial spaces as sites of{' '}
+                      Raohe Street Market proves that{' '}
                       <strong className='text-white'>
-                        cultural resistance and preservation
+                        "Taiwanese identity" is contested between different
+                        ethnic communities
                       </strong>{' '}
-                      when they maintain community control. Hakka vendors
-                      demonstrate that strategic cultural adaptation can
-                      strengthen rather than weaken minority identity.
+                      rather than being unified. Hakka vendors must
+                      strategically negotiate space for their distinct
+                      traditions within mainstream ideas about what counts as
+                      "authentically Taiwanese."
                     </p>
                     <p className='text-neutral-300 leading-relaxed'>
                       <strong className='text-white'>
                         Broader Significance:
                       </strong>{' '}
-                      This offers a model for how minority communities worldwide
-                      can navigate urban commercial development while
-                      maintaining cultural autonomy.
+                      This reveals that cultural identity negotiation happens
+                      not just between locals and tourists, but also between
+                      different groups within Taiwanese society competing for
+                      cultural recognition.
                     </p>
                   </>
                 )}
@@ -1009,23 +1224,23 @@ export default function MarketDetail() {
                 {market.id === 'huaxi-street-market' && (
                   <>
                     <p className='text-neutral-300 leading-relaxed text-lg mb-4'>
-                      Huaxi Street Market proves that{' '}
+                      Huaxi Street Market proves that working-class communities
+                      maintain{' '}
                       <strong className='text-white'>
-                        economic accessibility creates genuine cultural
-                        democracy
+                        authentic versions of Taiwanese cultural identity
                       </strong>{' '}
-                      that operates outside middle-class cultural institutions.
-                      Working-class vendors create inclusive community spaces
-                      through collective economic practices rather than
-                      individual cultural capital.
+                      that operate outside tourist performances and middle-class
+                      cultural institutions. These vendors preserve traditional
+                      community practices that resist cultural commodification.
                     </p>
                     <p className='text-neutral-300 leading-relaxed'>
                       <strong className='text-white'>
                         Broader Significance:
                       </strong>{' '}
-                      This challenges academic theories about cultural
-                      participation and offers alternatives to market-based
-                      approaches to cultural development.
+                      This shows how different social classes create competing
+                      versions of "authentic" Taiwanese culture, revealing that
+                      cultural identity is contested even within local
+                      communities.
                     </p>
                   </>
                 )}
@@ -1092,11 +1307,11 @@ export default function MarketDetail() {
                   <div className='space-y-2 text-sm'>
                     <p className='text-neutral-400'>
                       <strong className='text-neutral-300'>Method:</strong>{' '}
-                      Critical ethnographic observation
+                      Critical observational analysis
                     </p>
                     <p className='text-neutral-400'>
-                      <strong className='text-neutral-300'>Duration:</strong>{' '}
-                      Multiple visits across different time periods
+                      <strong className='text-neutral-300'>Scope:</strong>{' '}
+                      Public behavior patterns and cultural interactions
                     </p>
                     <p className='text-neutral-400'>
                       <strong className='text-neutral-300'>Focus:</strong>{' '}
@@ -1127,46 +1342,138 @@ export default function MarketDetail() {
                     Theoretical Sources
                   </h3>
                   <div className='space-y-3 text-sm'>
-                    <div>
-                      <p className='text-neutral-300 font-medium'>
-                        Said, Edward (1978)
-                      </p>
-                      <p className='text-neutral-400'>
-                        Orientalism - power dynamics in cultural representation
-                      </p>
-                    </div>
-                    <div>
-                      <p className='text-neutral-300 font-medium'>
-                        Bourdieu, Pierre (1984)
-                      </p>
-                      <p className='text-neutral-400'>
-                        Cultural capital theory and social distinction
-                      </p>
-                    </div>
-                    <div>
-                      <p className='text-neutral-300 font-medium'>
-                        Scott, James C. (1990)
-                      </p>
-                      <p className='text-neutral-400'>
-                        Hidden transcripts and resistance strategies
-                      </p>
-                    </div>
-                    <div>
-                      <p className='text-neutral-300 font-medium'>
-                        Chen & Huang (2014)
-                      </p>
-                      <p className='text-neutral-400'>
-                        Vendor behavior analysis framework
-                      </p>
-                    </div>
-                    <div>
-                      <p className='text-neutral-300 font-medium'>
-                        Wu & Lin (2013)
-                      </p>
-                      <p className='text-neutral-400'>
-                        Night markets as democratic spaces (critiqued)
-                      </p>
-                    </div>
+                    {market.id === 'shilin-night-market' && (
+                      <>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Said, Edward (1978)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Orientalism - power dynamics in cultural
+                            representation
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Scott, James C. (1990)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Hidden transcripts and resistance strategies
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Chen & Huang (2014)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Vendor behavior analysis framework
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Tang, C. (2024)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Taiwan's night market culture guide
+                          </p>
+                        </div>
+                      </>
+                    )}
+
+                    {market.id === 'raohe-street-market' && (
+                      <>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Bourdieu, Pierre (1984)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Cultural capital theory and social distinction
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Gramsci, Antonio (1971)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Hegemonic structures and cultural resistance
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Chen & Huang (2014)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Vendor behavior analysis framework
+                          </p>
+                        </div>
+                      </>
+                    )}
+
+                    {market.id === 'huaxi-street-market' && (
+                      <>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Wu & Lin (2013)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Night markets as democratic spaces (critiqued)
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Lefebvre, Henri (1968)
+                          </p>
+                          <p className='text-neutral-400'>
+                            The right to the city concept
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Scott, James C. (1990)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Hidden transcripts and resistance strategies
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Chen & Huang (2014)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Vendor behavior analysis framework
+                          </p>
+                        </div>
+                      </>
+                    )}
+
+                    {market.id === 'kenting-night-market' && (
+                      <>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Appadurai, Arjun (1996)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Glocalization and cultural flows
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Robertson, Roland (1995)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Glocal cultural forms theory
+                          </p>
+                        </div>
+                        <div>
+                          <p className='text-neutral-300 font-medium'>
+                            Chen & Huang (2014)
+                          </p>
+                          <p className='text-neutral-400'>
+                            Vendor behavior analysis framework
+                          </p>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <h4 className='text-md font-bold text-white mt-6 mb-3'>
