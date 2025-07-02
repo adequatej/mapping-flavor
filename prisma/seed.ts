@@ -77,8 +77,8 @@ const markets = [
     name: 'Kenting Night Market',
     chineseName: '墾丁夜市',
     location: 'Hengchun Township, Pingtung County',
-    latitude: 22.0038,
-    longitude: 120.7471,
+    latitude: 21.958753,
+    longitude: 120.794328,
     established: '1980',
     researchFocus: 'Tourism & Regional Identity',
     description:
@@ -285,8 +285,8 @@ const vendors = [
     description:
       'Fresh local seafood with beach tourism appeal, showing adaptation of traditional preparation methods for seasonal tourism economy. Balances local fishing culture with visitor expectations.',
     specialties: ['Fresh Seafood', 'Beach BBQ', 'Local Fishing'],
-    latitude: 22.0038,
-    longitude: 120.7472,
+    latitude: 21.958753,
+    longitude: 120.794328,
     images: [
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     ],
@@ -303,8 +303,8 @@ const vendors = [
     description:
       'Local tropical fruits prepared as smoothies for beach tourists, representing regional agricultural identity and adaptation to tourism preferences. Uses indigenous fruit varieties with modern presentation.',
     specialties: ['Tropical Fruits', 'Smoothies', 'Regional Agriculture'],
-    latitude: 22.0039,
-    longitude: 120.747,
+    latitude: 21.958853,
+    longitude: 120.794228,
     images: [
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     ],
@@ -321,8 +321,8 @@ const vendors = [
     description:
       'Casual noodles popular with surfers and beach-goers, representing cultural adaptation to beach lifestyle and international surf culture. Shows local-global cultural intersection.',
     specialties: ['Late Night Noodles', 'Surf Culture', 'Beach Lifestyle'],
-    latitude: 22.0037,
-    longitude: 120.7473,
+    latitude: 21.958653,
+    longitude: 120.794428,
     images: [
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     ],
