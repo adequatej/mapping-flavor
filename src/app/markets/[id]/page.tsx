@@ -244,7 +244,7 @@ export default function MarketDetail() {
                     Taiwanese, and broken English. The air fills with sizzling
                     sounds and sweet, spicy smells. Tourists line up for
                     Instagram-worthy food while locals navigate quickly to their
-                    favorite spots (Tang, 2024). This is where Taiwan's food
+                    favorite spots (Tang 2024). This is where Taiwan's food
                     culture meets the world, creating a unique space where
                     tradition and performance blend together every night.
                   </p>
@@ -355,7 +355,7 @@ export default function MarketDetail() {
               <div className='prose prose-lg prose-invert max-w-none'>
                 <p className='text-neutral-300 leading-relaxed mb-6'>
                   Following Chen and Huang's vendor behavior analysis framework
-                  (Chen and Huang 45-67), these observable patterns reveal how
+                  (Chen and Huang 2014), these observable patterns reveal how
                   vendors navigate cultural identity politics in their daily
                   interactions:
                 </p>
@@ -885,9 +885,9 @@ export default function MarketDetail() {
                         <div className='space-y-4'>
                           <p className='text-neutral-300 leading-relaxed'>
                             <strong className='text-white'>
-                              Challenging Wu & Lin's Democratic Spaces:
+                              Challenging Wu and Lin's Democratic Spaces:
                             </strong>{' '}
-                            This research builds on Wu & Lin's (2013)
+                            This research builds on Wu and Lin's (2013)
                             characterization of night markets as democratic
                             spaces while revealing deeper mechanisms. Economic
                             accessibility creates conditions for cultural
@@ -1363,7 +1363,7 @@ export default function MarketDetail() {
                         </div>
                         <div>
                           <p className='text-neutral-300 font-medium'>
-                            Chen & Huang (2014)
+                            Chen and Huang (2014)
                           </p>
                           <p className='text-neutral-400'>
                             Vendor behavior analysis framework
@@ -1400,7 +1400,7 @@ export default function MarketDetail() {
                         </div>
                         <div>
                           <p className='text-neutral-300 font-medium'>
-                            Chen & Huang (2014)
+                            Chen and Huang (2014)
                           </p>
                           <p className='text-neutral-400'>
                             Vendor behavior analysis framework
@@ -1413,7 +1413,7 @@ export default function MarketDetail() {
                       <>
                         <div>
                           <p className='text-neutral-300 font-medium'>
-                            Wu & Lin (2013)
+                            Wu and Lin (2013)
                           </p>
                           <p className='text-neutral-400'>
                             Night markets as democratic spaces (critiqued)
@@ -1437,7 +1437,7 @@ export default function MarketDetail() {
                         </div>
                         <div>
                           <p className='text-neutral-300 font-medium'>
-                            Chen & Huang (2014)
+                            Chen and Huang (2014)
                           </p>
                           <p className='text-neutral-400'>
                             Vendor behavior analysis framework
@@ -1466,7 +1466,7 @@ export default function MarketDetail() {
                         </div>
                         <div>
                           <p className='text-neutral-300 font-medium'>
-                            Chen & Huang (2014)
+                            Chen and Huang (2014)
                           </p>
                           <p className='text-neutral-400'>
                             Vendor behavior analysis framework

@@ -170,8 +170,8 @@ export default function Markets() {
             This research uses critical observational analysis across four
             Taiwan night markets, following Chen and Huang's (2014) framework
             for analyzing vendor behaviors while incorporating postcolonial
-            approaches (Said, 1978; Scott, 1990) that examine power dynamics in
-            cultural spaces. Analysis focuses on publicly observable patterns:
+            approaches that examine power dynamics in cultural spaces (Said
+            1978; Scott 1990). Analysis focuses on publicly observable patterns:
             language switching, menu variations for different audiences, spatial
             organization, and vendor-customer interactions.
           </p>
