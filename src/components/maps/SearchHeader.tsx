@@ -27,6 +27,7 @@ interface SearchHeaderProps {
   searchQuery: string
   isSidebarOpen: boolean
   selectedMarket: any | null
+  onMarketFilter?: (marketId: string | null) => void
 }
 
 const filterOptions = [
@@ -51,11 +52,12 @@ export default function SearchHeader({
   searchQuery,
   isSidebarOpen,
   selectedMarket,
+  onMarketFilter,
 }: SearchHeaderProps) {
   const [isSearchFocused, setIsSearchFocused] = useState(false)
 
   const getPositioning = () => {
-    return isSidebarOpen ? 'left-[336px] z-50' : 'left-24 z-50'
+    return isSidebarOpen ? 'left-[400px] z-50' : 'left-24 z-50'
   }
 
   const getPlaceholder = () => {
@@ -127,6 +129,38 @@ export default function SearchHeader({
             <span>{label}</span>
           </button>
         ))}
+
+        {/* Market Filter for Vendor Mode */}
+        {viewMode === 'vendors' && onMarketFilter && (
+          <div className='relative'>
+            <select
+              onChange={e => onMarketFilter(e.target.value || null)}
+              value={selectedMarket?.id || ''}
+              className='appearance-none bg-white text-neutral-700 px-4 py-3 rounded-lg text-sm font-medium shadow-lg border border-neutral-200 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary min-w-[140px]'
+            >
+              <option value=''>All Markets</option>
+              <option value='shilin-night-market'>🍜 Shilin</option>
+              <option value='raohe-street-market'>🥟 Raohe</option>
+              <option value='huaxi-street-market'>🍲 Huaxi</option>
+              <option value='kenting-night-market'>🦐 Kenting</option>
+            </select>
+            <div className='absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none'>
+              <svg
+                className='w-4 h-4 text-neutral-400'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M19 9l-7 7-7-7'
+                />
+              </svg>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

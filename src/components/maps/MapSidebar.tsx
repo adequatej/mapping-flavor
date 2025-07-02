@@ -596,9 +596,9 @@ function DetailedVendorView({
           </h3>
           <div className='bg-blue-50 rounded-lg p-3'>
             <p className='text-blue-800 text-sm'>
-              📝 Ethnographic observation: This vendor represents traditional
-              food preparation techniques and community gathering patterns
-              typical of Taiwan's night market culture.
+              📝 Cultural analysis: This vendor represents traditional food
+              preparation techniques and community gathering patterns typical of
+              Taiwan's night market culture.
             </p>
           </div>
         </div>

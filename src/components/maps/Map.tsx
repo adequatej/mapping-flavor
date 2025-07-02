@@ -132,15 +132,9 @@ export default function Map({
     })
   }, [markets, mapLoaded, selectedMarket, onMarketSelect, interactive])
 
-  // Add vendor markers when in vendor mode and market is selected
+  // Add vendor markers when in vendor mode
   useEffect(() => {
-    if (
-      !map.current ||
-      !mapLoaded ||
-      !interactive ||
-      viewMode !== 'vendors' ||
-      !selectedMarket
-    )
+    if (!map.current || !mapLoaded || !interactive || viewMode !== 'vendors')
       return
 
     // Clear existing vendor markers
@@ -152,21 +146,114 @@ export default function Map({
       marker => !marker.getElement().classList.contains('vendor-marker')
     )
 
-    // Get vendors for selected market
-    const marketVendors = vendors.filter(vendor =>
-      vendor.markets?.some((m: any) => m.market?.id === selectedMarket.id)
+    // Get vendors - all vendors if no market selected, or filtered by market
+    const marketVendors = vendors.filter(vendor => {
+      const hasMarkets = vendor.markets && vendor.markets.length > 0
+      if (!hasMarkets) {
+        console.log(`Vendor ${vendor.name} has no markets relationship`)
+        return false
+      }
+
+      // If no market is selected, show all vendors
+      if (!selectedMarket) {
+        return true
+      }
+
+      // If market is selected, filter by that market
+      const isMatch = vendor.markets!.some((m: any) => {
+        console.log(`Checking vendor ${vendor.name} market relationship:`, {
+          marketRelation: m,
+          marketId: m.market?.id,
+          selectedMarketId: selectedMarket.id,
+          matches: m.market?.id === selectedMarket.id,
+        })
+        return m.market?.id === selectedMarket.id
+      })
+
+      return isMatch
+    })
+
+    // Debug logging
+    console.log('=== VENDOR DEBUGGING ===')
+    console.log('Selected market:', selectedMarket?.id, selectedMarket?.name)
+    console.log('Total vendors available:', vendors.length)
+    console.log(
+      'All vendors:',
+      vendors.map(v => ({
+        name: v.name,
+        id: v.id,
+        markets: v.markets,
+        lat: v.latitude,
+        lng: v.longitude,
+      }))
     )
+    console.log('Market vendors found:', marketVendors.length)
+    console.log(
+      'Filtered vendors:',
+      marketVendors.map(v => v.name)
+    )
+    console.log('=========================')
 
     marketVendors.forEach((vendor, index) => {
-      if (!vendor.latitude || !vendor.longitude) return
+      // Use vendor coordinates if available, otherwise use market coordinates as fallback
+      const baseLat = vendor.latitude || selectedMarket?.latitude
+      const baseLng = vendor.longitude || selectedMarket?.longitude
 
-      // Add slight offset to vendor coordinates to spread them around the market
+      if (!baseLat || !baseLng) {
+        console.log(
+          'No coordinates available for vendor:',
+          vendor.name,
+          'Vendor coords:',
+          [vendor.latitude, vendor.longitude],
+          'Market coords:',
+          selectedMarket
+            ? [selectedMarket.latitude, selectedMarket.longitude]
+            : 'No market selected'
+        )
+        return
+      }
+
+      // Add slight offset to coordinates to spread them around the market
       // This prevents overlapping and makes them more visible
       const offsetRadius = 0.002 // About 200 meters
       const angle =
         index * (360 / Math.max(marketVendors.length, 1)) * (Math.PI / 180)
-      const offsetLat = vendor.latitude + offsetRadius * Math.cos(angle)
-      const offsetLng = vendor.longitude + offsetRadius * Math.sin(angle)
+      const offsetLat = baseLat + offsetRadius * Math.cos(angle)
+      const offsetLng = baseLng + offsetRadius * Math.sin(angle)
+
+      // Debug logging
+      console.log('Vendor coordinates:', {
+        name: vendor.name,
+        vendorCoords: [vendor.longitude, vendor.latitude],
+        marketCoords: selectedMarket
+          ? [selectedMarket.longitude, selectedMarket.latitude]
+          : null,
+        baseCoords: [baseLng, baseLat],
+        finalCoords: [offsetLng, offsetLat],
+        angle: angle,
+        index: index,
+      })
+
+      // Get market-specific color for vendor
+      const getVendorColor = (vendor: any, isSelected: boolean) => {
+        const marketId = vendor.markets?.[0]?.market?.id
+        if (isSelected) {
+          return '#dc2626' // Red when selected
+        }
+
+        switch (marketId) {
+          case 'shilin-night-market':
+            return '#ea580c' // Orange
+          case 'raohe-street-market':
+            return '#2563eb' // Blue
+          case 'huaxi-street-market':
+            return '#16a34a' // Green
+          case 'kenting-night-market':
+            return '#9333ea' // Purple
+          default:
+            return '#fb923c' // Default orange
+        }
+      }
 
       // Create custom vendor marker element (food cart style)
       const el = document.createElement('div')
@@ -174,7 +261,7 @@ export default function Map({
       el.style.cssText = `
         width: 32px;
         height: 32px;
-        background: ${selectedVendor?.id === vendor.id ? '#f97316' : '#fb923c'};
+        background: ${getVendorColor(vendor, selectedVendor?.id === vendor.id)};
         border: 3px solid white;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -184,7 +271,6 @@ export default function Map({
         justify-content: center;
         font-size: 16px;
         transform: ${selectedVendor?.id === vendor.id ? 'scale(1.2)' : 'scale(1)'};
-        transition: all 0.2s ease;
         position: relative;
       `
 
@@ -219,21 +305,6 @@ export default function Map({
       }
 
       el.innerHTML = getFoodEmoji(vendor.specialties)
-
-      // Add hover effect
-      el.addEventListener('mouseenter', () => {
-        if (selectedVendor?.id !== vendor.id) {
-          el.style.transform = 'scale(1.1)'
-          el.style.background = '#f97316'
-        }
-      })
-
-      el.addEventListener('mouseleave', () => {
-        if (selectedVendor?.id !== vendor.id) {
-          el.style.transform = 'scale(1)'
-          el.style.background = '#fb923c'
-        }
-      })
 
       const marker = new mapboxgl.Marker(el)
         .setLngLat([offsetLng, offsetLat])
@@ -276,7 +347,7 @@ export default function Map({
     })
   }, [
     vendors,
-    selectedMarket,
+    selectedMarket?.id, // Only depend on market ID to avoid unnecessary re-renders
     selectedVendor?.id,
     viewMode,
     mapLoaded,
@@ -298,6 +369,31 @@ export default function Map({
         easing: t => t * (2 - t), // Easing function for smooth deceleration
         essential: true, // Animation not affected by user's prefers-reduced-motion setting
       })
+    } else if (viewMode === 'vendors' && vendors.length > 0) {
+      // Show all vendors when in vendor mode without market selection
+      const vendorCoordinates = vendors
+        .filter(vendor => vendor.latitude && vendor.longitude)
+        .map(
+          vendor => [vendor.longitude!, vendor.latitude!] as [number, number]
+        )
+
+      if (vendorCoordinates.length > 0) {
+        const bounds = new mapboxgl.LngLatBounds()
+        vendorCoordinates.forEach(coord => bounds.extend(coord))
+        map.current.fitBounds(bounds, {
+          padding: 80, // More padding to ensure all vendors are visible
+          duration: 1500,
+        })
+      } else {
+        // Fallback to Taiwan overview if no vendor coordinates
+        map.current.flyTo({
+          center: [121.0, 23.8],
+          zoom: 8,
+          speed: 1.0,
+          curve: 1.42,
+          easing: t => t * (2 - t),
+        })
+      }
     } else if (markets.length > 0) {
       // Show all markets with smooth animation
       const coordinates = markets.map(
@@ -321,7 +417,7 @@ export default function Map({
         })
       }
     }
-  }, [selectedMarket, viewMode, mapLoaded, interactive, markets])
+  }, [selectedMarket, viewMode, mapLoaded, interactive, markets, vendors])
 
   return (
     <div className='relative h-full w-full'>
@@ -330,17 +426,45 @@ export default function Map({
       {/* Map Legend - only show when interactive */}
       {interactive && (
         <div className='absolute bottom-4 left-4 bg-black/80 rounded-lg p-3 text-white text-sm'>
-          <div className='flex items-center space-x-2 mb-2'>
-            <div className='w-3 h-3 bg-primary rounded-full'></div>
-            <span>Cultural Sites</span>
-          </div>
-          {viewMode === 'vendors' && (
+          {viewMode === 'markets' && (
             <div className='flex items-center space-x-2'>
-              <div
-                className='w-3 h-3 bg-orange-500 rounded border border-white'
-                style={{ borderRadius: '4px' }}
-              ></div>
-              <span>Food Heritage 🍽️</span>
+              <div className='w-3 h-3 bg-primary rounded-full'></div>
+              <span>Cultural Sites</span>
+            </div>
+          )}
+          {viewMode === 'vendors' && (
+            <div className='space-y-2'>
+              <div className='text-xs text-gray-300 font-medium'>
+                Food Heritage by Market:
+              </div>
+              <div className='flex items-center space-x-2'>
+                <div
+                  className='w-3 h-3 rounded border border-white'
+                  style={{ backgroundColor: '#ea580c', borderRadius: '4px' }}
+                ></div>
+                <span className='text-xs'>Shilin 🍜</span>
+              </div>
+              <div className='flex items-center space-x-2'>
+                <div
+                  className='w-3 h-3 rounded border border-white'
+                  style={{ backgroundColor: '#2563eb', borderRadius: '4px' }}
+                ></div>
+                <span className='text-xs'>Raohe 🥟</span>
+              </div>
+              <div className='flex items-center space-x-2'>
+                <div
+                  className='w-3 h-3 rounded border border-white'
+                  style={{ backgroundColor: '#16a34a', borderRadius: '4px' }}
+                ></div>
+                <span className='text-xs'>Huaxi 🍲</span>
+              </div>
+              <div className='flex items-center space-x-2'>
+                <div
+                  className='w-3 h-3 rounded border border-white'
+                  style={{ backgroundColor: '#9333ea', borderRadius: '4px' }}
+                ></div>
+                <span className='text-xs'>Kenting 🦐</span>
+              </div>
             </div>
           )}
         </div>
