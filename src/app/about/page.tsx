@@ -96,9 +96,9 @@ export default function About() {
                   ) : (
                     <p className='text-lg text-neutral-300 leading-relaxed'>
                       Taiwan's night markets are officially promoted as
-                      democratic cultural spaces and community hubs (Su, 2023)
+                      democratic cultural spaces and community hubs (Su 2023)
                       where traditional food practices exist alongside modern
-                      business pressures (Wu & Lin, 2013). But this view hides
+                      business pressures (Wu and Lin 2013). But this view hides
                       the complex power dynamics that decide which versions of
                       "Taiwanese identity" get noticed, celebrated, or pushed
                       aside in these spaces. Walking through Shilin Night
@@ -289,7 +289,7 @@ export default function About() {
                 <div className='space-y-4'>
                   <p className='text-neutral-300 leading-relaxed'>
                     This investigation builds on Yu-Jen Chen's analysis of
-                    ethnic politics in Taiwan's national cuisine (Chen, 2011),
+                    ethnic politics in Taiwan's national cuisine (Chen 2011),
                     which shows how state institutions choose to promote certain
                     foods as "authentically Taiwanese" while pushing aside
                     others.
@@ -497,11 +497,10 @@ export default function About() {
                   </h3>
                 </div>
                 <p className='text-neutral-300 leading-relaxed mb-4'>
-                  Using Edward Said's (1978) orientalism framework and Pierre
-                  Bourdieu's (1984) cultural capital theory to analyze how
-                  cultural authenticity is built, performed, and contested
-                  within commercial spaces shaped by colonial and postcolonial
-                  power relations.
+                  Using orientalism framework and cultural capital theory to
+                  analyze how cultural authenticity is built, performed, and
+                  contested within commercial spaces shaped by colonial and
+                  postcolonial power relations (Said 1978; Bourdieu 1984).
                 </p>
                 <div className='text-sm text-accent font-medium'>
                   Theoretical Framework
@@ -521,7 +520,7 @@ export default function About() {
                 <p className='text-neutral-300 leading-relaxed mb-4'>
                   Experimental use of digital platforms to capture multiple,
                   simultaneous cultural stories that traditional heritage
-                  documentation often flattens or erases (Srinivasan & Luther,
+                  documentation often flattens or erases (Srinivasan and Luther
                   2016), looking at technology's potential for democratizing
                   cultural representation.
                 </p>
@@ -580,8 +579,8 @@ export default function About() {
                     <p className='text-neutral-300 leading-relaxed'>
                       This suggests new directions for participatory heritage
                       preservation that move beyond institutional control toward
-                      community-driven cultural representation (Giglitto &
-                      Ciolfi, 2023).
+                      community-driven cultural representation (Giglitto and
+                      Ciolfi 2023).
                     </p>
                   </div>
                 </div>
@@ -606,11 +605,11 @@ export default function About() {
                   National Cuisine
                 </li>
                 <li className='leading-relaxed'>
-                  • Wu & Lin (2013). Night Markets Culture and Tourism
+                  • Wu and Lin (2013). Night Markets Culture and Tourism
                   Experience
                 </li>
                 <li className='leading-relaxed'>
-                  • Chen & Huang (2014). Tourism Night Markets Supply-Side
+                  • Chen and Huang (2014). Tourism Night Markets Supply-Side
                   Analysis
                 </li>
               </ul>

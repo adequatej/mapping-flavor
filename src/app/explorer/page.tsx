@@ -40,14 +40,14 @@ const researchPanels: ResearchPanel[] = [
     title: 'Observational Methodology',
     category: 'methodology',
     content:
-      'Following Wu & Lin (2013) and Chen & Huang (2014), I analyze vendor behaviors and cultural performances from a supply-side perspective.',
+      'I analyze vendor behaviors and cultural performances from a supply-side perspective (Wu and Lin 2013; Chen and Huang 2014).',
   },
   {
     id: 'digital-heritage',
     title: 'Digital Heritage Preservation',
     category: 'methodology',
     content:
-      'Using Barbash et al. (2024) framework for participatory digital documentation to preserve underrepresented cultural practices.',
+      'Using participatory digital documentation framework to preserve underrepresented cultural practices (Barbash et al. 2024).',
   },
   {
     id: 'cultural-identity',
@@ -61,21 +61,21 @@ const researchPanels: ResearchPanel[] = [
     title: 'Democratic Cultural Spaces',
     category: 'theory',
     content:
-      'Following Wu & Lin (2013), night markets function as democratic spaces that challenge class-based cultural exclusions.',
+      'Night markets function as democratic spaces that challenge class-based cultural exclusions (Wu and Lin 2013).',
   },
   {
     id: 'theoretical-framework',
     title: 'Theoretical Framework',
     category: 'theory',
     content:
-      "Applying Giaccardi's participatory heritage model to understand how night markets balance commercial appeal with cultural authenticity.",
+      'Applying participatory heritage model to understand how night markets balance commercial appeal with cultural authenticity (Giaccardi 2012).',
   },
   {
     id: 'sources',
     title: 'Key Sources',
     category: 'sources',
     content:
-      'Chen & Huang (2014), Wu & Lin (2013), Barbash et al. (2024), and Giaccardi (2012) provide the theoretical foundation for this research.',
+      'My theoretical foundation draws from research on night market vendor behavior, digital heritage preservation, and cultural participation.',
   },
 ]
 
