@@ -238,9 +238,11 @@ export default function Vendors() {
                 Research Method
               </h3>
               <p className='text-neutral-300 leading-relaxed text-sm'>
-                All vendor information comes from direct fieldwork observation
-                and interviews. Vendors gave consent to participate, and
-                personal details may be anonymized for privacy protection.
+                All vendor information comes from observational analysis of
+                publicly available information and behaviors within the markets.
+                This research follows ethical observational methodology and
+                respects vendor privacy by focusing on cultural patterns rather
+                than personal details.
               </p>
             </div>
           </div>
