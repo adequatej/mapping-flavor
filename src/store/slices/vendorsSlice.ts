@@ -13,6 +13,9 @@ export const fetchVendors = createAsyncThunk(
     if (filters?.isActive !== undefined)
       params.append('isActive', filters.isActive.toString())
 
+    // Set high limit to get all vendors
+    params.append('limit', '100')
+
     const url = `/api/vendors${params.toString() ? `?${params.toString()}` : ''}`
     const response = await fetch(url)
 
