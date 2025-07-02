@@ -266,15 +266,14 @@ export default function Vendors() {
             {showAcademicFramework && (
               <div className='bg-neutral-900 rounded-lg p-6'>
                 <p className='text-neutral-300 leading-relaxed mb-4 text-sm'>
-                  Following Chen and Huang's (2014) methodology for analyzing
-                  vendor behavior patterns, these profiles document how
-                  individual entrepreneurs navigate the cultural identity
-                  politics identified in Taiwan's night market case studies.
-                  Each vendor profile demonstrates specific strategies for
-                  managing what Said (1978) calls "orientalist" cultural
-                  performance, Scott's (1990) "public and hidden transcripts,"
-                  and Bourdieu's (1984) deployment of cultural capital within
-                  contested commercial spaces.
+                  Following methodology for analyzing vendor behavior patterns,
+                  these profiles document how individual entrepreneurs navigate
+                  the cultural identity politics identified in Taiwan's night
+                  market case studies. Each vendor profile demonstrates specific
+                  strategies for managing orientalist cultural performance,
+                  public and hidden transcripts, and deployment of cultural
+                  capital within contested commercial spaces (Chen and Huang
+                  2014; Said 1978; Scott 1990; Bourdieu 1984).
                 </p>
                 <p className='text-neutral-300 leading-relaxed text-sm'>
                   These vendors provide concrete evidence for the broader

@@ -838,7 +838,7 @@ export default function MapSidebar({
                     Methodology
                   </h3>
                   <p className='text-blue-700 text-sm leading-relaxed'>
-                    Following Wu & Lin (2013) and Chen & Huang (2014), this
+                    Following Wu and Lin (2013) and Chen and Huang (2014), this
                     research analyzes vendor behaviors and cultural performances
                     from a supply-side perspective.
                   </p>

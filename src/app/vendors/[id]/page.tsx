@@ -161,6 +161,8 @@ export default function VendorDetail() {
           'This vendor shows how successful cultural commodification requires sophisticated audience awareness and strategic adaptation. By maintaining traditional preparation while modifying presentation and communication, Big Sausage Uncle demonstrates how vendors can satisfy tourist expectations without compromising cultural authenticity.',
         researchMethodology:
           'Observations focused on customer interactions, language use, and food preparation techniques, documenting how this vendor adapts presentation and communication for different audiences while maintaining traditional methods.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -182,6 +184,8 @@ export default function VendorDetail() {
           "Through patient cultural education and preserved traditional methods, this vendor shows how challenging traditional foods can be made accessible without compromising authenticity. Mei-Li's approach demonstrates the importance of communication in cultural preservation.",
         researchMethodology:
           'Research focused on vendor-customer educational interactions, documenting how traditional knowledge is transmitted across cultural and linguistic barriers while maintaining authentic practices.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -203,6 +207,8 @@ export default function VendorDetail() {
           'Through strategic adaptation to digital culture, this vendor shows how traditional beverages can maintain cultural authenticity while embracing contemporary presentation styles. The balance achieved demonstrates successful cultural evolution.',
         researchMethodology:
           'Observations centered on preparation methods and presentation techniques, documenting how traditional practices adapt to contemporary digital culture while maintaining cultural authenticity.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -216,7 +222,7 @@ export default function VendorDetail() {
         culturalStrategy:
           'This vendor demonstrates strategic cultural preservation through family knowledge transfer. The Hakka identity is maintained through traditional preparation methods and family communication, while adaptation happens in customer service.',
         theoreticalConnection:
-          "Shows Bourdieu's concept of cultural capital - how minority communities deploy distinct cultural knowledge as economic assets while preserving cultural authenticity.",
+          'Shows how minority communities deploy distinct cultural knowledge as economic assets while preserving cultural authenticity (Bourdieu 1984).',
         marketConnection:
           "As a prominent Hakka vendor in Raohe Street Market, Grandma Chen's stall exemplifies how minority cultures maintain visibility through food traditions. The multi-generational operation demonstrates the market's role in cultural preservation.",
         researchContribution:
@@ -225,6 +231,8 @@ export default function VendorDetail() {
           'Through family collaboration and maintained traditions, this vendor shows how minority cultures preserve identity within mainstream commercial spaces. The balance of tradition and adaptation demonstrates successful cultural resistance.',
         researchMethodology:
           'Research focused on family interactions, knowledge transmission, and language use patterns, documenting how cultural practices are preserved and passed between generations.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -237,7 +245,7 @@ export default function VendorDetail() {
         culturalStrategy:
           'This vendor maintains cultural distinctiveness through authentic preparation methods rather than marketing. The quality and traditional techniques speak for themselves, preserving Hakka identity through genuine cultural practice.',
         theoreticalConnection:
-          'Demonstrates how minority cultures can resist assimilation by maintaining distinct cultural practices that have economic value.',
+          "Demonstrates Gramsci's concept of cultural resistance, showing how minority cultures maintain distinct practices within dominant cultural systems while creating economic sustainability (Gramsci 1971).",
         marketConnection:
           "Operating in Raohe Street Market's traditional food section, this vendor maintains authentic Hakka preparation methods that distinguish their products. The preserved techniques demonstrate the market's role in maintaining cultural diversity.",
         researchContribution:
@@ -246,6 +254,8 @@ export default function VendorDetail() {
           'Through preserved traditional techniques and authentic spice blends, this vendor shows how minority cultures maintain distinctiveness through genuine practice rather than performative display.',
         researchMethodology:
           'Observations centered on preparation techniques and ingredient selection, documenting how traditional methods serve as markers of cultural identity.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -258,7 +268,7 @@ export default function VendorDetail() {
         culturalStrategy:
           'This vendor preserves cultural identity through family collaboration and traditional recipes. The simple tea egg becomes a vehicle for cultural transmission and community connection.',
         theoreticalConnection:
-          'Shows how everyday cultural practices can serve as resistance strategies, maintaining minority identity through family traditions.',
+          'Shows how working-class communities maintain practices that serve community needs rather than market demands (Scott 1990).',
         marketConnection:
           "Located in Raohe Street Market's snack section, this vendor demonstrates how simple foods carry complex cultural significance. The family operation shows the market's role in supporting intergenerational cultural transmission.",
         researchContribution:
@@ -267,6 +277,8 @@ export default function VendorDetail() {
           'Through family collaboration and preserved recipes, this vendor shows how simple foods maintain complex cultural significance. The intergenerational operation demonstrates successful cultural preservation.',
         researchMethodology:
           'Research focused on family roles, recipe preservation, and preparation techniques, documenting how everyday foods serve as vehicles for cultural transmission.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -289,6 +301,8 @@ export default function VendorDetail() {
           'Through maintained affordability and community focus, this vendor shows how traditional practices resist gentrification. The preserved accessibility demonstrates successful cultural resistance.',
         researchMethodology:
           'Observations centered on customer interactions, pricing strategies, and community formation, documenting how traditional practices resist market pressures.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -310,6 +324,8 @@ export default function VendorDetail() {
           'Through maintained affordability and communal spaces, this vendor shows how food culture creates genuine community. The cross-class interactions demonstrate successful cultural democracy.',
         researchMethodology:
           'Research focused on social interactions, pricing strategies, and community formation, documenting how economic accessibility creates genuine cultural participation.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -322,7 +338,7 @@ export default function VendorDetail() {
         culturalStrategy:
           'This vendor adapts to community needs rather than market demands, serving working-class schedules and creating social connections for night workers.',
         theoreticalConnection:
-          'Shows how working-class communities create cultural spaces that serve their specific needs rather than conforming to mainstream cultural institutions.',
+          "Demonstrates Lefebvre's concept of social space production, showing how working-class communities create cultural spaces that serve their specific needs and schedules, resisting mainstream temporal and spatial organization (Lefebvre 1968).",
         marketConnection:
           "Located in Huaxi Street Market's 24-hour section, this vendor shows how the market serves diverse community needs. The night shift focus demonstrates adaptation to working-class schedules.",
         researchContribution:
@@ -331,6 +347,8 @@ export default function VendorDetail() {
           'Through 24-hour operation and community focus, this vendor shows how night markets serve essential social functions. The adapted schedule demonstrates successful community service.',
         researchMethodology:
           'Observations conducted during night shifts, focusing on community formation and social interactions during non-traditional hours.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -344,7 +362,7 @@ export default function VendorDetail() {
         culturalStrategy:
           'This vendor balances local fishing culture with tourism expectations, creating adaptations that serve both communities without sacrificing cultural authenticity.',
         theoreticalConnection:
-          'Demonstrates Robertson\'s concept of "glocal" cultural forms - adapting local traditions to global tourism while maintaining regional distinctiveness.',
+          'Demonstrates concepts of cultural flows and glocalization, showing how local traditions successfully hybridize with global influences while maintaining cultural distinctiveness (Appadurai 1996; Robertson 1995).',
         marketConnection:
           "As a prominent seafood vendor in Kenting Night Market, this stall shows how local fishing traditions adapt to tourism. The balanced approach demonstrates the market's role in cultural adaptation.",
         researchContribution:
@@ -353,6 +371,8 @@ export default function VendorDetail() {
           'Through maintained fishing connections and adapted presentation, this vendor shows how local traditions evolve with tourism. The preserved authenticity demonstrates successful cultural adaptation.',
         researchMethodology:
           'Research focused on sourcing practices, preparation methods, and customer interactions, documenting how local traditions adapt to tourism demands.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -374,6 +394,8 @@ export default function VendorDetail() {
           'Through indigenous ingredient use and adapted presentation, this vendor shows how agricultural traditions evolve with tourism. The maintained connections demonstrate successful cultural adaptation.',
         researchMethodology:
           'Observations centered on ingredient sourcing, preparation methods, and cultural knowledge transmission, documenting how agricultural traditions adapt to tourism.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -386,7 +408,7 @@ export default function VendorDetail() {
         culturalStrategy:
           'This vendor creates cultural bridges between local traditions and international beach culture, showing how Taiwanese food can adapt to global lifestyles while maintaining cultural identity.',
         theoreticalConnection:
-          'Demonstrates successful cultural hybridization - creating new cultural forms that serve both local and international communities.',
+          'Demonstrates concepts of cultural flows and glocalization, showing how local traditions successfully hybridize with global influences while maintaining cultural distinctiveness (Appadurai 1996; Robertson 1995).',
         marketConnection:
           "Located in Kenting Night Market's late-night section, this vendor shows how local food culture adapts to international beach lifestyle. The hybrid approach demonstrates the market's evolution with global influences.",
         researchContribution:
@@ -395,6 +417,8 @@ export default function VendorDetail() {
           'Through balanced adaptation and maintained traditions, this vendor shows how local food culture evolves with global influences. The successful hybridization demonstrates cultural resilience.',
         researchMethodology:
           'Research focused on cross-cultural interactions, preparation adaptations, and community formation, documenting how local traditions evolve with global influences.',
+        ethicalConsiderations:
+          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
       }
     }
 
@@ -416,6 +440,8 @@ export default function VendorDetail() {
         'Through balanced adaptation and maintained traditions, this vendor shows how individual entrepreneurs navigate complex cultural dynamics in night markets.',
       researchMethodology:
         'Research focused on vendor practices and customer interactions, documenting how individual entrepreneurs navigate cultural dynamics in commercial spaces.',
+      ethicalConsiderations:
+        'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
     }
   }
 
@@ -659,10 +685,8 @@ export default function VendorDetail() {
                   </h3>
                   <div className='space-y-3 text-sm'>
                     <p className='text-neutral-300 leading-relaxed'>
-                      This analysis focuses on publicly observable cultural
-                      patterns and practices rather than personal details,
-                      maintaining appropriate academic boundaries while
-                      preserving the research value of the observations.
+                      {vendorContent.ethicalConsiderations ||
+                        'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.'}
                     </p>
                     <Link
                       href='/about'
