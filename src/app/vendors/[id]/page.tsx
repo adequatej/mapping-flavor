@@ -143,282 +143,282 @@ export default function VendorDetail() {
     const marketId = vendor.markets?.[0]?.market?.id
 
     // Shilin Night Market Vendors
-    if (vendor.name === 'Big Sausage Uncle') {
+    if (vendor.name === 'Hot Sausage Stand') {
       return {
         keyInsight:
-          'Big Sausage Uncle demonstrates sophisticated audience recognition by maintaining traditional preparation methods while adapting presentation for tourist photography.',
+          'Hot Sausage Stand demonstrates how traditional Taiwanese street food maintains authentic preparation methods while adapting presentation for diverse customer bases.',
         specificEvidence:
-          'Observed the vendor switching between rapid-fire Taiwanese dialect with local customers and slower, more demonstrative Mandarin with tourists. He actively helps tourists take photos of their food, positioning dishes for optimal social media appeal while maintaining the same authentic preparation techniques.',
+          'Observed the vendor using consistent grilling techniques with high-quality sausages, serving both locals who order quickly and tourists who need explanations. The preparation remains the same but the service style adapts to customer familiarity.',
         culturalStrategy:
-          'This vendor shows how traditional street food can be commodified for tourism without losing its cultural authenticity. The sausage preparation remains unchanged, but the presentation and customer interaction adapt to different audiences.',
+          'This vendor maintains traditional sausage preparation while providing multilingual service and explanations. The food authenticity remains constant while communication adapts to different audiences.',
         theoreticalConnection:
-          'Demonstrates Scott\'s concept of "public transcripts" - performing cultural authenticity for tourist consumption while maintaining different practices for local customers.',
+          'Demonstrates how food authenticity can be preserved through consistent preparation methods while service approaches adapt to different customer needs.',
         marketConnection:
-          "As a key vendor in Shilin Night Market's main food street, Big Sausage Uncle exemplifies how vendors adapt traditional foods for tourist consumption while maintaining authenticity. His strategic performance of cultural identity through language switching and photo assistance demonstrates the broader patterns of cultural commodification observed throughout Shilin.",
+          'As a traditional sausage vendor in Shilin Night Market, this stall shows how classic Taiwanese street foods maintain their identity while serving diverse customers. The consistent preparation demonstrates authentic food culture preservation.',
         researchContribution:
-          'Through detailed observation of customer interactions and preparation methods, this vendor provides concrete evidence of how individual entrepreneurs navigate tourist expectations while preserving cultural authenticity. The documented language switching and presentation adaptations support broader arguments about strategic cultural performance in tourist-oriented night markets.',
+          'This vendor provides evidence for how food authenticity operates through preparation consistency rather than customer presentation. The documented service adaptations show cultural preservation through culinary practice.',
         vendorDemonstrates:
-          'This vendor shows how successful cultural commodification requires sophisticated audience awareness and strategic adaptation. By maintaining traditional preparation while modifying presentation and communication, Big Sausage Uncle demonstrates how vendors can satisfy tourist expectations without compromising cultural authenticity.',
+          'Through consistent preparation methods and adapted service, this vendor shows how traditional foods maintain authenticity while serving diverse audiences. The focus on food quality demonstrates genuine cultural preservation.',
         researchMethodology:
-          'Observations focused on customer interactions, language use, and food preparation techniques, documenting how this vendor adapts presentation and communication for different audiences while maintaining traditional methods.',
+          'Observations focused on preparation techniques, ingredient quality, and service variations, documenting how traditional foods maintain authenticity across different customer interactions.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable preparation and service patterns rather than personal details, maintaining appropriate academic boundaries while preserving research value.',
       }
     }
 
-    if (vendor.name === "Mei-Li's Stinky Tofu") {
+    if (vendor.name === 'Korean Corn Dogs') {
       return {
         keyInsight:
-          'Mei-Li serves as a cultural ambassador, patiently introducing challenging traditional foods to international audiences while preserving authentic fermentation methods.',
+          'Korean Corn Dogs represents how international foods integrate into traditional night markets while adapting to local tastes and preferences.',
         specificEvidence:
-          'Watched Mei-Li spend 15 minutes explaining the fermentation process to a group of Japanese tourists, using both Mandarin and basic English. She demonstrated the traditional preparation method while explaining its cultural significance, showing how patience and education can bridge cultural gaps.',
+          'Observed Korean-style preparation methods adapted with local ingredients and flavors. Popular with younger customers who appreciate both Korean trends and familiar Taiwanese tastes.',
         culturalStrategy:
-          'Rather than adapting the food for tourist tastes, Mei-Li adapts her communication to make traditional food accessible. This preserves cultural authenticity while making it approachable for international visitors.',
+          'This vendor successfully integrates Korean food trends with local preferences, creating fusion items that appeal to both international food enthusiasts and traditional night market customers.',
         theoreticalConnection:
-          'Shows how cultural education can resist orientalist dynamics by giving tourists genuine understanding rather than simplified performances.',
+          'Shows how global food trends adapt to local contexts, demonstrating cultural exchange and adaptation in commercial food spaces.',
         marketConnection:
-          "Operating in Shilin Night Market's cultural food section, Mei-Li demonstrates how vendors can maintain traditional practices while making them accessible to international audiences. Her educational approach aligns with the market's broader role in cultural transmission.",
+          "Operating in Shilin Night Market's modern food section, this vendor demonstrates how night markets evolve to include international cuisines while maintaining their essential character as diverse food destinations.",
         researchContribution:
-          "This vendor's educational approach provides evidence for how cultural authenticity can be maintained through communication rather than adaptation. The documented interactions with tourists demonstrate strategies for cultural preservation in commercial spaces.",
+          'This vendor provides evidence for how international foods successfully integrate into traditional food spaces. The documented adaptation strategies provide evidence for cultural evolution in commercial settings.',
         vendorDemonstrates:
-          "Through patient cultural education and preserved traditional methods, this vendor shows how challenging traditional foods can be made accessible without compromising authenticity. Mei-Li's approach demonstrates the importance of communication in cultural preservation.",
+          'Through adapted Korean preparations and local appeal, this vendor shows how international foods can enhance rather than replace traditional night market offerings.',
         researchMethodology:
-          'Research focused on vendor-customer educational interactions, documenting how traditional knowledge is transmitted across cultural and linguistic barriers while maintaining authentic practices.',
+          'Research focused on preparation adaptations, customer demographics, and cultural integration patterns, documenting how international foods adapt to local contexts.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable cultural patterns and food preparation practices rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
-    if (vendor.name === 'Night Market Bubble Tea King') {
+    if (vendor.name === 'Bubble Tea Corner') {
       return {
         keyInsight:
-          'The Bubble Tea King represents the evolution of traditional Taiwanese drinks for social media culture while maintaining cultural identity.',
+          "Bubble Tea Corner represents Taiwan's most successful culinary export, showing how local innovations become global phenomena while maintaining authentic preparation.",
         specificEvidence:
-          'Observed the vendor creating elaborate drink presentations specifically designed for Instagram photography - colorful layers, decorative toppings, and branded cups. Yet the core tea preparation follows traditional methods, and he serves the same quality to local customers.',
+          'Observed traditional tea brewing methods combined with modern presentation techniques. Serves both classic preparations for local customers and trendy variations for tourists.',
         culturalStrategy:
-          'This vendor shows how traditional beverages can evolve for contemporary culture without losing their cultural roots. The presentation adapts to social media trends while the essence remains authentically Taiwanese.',
+          'This vendor balances traditional Taiwanese tea culture with modern bubble tea innovations, maintaining authentic brewing while offering contemporary variations.',
         theoreticalConnection:
-          "Demonstrates Appadurai's concept of cultural flows - how local traditions adapt to global digital culture while maintaining regional distinctiveness.",
+          'Demonstrates how local culinary innovations can achieve global success while maintaining cultural authenticity through consistent preparation methods.',
         marketConnection:
-          "Located in Shilin's modern beverage section, this vendor shows how traditional drinks evolve within contemporary digital culture. The adaptation of presentation while maintaining traditional preparation methods reflects broader patterns of cultural evolution in the market.",
+          "Located in Shilin Night Market's beverage section, this vendor showcases Taiwan's most famous food export while maintaining traditional tea preparation methods that define authentic bubble tea.",
         researchContribution:
-          'This case study reveals how traditional beverages adapt to digital culture without losing authenticity. The documented balance between social media appeal and traditional methods provides evidence for cultural evolution in commercial spaces.',
+          'This vendor provides evidence for how local food innovations can maintain authenticity while achieving global recognition. The documented preparation methods reveal authentic bubble tea culture.',
         vendorDemonstrates:
-          'Through strategic adaptation to digital culture, this vendor shows how traditional beverages can maintain cultural authenticity while embracing contemporary presentation styles. The balance achieved demonstrates successful cultural evolution.',
+          'Through traditional brewing methods and quality ingredients, this vendor shows how Taiwanese bubble tea maintains its cultural identity despite global popularization.',
         researchMethodology:
-          'Observations centered on preparation methods and presentation techniques, documenting how traditional practices adapt to contemporary digital culture while maintaining cultural authenticity.',
+          'Observations centered on tea preparation techniques, ingredient quality, and cultural preservation methods, documenting authentic bubble tea practices.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable preparation methods and cultural practices rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
     // Raohe Street Market Vendors
-    if (vendor.name === "Grandma Chen's Hakka Noodles") {
+    if (vendor.name === 'Chinese Hamburger House') {
       return {
         keyInsight:
-          "Grandma Chen's three-generation family business preserves traditional Hakka flat noodle recipes, showing how minority cultures maintain identity through food traditions.",
+          "Chinese Hamburger House preserves traditional Shaanxi-style rou jia mo preparation, demonstrating how regional Chinese cuisines maintain identity within Taiwan's diverse food culture.",
         specificEvidence:
-          'Observed three generations working together - Grandma Chen teaching her granddaughter the traditional kneading technique while her daughter manages customer interactions. The family speaks Hakka dialect among themselves but switches to Mandarin with customers.',
+          'Observed traditional braising techniques requiring hours of preparation for tender pork filling. Family recipes and preparation methods preserved across generations through hands-on teaching.',
         culturalStrategy:
-          'This vendor demonstrates strategic cultural preservation through family knowledge transfer. The Hakka identity is maintained through traditional preparation methods and family communication, while adaptation happens in customer service.',
+          'This vendor maintains authentic regional Chinese preparation methods while adapting to night market setting, preserving traditional techniques within commercial context.',
         theoreticalConnection:
-          'Shows how minority communities deploy distinct cultural knowledge as economic assets while preserving cultural authenticity (Bourdieu 1984).',
+          "Shows how regional Chinese culinary traditions maintain distinctiveness within Taiwan's broader Chinese cultural context, demonstrating cultural preservation through food.",
         marketConnection:
-          "As a prominent Hakka vendor in Raohe Street Market, Grandma Chen's stall exemplifies how minority cultures maintain visibility through food traditions. The multi-generational operation demonstrates the market's role in cultural preservation.",
+          "As a traditional Chinese regional food vendor in Raohe Street Market, this stall exemplifies how diverse Chinese culinary traditions find expression within Taiwan's night market culture.",
         researchContribution:
-          'This vendor provides crucial evidence for how minority cultures maintain identity through family-based knowledge transmission. The documented intergenerational teaching and language use patterns reveal strategies for cultural preservation.',
+          'This vendor provides evidence for how regional Chinese cuisines maintain distinctiveness within Taiwan. The documented preparation methods reveal traditional culinary knowledge preservation.',
         vendorDemonstrates:
-          'Through family collaboration and maintained traditions, this vendor shows how minority cultures preserve identity within mainstream commercial spaces. The balance of tradition and adaptation demonstrates successful cultural resistance.',
+          "Through authentic preparation methods and family recipes, this vendor shows how regional Chinese foods maintain cultural identity within Taiwan's diverse culinary landscape.",
         researchMethodology:
-          'Research focused on family interactions, knowledge transmission, and language use patterns, documenting how cultural practices are preserved and passed between generations.',
+          'Research focused on preparation techniques, family knowledge transmission, and cultural preservation methods, documenting traditional Chinese regional cuisine practices.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable preparation methods and cultural practices rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
-    if (vendor.name === 'Heritage Pepper Buns') {
+    if (vendor.name === 'Fresh Pancakes') {
       return {
         keyInsight:
-          'Heritage Pepper Buns preserves traditional clay oven techniques and Hakka-style spice blends, maintaining cultural distinctiveness within Taiwanese food culture.',
+          'Fresh Pancakes demonstrates how traditional breakfast foods adapt to night market dining, showing temporal flexibility in Chinese food culture.',
         specificEvidence:
-          "The vendor uses a traditional clay oven that's increasingly rare in modern Taiwan. The Hakka spice blend includes specific herbs and preparation methods that distinguish these buns from mainstream versions. Customers can taste the difference.",
+          'Observed skilled preparation requiring precise timing for thin, crispy pancakes with fresh eggs and savory fillings. Popular with customers seeking familiar comfort food in evening setting.',
         culturalStrategy:
-          'This vendor maintains cultural distinctiveness through authentic preparation methods rather than marketing. The quality and traditional techniques speak for themselves, preserving Hakka identity through genuine cultural practice.',
+          'This vendor successfully adapts traditional breakfast preparation for evening dining, maintaining authentic cooking methods while serving different meal contexts.',
         theoreticalConnection:
-          "Demonstrates Gramsci's concept of cultural resistance, showing how minority cultures maintain distinct practices within dominant cultural systems while creating economic sustainability (Gramsci 1971).",
+          'Shows how traditional foods adapt to different temporal contexts while maintaining cultural authenticity through consistent preparation methods.',
         marketConnection:
-          "Operating in Raohe Street Market's traditional food section, this vendor maintains authentic Hakka preparation methods that distinguish their products. The preserved techniques demonstrate the market's role in maintaining cultural diversity.",
+          "Operating in Raohe Street Market's traditional food section, this vendor demonstrates how classic Chinese breakfast foods find new contexts within night market dining culture.",
         researchContribution:
-          'This case study shows how traditional techniques serve as markers of cultural identity. The documented preparation methods and spice combinations provide evidence for cultural distinctiveness in commercial spaces.',
+          'This vendor provides evidence for how traditional foods maintain authenticity while adapting to different dining contexts. The documented preparation methods show cultural flexibility.',
         vendorDemonstrates:
-          'Through preserved traditional techniques and authentic spice blends, this vendor shows how minority cultures maintain distinctiveness through genuine practice rather than performative display.',
+          'Through skilled preparation and authentic methods, this vendor shows how traditional breakfast foods can successfully transition to different meal contexts.',
         researchMethodology:
-          'Observations centered on preparation techniques and ingredient selection, documenting how traditional methods serve as markers of cultural identity.',
+          'Observations centered on preparation techniques, timing requirements, and cultural adaptation patterns, documenting traditional food flexibility.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable preparation methods and cultural practices rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
-    if (vendor.name === 'Three Generations Tea Eggs') {
+    if (vendor.name === 'King Oyster Mushroom Grill') {
       return {
         keyInsight:
-          'Three Generations Tea Eggs shows how simple dishes carry complex cultural knowledge and serve as vehicles for preserving minority culture.',
+          'King Oyster Mushroom Grill represents evolving dietary preferences within traditional night markets, showing adaptation to vegetarian and health-conscious dining.',
         specificEvidence:
-          'Observed the family working together, with each generation contributing to the preparation. The grandmother oversees the spice blend, the mother manages timing, and the granddaughter handles customer service. The Hakka spice combination is distinct from mainstream preparations.',
+          'Observed specialized grilling techniques that highlight natural mushroom flavors and textures. Growing customer base includes both vegetarians and health-conscious diners seeking plant-based options.',
         culturalStrategy:
-          'This vendor preserves cultural identity through family collaboration and traditional recipes. The simple tea egg becomes a vehicle for cultural transmission and community connection.',
+          'This vendor adapts traditional grilling methods for vegetarian ingredients, maintaining authentic cooking techniques while serving evolving dietary preferences.',
         theoreticalConnection:
-          'Shows how working-class communities maintain practices that serve community needs rather than market demands (Scott 1990).',
+          'Demonstrates how traditional cooking methods can adapt to contemporary dietary trends while maintaining cultural authenticity through technique preservation.',
         marketConnection:
-          "Located in Raohe Street Market's snack section, this vendor demonstrates how simple foods carry complex cultural significance. The family operation shows the market's role in supporting intergenerational cultural transmission.",
+          "Located in Raohe Street Market's grilled food section, this vendor shows how night markets evolve to serve changing dietary preferences while maintaining traditional cooking methods.",
         researchContribution:
-          'This vendor reveals how everyday foods serve as vehicles for cultural preservation. The documented family dynamics and recipe maintenance provide evidence for cultural transmission through commercial practice.',
+          'This vendor provides evidence for how traditional cooking methods adapt to contemporary dietary trends. The documented techniques show cultural evolution through food.',
         vendorDemonstrates:
-          'Through family collaboration and preserved recipes, this vendor shows how simple foods maintain complex cultural significance. The intergenerational operation demonstrates successful cultural preservation.',
+          'Through traditional grilling methods and quality ingredients, this vendor shows how night markets can serve evolving dietary preferences while maintaining cultural authenticity.',
         researchMethodology:
-          'Research focused on family roles, recipe preservation, and preparation techniques, documenting how everyday foods serve as vehicles for cultural transmission.',
+          'Research focused on cooking techniques, ingredient selection, and cultural adaptation patterns, documenting traditional methods applied to contemporary preferences.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable cooking methods and cultural practices rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
     // Huaxi Street Market Vendors
-    if (vendor.name === "Old Wang's Snake Soup") {
+    if (vendor.name === 'Fried Bread Kitchen') {
       return {
         keyInsight:
-          "Old Wang's Snake Soup maintains traditional food culture that resists gentrification, serving as an authentic community gathering space for working-class customers.",
+          'Fried Bread Kitchen maintains traditional fried dough preparation while serving essential affordable nutrition for working-class communities.',
         specificEvidence:
-          'Observed regular customers who know Old Wang by name, discussing work and family while eating. The soup follows traditional Chinese medicine principles, and the pricing remains accessible to working-class customers despite rising costs elsewhere.',
+          'Observed consistent quality and generous portions despite rising ingredient costs. Regular customers include construction workers, taxi drivers, and local residents seeking affordable, filling meals.',
         culturalStrategy:
-          'This vendor prioritizes community service over profit maximization, maintaining traditional practices and affordable pricing to serve the local working-class population.',
+          'This vendor prioritizes community service over profit maximization, maintaining affordable pricing and traditional preparation to serve local working populations.',
         theoreticalConnection:
-          "Demonstrates Scott's concept of working-class cultural autonomy - maintaining practices that serve community needs rather than market demands.",
+          'Demonstrates how traditional food vendors can resist market pressures by prioritizing community needs over profit maximization.',
         marketConnection:
-          "As a long-standing vendor in Huaxi Street Market, Old Wang's stall exemplifies the market's role in preserving working-class food culture. The maintained affordability and community atmosphere demonstrate resistance to gentrification.",
+          "As an affordable food vendor in Huaxi Street Market, this stall exemplifies the market's role in providing essential nutrition for working-class communities through traditional foods.",
         researchContribution:
-          'This vendor provides evidence for how traditional food practices resist market pressures. The documented community interactions and pricing strategies reveal mechanisms of cultural preservation.',
+          'This vendor provides evidence for how traditional food vendors serve essential community functions. The documented pricing and service patterns reveal community-focused business practices.',
         vendorDemonstrates:
-          'Through maintained affordability and community focus, this vendor shows how traditional practices resist gentrification. The preserved accessibility demonstrates successful cultural resistance.',
+          'Through affordable pricing and consistent quality, this vendor shows how traditional food businesses can prioritize community service while maintaining cultural authenticity.',
         researchMethodology:
-          'Observations centered on customer interactions, pricing strategies, and community formation, documenting how traditional practices resist market pressures.',
+          "Observations centered on pricing strategies, customer demographics, and community service patterns, documenting traditional food's community role.",
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable business practices and community interactions rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
-    if (vendor.name === "Workers' Noodle Stand") {
+    if (vendor.name === 'Pork Bun Express') {
       return {
         keyInsight:
-          "The Workers' Noodle Stand functions as a democratic cultural space where economic barriers to participation are minimized through affordable pricing and communal dining.",
+          "Pork Bun Express provides essential quick, affordable meals for working communities, demonstrating night markets' role in urban food security.",
         specificEvidence:
-          'Observed shared tables where construction workers, office employees, and students eat together regardless of income level. The vendor knows regular customers by name and remembers their usual orders. Pricing is specifically maintained for working-class accessibility.',
+          'Observed efficient operations serving construction workers, taxi drivers, and local residents who need quick, affordable, nutritious meals. Known for generous portions and consistent quality.',
         culturalStrategy:
-          'This vendor creates genuine community through economic accessibility and authentic cultural practices, resisting the commodification of food culture.',
+          'This vendor focuses on efficient service and value pricing to meet working community needs, maintaining traditional bun preparation while optimizing for quick service.',
         theoreticalConnection:
-          'Shows Lefebvre\'s "right to the city" concept - creating inclusive cultural spaces that serve community needs rather than tourist expectations.',
+          'Shows how traditional food vendors adapt to urban working schedules while maintaining cultural food practices and community service functions.',
         marketConnection:
-          "Operating in Huaxi Street Market's main food section, this vendor demonstrates the market's role in maintaining economic accessibility. The communal dining space shows how food culture creates social connections across class boundaries.",
+          "Operating in Huaxi Street Market's quick service section, this vendor demonstrates how traditional foods serve essential urban community needs through efficient, affordable operations.",
         researchContribution:
-          'This case study reveals how economic accessibility creates genuine cultural participation. The documented social interactions and pricing strategies provide evidence for democratic cultural spaces.',
+          "This vendor provides evidence for how traditional food vendors serve essential urban community functions. The documented service patterns show food's role in working-class support systems.",
         vendorDemonstrates:
-          'Through maintained affordability and communal spaces, this vendor shows how food culture creates genuine community. The cross-class interactions demonstrate successful cultural democracy.',
+          'Through efficient operations and community focus, this vendor shows how traditional foods serve essential urban community needs while maintaining cultural authenticity.',
         researchMethodology:
-          'Research focused on social interactions, pricing strategies, and community formation, documenting how economic accessibility creates genuine cultural participation.',
+          "Research focused on service efficiency, community demographics, and urban food security patterns, documenting traditional food's community role.",
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable service patterns and community interactions rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
-    if (vendor.name === 'Night Shift Dumplings') {
+    if (vendor.name === 'Simple Noodle Bowl') {
       return {
         keyInsight:
-          'Night Shift Dumplings demonstrates how night markets support working-class community needs beyond tourism, serving essential social infrastructure for non-traditional work schedules.',
+          'Simple Noodle Bowl maintains traditional noodle shop culture within night market setting, serving essential community dining needs through authentic preparation.',
         specificEvidence:
-          'Observed night shift workers from nearby industries gathering for meals at 2 AM. The vendor operates 24 hours to serve these workers, creating a community space for people who work outside traditional hours.',
+          'Observed straightforward operations focusing on value and nutrition rather than presentation. Regular customers include local workers and elderly residents seeking familiar, affordable meals.',
         culturalStrategy:
-          'This vendor adapts to community needs rather than market demands, serving working-class schedules and creating social connections for night workers.',
+          'This vendor maintains traditional noodle shop practices within night market context, prioritizing authentic preparation and community service over tourist appeal.',
         theoreticalConnection:
-          "Demonstrates Lefebvre's concept of social space production, showing how working-class communities create cultural spaces that serve their specific needs and schedules, resisting mainstream temporal and spatial organization (Lefebvre 1968).",
+          'Demonstrates how traditional food culture maintains authenticity through community focus rather than commercial presentation, showing genuine cultural preservation.',
         marketConnection:
-          "Located in Huaxi Street Market's 24-hour section, this vendor shows how the market serves diverse community needs. The night shift focus demonstrates adaptation to working-class schedules.",
+          "Located in Huaxi Street Market's traditional food section, this vendor shows how authentic noodle shop culture persists within night market settings through community-focused operations.",
         researchContribution:
-          'This vendor reveals how night markets serve essential community functions. The documented late-night interactions provide evidence for cultural spaces adapting to working-class needs.',
+          'This vendor provides evidence for authentic traditional food culture operating through community service rather than commercial appeal. The documented practices show genuine cultural preservation.',
         vendorDemonstrates:
-          'Through 24-hour operation and community focus, this vendor shows how night markets serve essential social functions. The adapted schedule demonstrates successful community service.',
+          'Through traditional preparation and community focus, this vendor shows how authentic food culture maintains itself through genuine community service rather than tourist presentation.',
         researchMethodology:
-          'Observations conducted during night shifts, focusing on community formation and social interactions during non-traditional hours.',
+          'Observations centered on preparation methods, community interactions, and cultural authenticity patterns, documenting traditional noodle shop culture.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable preparation methods and community interactions rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
     // Kenting Night Market Vendors
-    if (vendor.name === 'Beach BBQ Seafood') {
+    if (vendor.name === 'Beach Seafood Grill') {
       return {
         keyInsight:
-          'Beach BBQ Seafood demonstrates how regional food culture adapts to tourism while maintaining connections to local fishing traditions.',
+          'Beach Seafood Grill connects night market dining to local fishing economy, showcasing regional coastal food culture through fresh, local ingredients.',
         specificEvidence:
-          'Observed the vendor sourcing fresh seafood from local fishing boats and adapting preparation methods for beach tourists - larger portions, more seasoning, and beach-friendly presentation. Yet the core preparation methods remain traditional.',
+          'Observed direct sourcing from local fishing boats with preparation adapting to seasonal availability. Simple grilling methods highlight natural seafood flavors rather than heavy seasonings.',
         culturalStrategy:
-          'This vendor balances local fishing culture with tourism expectations, creating adaptations that serve both communities without sacrificing cultural authenticity.',
+          'This vendor maintains connections to local fishing economy while adapting to tourism dining, balancing authentic coastal preparation with visitor accessibility.',
         theoreticalConnection:
-          'Demonstrates concepts of cultural flows and glocalization, showing how local traditions successfully hybridize with global influences while maintaining cultural distinctiveness (Appadurai 1996; Robertson 1995).',
+          'Demonstrates how local food systems can maintain authenticity while serving tourism markets through emphasis on local sourcing and traditional preparation.',
         marketConnection:
-          "As a prominent seafood vendor in Kenting Night Market, this stall shows how local fishing traditions adapt to tourism. The balanced approach demonstrates the market's role in cultural adaptation.",
+          'As a seafood vendor in Kenting Night Market, this stall shows how coastal food culture adapts to tourism while maintaining connections to local fishing traditions and seasonal availability.',
         researchContribution:
-          'This vendor provides evidence for successful cultural adaptation to tourism. The documented balance between local traditions and tourist expectations reveals strategies for cultural preservation.',
+          'This vendor provides evidence for how local food systems can serve tourism while maintaining authentic connections to regional economy and traditional preparation methods.',
         vendorDemonstrates:
-          'Through maintained fishing connections and adapted presentation, this vendor shows how local traditions evolve with tourism. The preserved authenticity demonstrates successful cultural adaptation.',
+          'Through local sourcing and traditional preparation, this vendor shows how coastal food culture can serve tourism while maintaining authentic connections to local fishing economy.',
         researchMethodology:
-          'Research focused on sourcing practices, preparation methods, and customer interactions, documenting how local traditions adapt to tourism demands.',
+          'Research focused on sourcing practices, seasonal adaptation, and traditional preparation methods, documenting coastal food culture and local economic connections.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable sourcing and preparation practices rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
-    if (vendor.name === 'Tropical Fruit Smoothies') {
+    if (vendor.name === 'Tropical Fruit Stand') {
       return {
         keyInsight:
-          'Tropical Fruit Smoothies shows how regional agricultural identity adapts to tourism economy while preserving connections to local farming traditions.',
+          "Tropical Fruit Stand highlights southern Taiwan's agricultural abundance while adapting to beach tourism economy through fresh, local produce.",
         specificEvidence:
-          'Observed the vendor using local tropical fruits including indigenous varieties, adapting traditional fruit consumption for beach tourism context. The smoothies incorporate local agricultural knowledge while appealing to tourist preferences.',
+          'Observed emphasis on local tropical fruits including seasonal varieties, adapting presentation for tourist preferences while showcasing regional agricultural products.',
         culturalStrategy:
-          'This vendor preserves regional agricultural identity through ingredient selection while adapting presentation for tourism, showing how local farming traditions can thrive in tourism economies.',
+          'This vendor balances tourist appeal with agricultural authenticity, highlighting local farming traditions while adapting service to visitor preferences and beach dining needs.',
         theoreticalConnection:
-          "Shows Appadurai's concept of cultural flows - how local agricultural practices adapt to global tourism while maintaining regional distinctiveness.",
+          'Shows how agricultural traditions can thrive within tourism economies through emphasis on local quality and seasonal availability rather than exotic presentation.',
         marketConnection:
-          "Operating in Kenting Night Market's beverage section, this vendor demonstrates how local agricultural traditions adapt to tourism. The use of indigenous fruits shows the market's role in preserving regional identity.",
+          "Operating in Kenting Night Market's fresh food section, this vendor demonstrates how local agricultural traditions adapt to tourism while maintaining connections to regional farming.",
         researchContribution:
-          'This case study reveals how agricultural traditions adapt to tourism economies. The documented ingredient selection and preparation methods provide evidence for cultural preservation.',
+          'This vendor provides evidence for how agricultural vendors can serve tourism while maintaining authentic connections to local farming. The documented practices show regional food culture adaptation.',
         vendorDemonstrates:
-          'Through indigenous ingredient use and adapted presentation, this vendor shows how agricultural traditions evolve with tourism. The maintained connections demonstrate successful cultural adaptation.',
+          'Through local sourcing and seasonal adaptation, this vendor shows how agricultural traditions can serve tourism while maintaining authentic connections to regional farming economy.',
         researchMethodology:
-          'Observations centered on ingredient sourcing, preparation methods, and cultural knowledge transmission, documenting how agricultural traditions adapt to tourism.',
+          'Observations centered on sourcing practices, seasonal availability, and tourism adaptation patterns, documenting agricultural culture within tourism contexts.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable sourcing and service practices rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
-    if (vendor.name === "Surfer's Late Night Noodles") {
+    if (vendor.name === 'Late Night Beef Noodles') {
       return {
         keyInsight:
-          "Surfer's Late Night Noodles represents the intersection of traditional Taiwanese food culture with global beach and surf culture.",
+          'Late Night Beef Noodles adapts traditional Taiwanese comfort food for beach climate and late-night dining, showing regional and temporal food culture adaptation.',
         specificEvidence:
-          'Observed both local and international surfers eating together, with the vendor adapting traditional noodle preparation for beach lifestyle - lighter seasoning, more vegetables, and casual presentation. The core Taiwanese identity remains through traditional preparation methods.',
+          'Observed lighter broth preparations and smaller portions adapted for warm coastal weather and late-night beach dining. Popular with surfers and late-night beach visitors.',
         culturalStrategy:
-          'This vendor creates cultural bridges between local traditions and international beach culture, showing how Taiwanese food can adapt to global lifestyles while maintaining cultural identity.',
+          'This vendor adapts traditional beef noodle soup for regional climate and tourism patterns while maintaining authentic preparation methods and familiar flavors.',
         theoreticalConnection:
-          'Demonstrates concepts of cultural flows and glocalization, showing how local traditions successfully hybridize with global influences while maintaining cultural distinctiveness (Appadurai 1996; Robertson 1995).',
+          'Demonstrates how traditional comfort foods can adapt to regional climate and tourism patterns while maintaining cultural authenticity through consistent preparation methods.',
         marketConnection:
-          "Located in Kenting Night Market's late-night section, this vendor shows how local food culture adapts to international beach lifestyle. The hybrid approach demonstrates the market's evolution with global influences.",
+          "Located in Kenting Night Market's late-night section, this vendor shows how traditional Taiwanese comfort foods adapt to coastal climate and beach tourism dining patterns.",
         researchContribution:
-          'This vendor reveals how local food culture successfully hybridizes with global influences. The documented adaptations provide evidence for cultural evolution in tourist economies.',
+          'This vendor provides evidence for how traditional comfort foods maintain authenticity while adapting to regional climate and tourism patterns through preparation modifications.',
         vendorDemonstrates:
-          'Through balanced adaptation and maintained traditions, this vendor shows how local food culture evolves with global influences. The successful hybridization demonstrates cultural resilience.',
+          'Through adapted preparation and maintained authenticity, this vendor shows how traditional comfort foods can serve different regional and temporal contexts while preserving cultural identity.',
         researchMethodology:
-          'Research focused on cross-cultural interactions, preparation adaptations, and community formation, documenting how local traditions evolve with global influences.',
+          'Research focused on preparation adaptations, climate considerations, and tourism pattern accommodation, documenting traditional food flexibility.',
         ethicalConsiderations:
-          'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.',
+          'This analysis focuses on publicly observable preparation methods and adaptation strategies rather than personal details, maintaining appropriate academic boundaries.',
       }
     }
 
@@ -502,25 +502,14 @@ export default function VendorDetail() {
           {/* Images */}
           {vendor.images && vendor.images.length > 0 && (
             <div className='mb-12'>
-              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                {vendor.images.slice(0, 4).map((image, index) => (
-                  <div
-                    key={index}
-                    className={`relative rounded-xl overflow-hidden ${
-                      index === 0 && vendor.images.length > 1
-                        ? 'md:row-span-2 h-96'
-                        : 'h-48'
-                    }`}
-                  >
-                    <Image
-                      src={image}
-                      alt={`${vendor.name} - Image ${index + 1}`}
-                      fill
-                      className='object-cover'
-                      sizes='(max-width: 768px) 100vw, 50vw'
-                    />
-                  </div>
-                ))}
+              <div className='relative h-96 rounded-xl overflow-hidden'>
+                <Image
+                  src={vendor.images[0]}
+                  alt={`${vendor.name}`}
+                  fill
+                  className='object-cover'
+                  sizes='(max-width: 768px) 100vw, 75vw'
+                />
               </div>
             </div>
           )}
@@ -539,44 +528,6 @@ export default function VendorDetail() {
               </div>
             </section>
 
-            {/* Cultural Significance */}
-            {vendor.culturalSignificance && (
-              <section className='bg-secondary-light rounded-xl p-8'>
-                <h2 className='text-2xl font-bold text-white mb-6'>
-                  🏮 Cultural Heritage & Traditions
-                </h2>
-                <div className='prose prose-lg prose-invert max-w-none'>
-                  <p className='text-neutral-300 leading-relaxed text-lg'>
-                    {vendor.culturalSignificance}
-                  </p>
-                </div>
-              </section>
-            )}
-
-            {/* Research Observations */}
-            {vendor.researchNotes && (
-              <section>
-                <h2 className='text-2xl font-bold text-white mb-6'>
-                  👁️ Field Research Observations
-                </h2>
-                <div className='bg-neutral-900 rounded-lg p-6 border-l-4 border-primary'>
-                  <p className='text-neutral-300 leading-relaxed text-lg'>
-                    {vendor.researchNotes}
-                  </p>
-                </div>
-              </section>
-            )}
-
-            {/* Key Insight - Vendor Specific */}
-            <section className='bg-primary/10 rounded-lg p-6'>
-              <h2 className='text-2xl font-bold text-white mb-4'>
-                Key Research Finding
-              </h2>
-              <p className='text-neutral-300 leading-relaxed text-lg'>
-                {vendorContent.keyInsight}
-              </p>
-            </section>
-
             {/* Specific Evidence - Vendor Specific */}
             <section>
               <h2 className='text-2xl font-bold text-white mb-6'>
@@ -589,13 +540,13 @@ export default function VendorDetail() {
               </div>
             </section>
 
-            {/* Cultural Strategy - Vendor Specific */}
-            <section className='bg-accent/10 rounded-lg p-6'>
+            {/* Key Insight - Vendor Specific */}
+            <section className='bg-primary/10 rounded-lg p-6'>
               <h2 className='text-2xl font-bold text-white mb-4'>
-                Cultural Strategy
+                Key Research Finding
               </h2>
               <p className='text-neutral-300 leading-relaxed text-lg'>
-                {vendorContent.culturalStrategy}
+                {vendorContent.keyInsight}
               </p>
             </section>
 
@@ -661,56 +612,26 @@ export default function VendorDetail() {
               </div>
             </section>
 
-            {/* Research Ethics and Methodology */}
-            <section className='bg-neutral-900 rounded-lg p-8'>
-              <h2 className='text-2xl font-bold text-white mb-6'>
-                Research Ethics & Methodology
-              </h2>
-
-              <div className='grid md:grid-cols-2 gap-8'>
-                <div>
-                  <h3 className='text-lg font-bold text-white mb-4'>
-                    Research Approach
-                  </h3>
-                  <div className='space-y-3 text-sm'>
-                    <p className='text-neutral-300 leading-relaxed'>
-                      {vendorContent.researchMethodology}
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className='text-lg font-bold text-white mb-4'>
-                    Ethical Considerations
-                  </h3>
-                  <div className='space-y-3 text-sm'>
-                    <p className='text-neutral-300 leading-relaxed'>
-                      {vendorContent.ethicalConsiderations ||
-                        'This analysis focuses on publicly observable cultural patterns and practices rather than personal details, maintaining appropriate academic boundaries while preserving the research value of the observations.'}
-                    </p>
-                    <Link
-                      href='/about'
-                      className='text-primary hover:text-primary-light transition-colors inline-block'
-                    >
-                      Learn more about research ethics →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             {/* Vendor Information - Inline */}
             <section className='bg-neutral-900 rounded-lg p-8'>
               <h2 className='text-2xl font-bold text-white mb-6'>
-                Vendor Information & Contact
+                Vendor Information
               </h2>
 
               <div className='grid md:grid-cols-2 gap-8'>
                 <div>
                   <h3 className='text-lg font-bold text-white mb-4'>
-                    Operating Details
+                    Location Details
                   </h3>
                   <div className='space-y-3 text-sm'>
+                    {vendor.markets && vendor.markets.length > 0 && (
+                      <div>
+                        <p className='text-neutral-400'>Market</p>
+                        <p className='text-neutral-300'>
+                          {vendor.markets[0].market.name}
+                        </p>
+                      </div>
+                    )}
                     {vendor.operatingHours && (
                       <div>
                         <p className='text-neutral-400'>Operating Hours</p>
@@ -719,70 +640,58 @@ export default function VendorDetail() {
                         </p>
                       </div>
                     )}
-                    {vendor.latitude && vendor.longitude && (
+                    {vendor.specialties && vendor.specialties.length > 0 && (
                       <div>
-                        <p className='text-neutral-400'>Location Coordinates</p>
-                        <p className='text-neutral-300'>
-                          {vendor.latitude.toFixed(6)},{' '}
-                          {vendor.longitude.toFixed(6)}
-                        </p>
-                      </div>
-                    )}
-                    {vendor.markets && vendor.markets.length > 0 && (
-                      <div>
-                        <p className='text-neutral-400'>Market Location</p>
-                        <p className='text-neutral-300'>
-                          {vendor.markets[0].market.location}
-                        </p>
+                        <p className='text-neutral-400'>Specialties</p>
+                        <div className='flex flex-wrap gap-2 mt-2'>
+                          {vendor.specialties.map((specialty, index) => (
+                            <span
+                              key={index}
+                              className='bg-accent/20 text-accent px-3 py-1 rounded-full text-xs'
+                            >
+                              {specialty}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
                 </div>
 
-                {(vendor.contactPhone ||
-                  vendor.contactInstagram ||
-                  vendor.contactFacebook ||
-                  vendor.contactLine) && (
-                  <div>
-                    <h3 className='text-lg font-bold text-white mb-4'>
-                      Contact Information
-                    </h3>
-                    <div className='space-y-3 text-sm'>
-                      {vendor.contactPhone && (
-                        <div className='flex items-center space-x-3'>
-                          <span className='text-neutral-400'>📞</span>
-                          <span className='text-neutral-300'>
-                            {vendor.contactPhone}
-                          </span>
-                        </div>
-                      )}
-                      {vendor.contactInstagram && (
-                        <div className='flex items-center space-x-3'>
-                          <span className='text-neutral-400'>📷</span>
-                          <span className='text-neutral-300'>
-                            @{vendor.contactInstagram}
-                          </span>
-                        </div>
-                      )}
-                      {vendor.contactFacebook && (
-                        <div className='flex items-center space-x-3'>
-                          <span className='text-neutral-400'>📘</span>
-                          <span className='text-neutral-300'>
-                            {vendor.contactFacebook}
-                          </span>
-                        </div>
-                      )}
-                      {vendor.contactLine && (
-                        <div className='flex items-center space-x-3'>
-                          <span className='text-neutral-400'>💬</span>
-                          <span className='text-neutral-300'>
-                            {vendor.contactLine}
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                <div>
+                  <h3 className='text-lg font-bold text-white mb-4'>
+                    Contact Information
+                  </h3>
+                  <div className='space-y-3 text-sm'>
+                    <p className='text-neutral-400'>
+                      Visit this vendor at their stall in{' '}
+                      {vendor.markets?.[0]?.market?.name || 'the night market'}.
+                      Hours and availability may vary based on weather and
+                      seasonal factors.
+                    </p>
+                    {vendor.contactPhone && (
+                      <div>
+                        <p className='text-neutral-400'>Phone</p>
+                        <p className='text-neutral-300'>
+                          {vendor.contactPhone}
+                        </p>
+                      </div>
+                    )}
+                    {vendor.contactInstagram && (
+                      <div>
+                        <p className='text-neutral-400'>Instagram</p>
+                        <a
+                          href={`https://instagram.com/${vendor.contactInstagram}`}
+                          className='text-primary hover:text-primary-light transition-colors'
+                          target='_blank'
+                          rel='noopener noreferrer'
+                        >
+                          @{vendor.contactInstagram}
+                        </a>
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             </section>
 
@@ -797,12 +706,14 @@ export default function VendorDetail() {
                     Visit {vendor.markets[0].market.name}
                   </Link>
                 )}
-                <Link
-                  href={`/explorer?market=${vendor.markets?.[0]?.market?.id || ''}`}
-                  className='bg-accent hover:bg-accent-dark text-white font-medium py-3 px-6 rounded-lg transition-colors'
-                >
-                  Explore on Interactive Map
-                </Link>
+                {vendor.markets && vendor.markets.length > 0 && (
+                  <Link
+                    href={`/explorer?market=${vendor.markets[0].market.id}`}
+                    className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors'
+                  >
+                    Explore in Map
+                  </Link>
+                )}
                 <Link
                   href='/vendors'
                   className='bg-secondary-light hover:bg-neutral-700 text-white font-medium py-3 px-6 rounded-lg border border-neutral-600 transition-colors'
@@ -823,10 +734,7 @@ export default function VendorDetail() {
                 ← Back to All Vendors
               </Link>
               {vendor.markets && vendor.markets.length > 0 && (
-                <Link
-                  href={`/explorer?market=${vendor.markets[0].market.id}`}
-                  className='bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors'
-                >
+                <Link href={`/explorer?market=${vendor.markets[0].market.id}`}>
                   Explore in Map
                 </Link>
               )}

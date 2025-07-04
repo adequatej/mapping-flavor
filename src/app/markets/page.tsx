@@ -173,7 +173,7 @@ export default function Markets() {
             approaches that examine power dynamics in cultural spaces (Said
             1978; Scott 1990). Analysis focuses on publicly observable patterns:
             language switching, menu variations for different audiences, spatial
-            organization, and vendor-customer interactions.
+            organization, vendor-customer interactions, and more.
           </p>
           <p className='text-neutral-400 text-sm'>
             <strong>Research Limitations:</strong> These observations represent
@@ -182,42 +182,6 @@ export default function Markets() {
             identity negotiation rather than definitive statements about vendor
             experiences.
           </p>
-        </div>
-
-        {/* Content Bridge */}
-        <div className='bg-primary/10 rounded-lg p-6 mb-12 max-w-4xl mx-auto text-center'>
-          <p className='text-neutral-300 leading-relaxed mb-4'>
-            <strong className='text-white'>The Four Case Studies Below</strong>{' '}
-            each show a different way that "Taiwanese identity" gets contested
-            and negotiated in night markets:
-          </p>
-          <div className='grid md:grid-cols-2 gap-4 text-sm'>
-            <div className='text-left'>
-              <p className='text-white font-medium'>Shilin:</p>
-              <p className='text-neutral-400'>
-                Identity performed differently for tourists vs locals
-              </p>
-            </div>
-            <div className='text-left'>
-              <p className='text-white font-medium'>Raohe:</p>
-              <p className='text-neutral-400'>
-                Ethnic minorities competing for space within "Taiwanese"
-                identity
-              </p>
-            </div>
-            <div className='text-left'>
-              <p className='text-white font-medium'>Huaxi:</p>
-              <p className='text-neutral-400'>
-                Working-class authentic practices vs commodified culture
-              </p>
-            </div>
-            <div className='text-left'>
-              <p className='text-white font-medium'>Kenting:</p>
-              <p className='text-neutral-400'>
-                Local identity adapting to external tourism pressures
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Markets Grid */}

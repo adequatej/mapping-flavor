@@ -17,7 +17,6 @@ interface Vendor {
   contactInstagram?: string
   contactFacebook?: string
   contactLine?: string
-  operatingHours?: string
   researchNotes?: string
   culturalSignificance?: string
   isActive: boolean
@@ -411,13 +410,6 @@ export default function Vendors() {
                     {truncateDescription(vendor.description)}
                   </p>
 
-                  {/* Operating Hours */}
-                  {vendor.operatingHours && (
-                    <div className='mb-4 text-xs text-neutral-400'>
-                      🕒 {vendor.operatingHours}
-                    </div>
-                  )}
-
                   {/* Action Buttons */}
                   <div className='flex space-x-3'>
                     <Link
@@ -457,10 +449,10 @@ export default function Vendors() {
           <div className='mt-16 bg-accent/10 rounded-lg p-6 max-w-4xl mx-auto text-center'>
             <p className='text-neutral-300 leading-relaxed mb-4'>
               <strong className='text-white'>Dive Deeper:</strong> Click any
-              vendor profile above for detailed case study analysis, including
-              academic theory and cultural context. Each profile connects
-              directly to its market case study and demonstrates specific
-              theoretical concepts in practice.
+              vendor profile above for detailed analysis, including academic
+              theory and cultural context. Each profile connects directly to its
+              market case study and demonstrates specific theoretical concepts
+              in practice.
             </p>
             <div className='flex flex-wrap justify-center gap-3'>
               <Link

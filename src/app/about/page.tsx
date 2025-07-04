@@ -150,8 +150,8 @@ export default function About() {
                     <span className='font-medium text-white'>4</span>
                   </div>
                   <div className='flex justify-between'>
-                    <span>Focus Areas:</span>
-                    <span className='font-medium text-white'>6</span>
+                    <span>Vendor Profiles:</span>
+                    <span className='font-medium text-white'>12</span>
                   </div>
                 </div>
               </div>
@@ -303,7 +303,7 @@ export default function About() {
                 </div>
                 <div className='relative h-64 rounded-xl overflow-hidden'>
                   <Image
-                    src='https://picsum.photos/600/400?random=10'
+                    src='/images/vendors/IMG_1192.jpg'
                     alt='Taiwan night market cultural identity research'
                     fill
                     className='object-cover'
@@ -612,6 +612,9 @@ export default function About() {
                   • Chen and Huang (2014). Tourism Night Markets Supply-Side
                   Analysis
                 </li>
+                <li className='leading-relaxed'>
+                  • Su (2023). Democratic Cultural Spaces and Community Hubs
+                </li>
               </ul>
             </div>
             <div>
@@ -631,7 +634,22 @@ export default function About() {
               </ul>
             </div>
           </div>
-          <div className='text-center'>
+          <div className='mt-8'>
+            <h4 className='text-lg font-semibold text-white mb-4'>
+              Digital Heritage Studies
+            </h4>
+            <ul className='space-y-3 text-neutral-300'>
+              <li className='leading-relaxed'>
+                • Srinivasan and Luther (2016). Digital Documentation and
+                Cultural Heritage
+              </li>
+              <li className='leading-relaxed'>
+                • Giglitto and Ciolfi (2023). Participatory Heritage
+                Preservation
+              </li>
+            </ul>
+          </div>
+          <div className='text-center mt-8'>
             <p className='text-neutral-400 text-sm mb-4'>
               Complete bibliography with additional postcolonial food studies
               sources available on the{' '}
@@ -653,7 +671,7 @@ export default function About() {
           <div className='grid md:grid-cols-2 gap-8 mb-8'>
             <div className='bg-neutral-900 rounded-lg p-6'>
               <h4 className='text-lg font-semibold text-white mb-4'>
-                🗺️ Start with the Case Studies
+                Start with the Case Studies
               </h4>
               <p className='text-neutral-300 text-sm mb-4 leading-relaxed'>
                 Explore the four market case studies to see how these
@@ -669,7 +687,7 @@ export default function About() {
             </div>
             <div className='bg-neutral-900 rounded-lg p-6'>
               <h4 className='text-lg font-semibold text-white mb-4'>
-                👥 See Individual Evidence
+                See Individual Evidence
               </h4>
               <p className='text-neutral-300 text-sm mb-4 leading-relaxed'>
                 Read detailed vendor profiles that provide specific evidence for

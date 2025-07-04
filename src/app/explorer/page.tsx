@@ -79,6 +79,18 @@ const researchPanels: ResearchPanel[] = [
   },
 ]
 
+interface MapProps {
+  markets?: Market[]
+  vendors?: Vendor[]
+  selectedMarket?: Market | null
+  selectedVendor?: Vendor | null
+  viewMode?: 'markets' | 'vendors' | 'research'
+  onMarketSelect?: (market: Market | null) => void
+  onVendorSelect?: (vendor: Vendor | null) => void
+  onMapLoad?: (zoom: number, center: [number, number]) => void
+  interactive?: boolean
+}
+
 export default function Explorer() {
   const dispatch = useAppDispatch()
 
@@ -123,9 +135,16 @@ export default function Explorer() {
     dispatch(setZoom(6)) // Match the new minZoom level
     dispatch(setSelectedMarket(null))
     dispatch(setSelectedVendor(null))
+    dispatch(setViewMode('markets')) // Reset view mode to markets
   }
 
   const handleToggleSidebar = () => {
+    // If we're closing the sidebar and in vendor mode, reset to markets view
+    if (isSidebarOpen && viewMode === 'vendors') {
+      dispatch(setViewMode('markets'))
+      dispatch(setSelectedMarket(null))
+      dispatch(setSelectedVendor(null))
+    }
     dispatch(toggleSidebar())
   }
 
@@ -139,6 +158,16 @@ export default function Explorer() {
     // Auto-open sidebar when changing view mode
     if (!isSidebarOpen) {
       dispatch(toggleSidebar())
+    }
+    // Zoom in when switching to vendors view
+    if (mode === 'vendors' && selectedMarket) {
+      dispatch(setZoom(15)) // Increase zoom level for vendor view
+      dispatch(
+        setCenter({
+          lng: selectedMarket.longitude,
+          lat: selectedMarket.latitude,
+        })
+      )
     }
   }
 
@@ -184,7 +213,12 @@ export default function Explorer() {
 
   const handleBackToList = () => {
     dispatch(setDetailView(false))
-    dispatch(setSelectedMarket(null))
+    // Only maintain market selection in vendors view mode
+    if (viewMode !== 'vendors') {
+      dispatch(setSelectedMarket(null))
+    }
+    // Always clear vendor selection
+    dispatch(setSelectedVendor(null))
   }
 
   const handleMapLoad = (zoom: number, center: [number, number]) => {

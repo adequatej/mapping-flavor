@@ -32,7 +32,7 @@ export default function Home() {
               Taiwan&apos;s <span className='text-primary'>Night Markets</span>
             </h1>
             <p className='text-xl md:text-2xl text-neutral-200 mb-6 font-light leading-relaxed'>
-              A critical examination of cultural identity through food spaces
+              Negotiating Taiwanese Identity Through Night Market Food{' '}
             </p>
             <p className='text-lg text-neutral-300 mb-10 leading-relaxed max-w-2xl'>
               Exploring how vendors preserve cultural memory and navigate
@@ -204,10 +204,10 @@ export default function Home() {
                     What You Can Discover
                   </h3>
                   <p className='text-neutral-300 leading-relaxed text-sm'>
-                    Detailed profiles of four distinct markets, stories from
-                    individual vendors, an interactive map for exploration, and
-                    insights into how digital documentation can capture cultural
-                    complexity
+                    Detailed case studies of four distinct markets, profiles
+                    from individual vendors, an interactive map for exploration,
+                    and insights into how digital documentation can capture
+                    cultural complexity
                   </p>
 
                   {/* Bottom accent */}
@@ -264,6 +264,7 @@ export default function Home() {
                   description:
                     'Analyzing how cultural identity adapts to commercial pressures and tourist expectations while maintaining traces of authentic local practices.',
                   highlight: 'Most visited night market in Taiwan',
+                  image: '/images/markets/shilin.jpg',
                 },
                 {
                   id: 'raohe-street-market',
@@ -272,6 +273,7 @@ export default function Home() {
                   description:
                     'Exploring minority culture preservation within urban commercial spaces and how Hakka vendors navigate cultural visibility.',
                   highlight: 'Historic traditional market setting',
+                  image: '/images/markets/raohe.jpg',
                 },
                 {
                   id: 'huaxi-street-market',
@@ -280,6 +282,7 @@ export default function Home() {
                   description:
                     'Examining democratic cultural spaces and community formation through accessible pricing and working-class food traditions.',
                   highlight: 'Affordable local community hub',
+                  image: '/images/markets/huaxi.jpg',
                 },
                 {
                   id: 'kenting-night-market',
@@ -288,6 +291,7 @@ export default function Home() {
                   description:
                     'Examining how beach resort tourism shapes regional food culture and identity performance in southern Taiwan.',
                   highlight: 'Coastal tourism-driven market',
+                  image: '/images/markets/kenting.jpg',
                 },
               ].map((market, index) => (
                 <Link
@@ -298,7 +302,7 @@ export default function Home() {
                   {/* Enhanced Image Section */}
                   <div className='relative h-44 overflow-hidden'>
                     <Image
-                      src={`https://picsum.photos/900/500?random=${index + 1}`}
+                      src={market.image}
                       alt={`${market.name} research case study`}
                       fill
                       className='object-cover group-hover:scale-105 transition-transform duration-500'
