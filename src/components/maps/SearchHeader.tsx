@@ -31,10 +31,15 @@ interface SearchHeaderProps {
 }
 
 const filterOptions = [
-  { mode: 'markets' as const, label: 'Cultural Sites', icon: '🏮' },
-  { mode: 'vendors' as const, label: 'Food Heritage', icon: '🥢' },
-  { mode: 'research' as const, label: 'Field Notes', icon: '📝' },
+  { mode: 'markets' as const, label: 'Markets', icon: '🏮' },
 ]
+
+// Food heritage option that only shows when a market is selected
+const foodHeritageOption = {
+  mode: 'vendors' as const,
+  label: 'Vendors',
+  icon: '🥢',
+}
 
 // Additional research categories for collapsed sidebar view
 const researchCategories = [
@@ -57,7 +62,12 @@ export default function SearchHeader({
   const [isSearchFocused, setIsSearchFocused] = useState(false)
 
   const getPositioning = () => {
-    return isSidebarOpen ? 'left-[400px] z-50' : 'left-24 z-50'
+    // Mobile: Always use responsive positioning
+    // Desktop: Adjust based on sidebar state
+    if (isSidebarOpen) {
+      return 'left-4 md:left-[400px] right-4 md:right-auto z-50'
+    }
+    return 'left-4 md:left-24 right-4 md:right-auto z-50'
   }
 
   const getPlaceholder = () => {
@@ -69,12 +79,12 @@ export default function SearchHeader({
 
   return (
     <div
-      className={`absolute top-4 flex gap-3 transition-all duration-300 ${getPositioning()}`}
+      className={`absolute top-4 flex flex-col md:flex-row gap-3 transition-all duration-300 ${getPositioning()}`}
     >
       {/* Search Bar */}
-      <div className='relative'>
+      <div className='relative w-full md:w-80'>
         <div
-          className={`bg-white rounded-lg shadow-lg border transition-all duration-200 w-80 ${
+          className={`bg-white rounded-lg shadow-lg border transition-all duration-200 w-full ${
             isSearchFocused
               ? 'border-primary shadow-xl'
               : 'border-neutral-200 hover:shadow-xl'
@@ -113,7 +123,7 @@ export default function SearchHeader({
       </div>
 
       {/* Filter Pills */}
-      <div className='flex gap-2 items-start'>
+      <div className='flex flex-wrap gap-2 items-start'>
         {filterOptions.map(({ mode, label, icon }) => (
           <button
             key={mode}
@@ -129,6 +139,22 @@ export default function SearchHeader({
             <span>{label}</span>
           </button>
         ))}
+
+        {/* Only show Food Heritage button when a market is selected */}
+        {selectedMarket && (
+          <button
+            type='button'
+            onClick={() => onViewModeChange(foodHeritageOption.mode)}
+            className={`flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap shadow-lg ${
+              viewMode === foodHeritageOption.mode
+                ? 'bg-primary text-white shadow-xl'
+                : 'bg-white text-neutral-700 hover:bg-neutral-50 hover:shadow-xl'
+            }`}
+          >
+            <span>{foodHeritageOption.icon}</span>
+            <span>{foodHeritageOption.label}</span>
+          </button>
+        )}
 
         {/* Market Filter for Vendor Mode */}
         {viewMode === 'vendors' && onMarketFilter && (

@@ -52,9 +52,10 @@ export default function Map({
       ],
       minZoom: 6, // Prevent zooming out past Taiwan - ensures Taiwan stays visible
       maxZoom: 18,
-      // Minimal performance settings
+      // Mobile-optimized performance settings
       antialias: false,
-      trackResize: false,
+      trackResize: true, // Enable for better mobile responsiveness
+      attributionControl: false, // Remove attribution for cleaner mobile view
     })
 
     map.current.on('load', () => {
@@ -121,9 +122,10 @@ export default function Map({
         offset: 25,
         closeButton: false,
       }).setHTML(`
-        <div>
-          <h3>${market.name}</h3>
-          <p>${market.chineseName}</p>
+        <div style="padding: 8px; min-width: 180px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <h3 style="margin: 0 0 4px 0; font-size: 14px; font-weight: 600; color: #1f2937;">${market.name}</h3>
+          <p style="margin: 0; font-size: 12px; color: #4b5563;">${market.chineseName}</p>
+          <p style="margin: 4px 0 0 0; font-size: 11px; color: #6b7280;">${market.location}</p>
         </div>
       `)
 
@@ -134,145 +136,50 @@ export default function Map({
 
   // Add vendor markers when in vendor mode
   useEffect(() => {
-    if (!map.current || !mapLoaded || !interactive || viewMode !== 'vendors')
+    if (
+      !map.current ||
+      !mapLoaded ||
+      !interactive ||
+      viewMode !== 'vendors' || // Only show vendor markers in vendors view mode
+      vendors.length === 0
+    )
       return
 
-    // Clear existing vendor markers
-    const vendorMarkers = markersRef.current.filter(marker =>
-      marker.getElement().classList.contains('vendor-marker')
-    )
-    vendorMarkers.forEach(marker => marker.remove())
-    markersRef.current = markersRef.current.filter(
-      marker => !marker.getElement().classList.contains('vendor-marker')
-    )
+    clearMarkers()
 
-    // Get vendors - all vendors if no market selected, or filtered by market
-    const marketVendors = vendors.filter(vendor => {
-      const hasMarkets = vendor.markets && vendor.markets.length > 0
-      if (!hasMarkets) {
-        console.log(`Vendor ${vendor.name} has no markets relationship`)
-        return false
-      }
-
-      // If no market is selected, show all vendors
-      if (!selectedMarket) {
-        return true
-      }
-
-      // If market is selected, filter by that market
-      const isMatch = vendor.markets!.some((m: any) => {
-        console.log(`Checking vendor ${vendor.name} market relationship:`, {
-          marketRelation: m,
-          marketId: m.market?.id,
-          selectedMarketId: selectedMarket.id,
-          matches: m.market?.id === selectedMarket.id,
-        })
-        return m.market?.id === selectedMarket.id
-      })
-
-      return isMatch
-    })
-
-    // Debug logging
-    console.log('=== VENDOR DEBUGGING ===')
-    console.log('Selected market:', selectedMarket?.id, selectedMarket?.name)
-    console.log('Total vendors available:', vendors.length)
-    console.log(
-      'All vendors:',
-      vendors.map(v => ({
-        name: v.name,
-        id: v.id,
-        markets: v.markets,
-        lat: v.latitude,
-        lng: v.longitude,
-      }))
-    )
-    console.log('Market vendors found:', marketVendors.length)
-    console.log(
-      'Filtered vendors:',
-      marketVendors.map(v => v.name)
-    )
-    console.log('=========================')
-
-    marketVendors.forEach((vendor, index) => {
-      // Use vendor coordinates if available, otherwise use market coordinates as fallback
-      const baseLat = vendor.latitude || selectedMarket?.latitude
-      const baseLng = vendor.longitude || selectedMarket?.longitude
-
-      if (!baseLat || !baseLng) {
-        console.log(
-          'No coordinates available for vendor:',
-          vendor.name,
-          'Vendor coords:',
-          [vendor.latitude, vendor.longitude],
-          'Market coords:',
-          selectedMarket
-            ? [selectedMarket.latitude, selectedMarket.longitude]
-            : 'No market selected'
+    // Filter vendors for selected market
+    const marketVendors = selectedMarket
+      ? vendors.filter(vendor =>
+          vendor.markets?.some(
+            (marketRelation: any) =>
+              marketRelation.market?.id === selectedMarket.id
+          )
         )
-        return
-      }
+      : vendors
 
-      // Add slight offset to coordinates to spread them around the market
-      // This prevents overlapping and makes them more visible
-      const offsetRadius = 0.002 // About 200 meters
-      const angle =
-        index * (360 / Math.max(marketVendors.length, 1)) * (Math.PI / 180)
-      const offsetLat = baseLat + offsetRadius * Math.cos(angle)
-      const offsetLng = baseLng + offsetRadius * Math.sin(angle)
+    marketVendors.forEach(vendor => {
+      // Skip vendors without coordinates
+      if (!vendor.latitude || !vendor.longitude) return
 
-      // Debug logging
-      console.log('Vendor coordinates:', {
-        name: vendor.name,
-        vendorCoords: [vendor.longitude, vendor.latitude],
-        marketCoords: selectedMarket
-          ? [selectedMarket.longitude, selectedMarket.latitude]
-          : null,
-        baseCoords: [baseLng, baseLat],
-        finalCoords: [offsetLng, offsetLat],
-        angle: angle,
-        index: index,
-      })
-
-      // Get market-specific color for vendor
-      const getVendorColor = (vendor: any, isSelected: boolean) => {
-        const marketId = vendor.markets?.[0]?.market?.id
-        if (isSelected) {
-          return '#dc2626' // Red when selected
-        }
-
-        switch (marketId) {
-          case 'shilin-night-market':
-            return '#ea580c' // Orange
-          case 'raohe-street-market':
-            return '#2563eb' // Blue
-          case 'huaxi-street-market':
-            return '#16a34a' // Green
-          case 'kenting-night-market':
-            return '#9333ea' // Purple
-          default:
-            return '#fb923c' // Default orange
-        }
-      }
-
-      // Create custom vendor marker element (food cart style)
+      // Create marker element
       const el = document.createElement('div')
       el.className = 'vendor-marker'
-      el.style.cssText = `
-        width: 32px;
-        height: 32px;
-        background: ${getVendorColor(vendor, selectedVendor?.id === vendor.id)};
-        border: 3px solid white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        transform: ${selectedVendor?.id === vendor.id ? 'scale(1.2)' : 'scale(1)'};
-        position: relative;
-      `
+      el.style.width = '32px'
+      el.style.height = '32px'
+      el.style.borderRadius = '50%'
+      el.style.backgroundColor =
+        selectedVendor?.id === vendor.id ? '#e11d48' : '#ffffff'
+      el.style.color = selectedVendor?.id === vendor.id ? '#ffffff' : '#1f2937'
+      el.style.display = 'flex'
+      el.style.alignItems = 'center'
+      el.style.justifyContent = 'center'
+      el.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)'
+      el.style.border = '2px solid'
+      el.style.borderColor =
+        selectedVendor?.id === vendor.id ? '#e11d48' : '#e5e7eb'
+      el.style.cursor = 'pointer'
+      el.style.transition = 'all 0.2s ease'
+      el.style.fontSize = '16px'
 
       // Add food emoji based on specialty
       const getFoodEmoji = (specialties: string[]) => {
@@ -307,7 +214,7 @@ export default function Map({
       el.innerHTML = getFoodEmoji(vendor.specialties)
 
       const marker = new mapboxgl.Marker(el)
-        .setLngLat([offsetLng, offsetLat])
+        .setLngLat([vendor.longitude, vendor.latitude])
         .addTo(map.current!)
 
       // Click handler
@@ -338,7 +245,6 @@ export default function Map({
               )
               .join('')}
           </div>
-          ${vendor.operatingHours ? `<p style="margin: 6px 0 0 0; font-size: 11px; color: #6b7280;">⏰ ${vendor.operatingHours}</p>` : ''}
         </div>
       `)
 
@@ -347,7 +253,7 @@ export default function Map({
     })
   }, [
     vendors,
-    selectedMarket?.id, // Only depend on market ID to avoid unnecessary re-renders
+    selectedMarket?.id,
     selectedVendor?.id,
     viewMode,
     mapLoaded,
@@ -363,39 +269,42 @@ export default function Map({
       // Smooth fly to selected market with animation
       map.current.flyTo({
         center: [selectedMarket.longitude, selectedMarket.latitude],
-        zoom: viewMode === 'vendors' ? 15 : 12,
-        speed: 1.2, // Animation speed (1 = default, higher = faster)
-        curve: 1.42, // Animation curve (1 = linear, higher = more curved)
-        easing: t => t * (2 - t), // Easing function for smooth deceleration
-        essential: true, // Animation not affected by user's prefers-reduced-motion setting
+        zoom: viewMode === 'vendors' ? 16 : 14, // Higher zoom for vendor view
+        speed: 1.2,
+        curve: 1.42,
+        easing: t => t * (2 - t),
+        essential: true,
       })
     } else if (viewMode === 'vendors' && vendors.length > 0) {
-      // Show all vendors when in vendor mode without market selection
-      const vendorCoordinates = vendors
-        .filter(vendor => vendor.latitude && vendor.longitude)
-        .map(
-          vendor => [vendor.longitude!, vendor.latitude!] as [number, number]
-        )
+      // Only fit bounds if we're not already at a good zoom level
+      if (map.current.getZoom() < 12) {
+        // Increased minimum zoom for vendor view
+        const vendorCoordinates = vendors
+          .filter(vendor => vendor.latitude && vendor.longitude)
+          .map(
+            vendor => [vendor.longitude, vendor.latitude] as [number, number]
+          )
 
-      if (vendorCoordinates.length > 0) {
-        const bounds = new mapboxgl.LngLatBounds()
-        vendorCoordinates.forEach(coord => bounds.extend(coord))
-        map.current.fitBounds(bounds, {
-          padding: 80, // More padding to ensure all vendors are visible
-          duration: 1500,
-        })
-      } else {
-        // Fallback to Taiwan overview if no vendor coordinates
-        map.current.flyTo({
-          center: [121.0, 23.8],
-          zoom: 8,
-          speed: 1.0,
-          curve: 1.42,
-          easing: t => t * (2 - t),
-        })
+        if (vendorCoordinates.length === 1) {
+          map.current.flyTo({
+            center: vendorCoordinates[0],
+            zoom: 16, // Higher zoom for single vendor
+            speed: 1.0,
+            curve: 1.42,
+            easing: t => t * (2 - t),
+          })
+        } else if (vendorCoordinates.length > 1) {
+          const bounds = new mapboxgl.LngLatBounds()
+          vendorCoordinates.forEach(coord => bounds.extend(coord))
+          map.current.fitBounds(bounds, {
+            padding: 50,
+            duration: 1500,
+            maxZoom: 16, // Limit maximum zoom when fitting bounds
+          })
+        }
       }
-    } else if (markets.length > 0) {
-      // Show all markets with smooth animation
+    } else if (viewMode === 'markets' && !selectedMarket) {
+      // Only reset to overview when explicitly in markets mode without selection
       const coordinates = markets.map(
         m => [m.longitude, m.latitude] as [number, number]
       )
@@ -413,7 +322,7 @@ export default function Map({
         coordinates.forEach(coord => bounds.extend(coord))
         map.current.fitBounds(bounds, {
           padding: 50,
-          duration: 1500, // Animation duration in milliseconds
+          duration: 1500,
         })
       }
     }
@@ -422,53 +331,6 @@ export default function Map({
   return (
     <div className='relative h-full w-full'>
       <div ref={mapContainer} className='h-full w-full' />
-
-      {/* Map Legend - only show when interactive */}
-      {interactive && (
-        <div className='absolute bottom-4 left-4 bg-black/80 rounded-lg p-3 text-white text-sm'>
-          {viewMode === 'markets' && (
-            <div className='flex items-center space-x-2'>
-              <div className='w-3 h-3 bg-primary rounded-full'></div>
-              <span>Cultural Sites</span>
-            </div>
-          )}
-          {viewMode === 'vendors' && (
-            <div className='space-y-2'>
-              <div className='text-xs text-gray-300 font-medium'>
-                Food Heritage by Market:
-              </div>
-              <div className='flex items-center space-x-2'>
-                <div
-                  className='w-3 h-3 rounded border border-white'
-                  style={{ backgroundColor: '#ea580c', borderRadius: '4px' }}
-                ></div>
-                <span className='text-xs'>Shilin 🍜</span>
-              </div>
-              <div className='flex items-center space-x-2'>
-                <div
-                  className='w-3 h-3 rounded border border-white'
-                  style={{ backgroundColor: '#2563eb', borderRadius: '4px' }}
-                ></div>
-                <span className='text-xs'>Raohe 🥟</span>
-              </div>
-              <div className='flex items-center space-x-2'>
-                <div
-                  className='w-3 h-3 rounded border border-white'
-                  style={{ backgroundColor: '#16a34a', borderRadius: '4px' }}
-                ></div>
-                <span className='text-xs'>Huaxi 🍲</span>
-              </div>
-              <div className='flex items-center space-x-2'>
-                <div
-                  className='w-3 h-3 rounded border border-white'
-                  style={{ backgroundColor: '#9333ea', borderRadius: '4px' }}
-                ></div>
-                <span className='text-xs'>Kenting 🦐</span>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
 
       {/* Loading overlay */}
       {!mapLoaded && (

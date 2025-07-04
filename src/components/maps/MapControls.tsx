@@ -95,29 +95,49 @@ export default function MapControls({
         </button>
       </div>
 
-      {/* Mobile Sidebar Toggle - Bottom Left */}
+      {/* Prominent Sidebar Toggle - Bottom Left */}
       <button
         type='button'
         onClick={e => {
           e.preventDefault()
           onToggleSidebar()
         }}
-        className='lg:hidden absolute bottom-6 left-6 z-30 w-12 h-12 bg-white rounded-full shadow-lg border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 transition-colors text-neutral-700'
+        className={`absolute bottom-6 left-6 z-30 w-14 h-14 rounded-full shadow-xl border-2 flex items-center justify-center transition-all duration-300 ${
+          isSidebarOpen
+            ? 'bg-red-500 border-red-600 text-white hover:bg-red-600'
+            : 'bg-neutral-700 border-neutral-800 text-white hover:bg-neutral-800'
+        }`}
         aria-label={isSidebarOpen ? 'Close sidebar' : 'Open sidebar'}
       >
-        <svg
-          className='w-5 h-5'
-          fill='none'
-          stroke='currentColor'
-          viewBox='0 0 24 24'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth={2}
-            d='M4 6h16M4 12h16M4 18h16'
-          />
-        </svg>
+        {isSidebarOpen ? (
+          <svg
+            className='w-6 h-6'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2.5}
+              d='M6 18L18 6M6 6l12 12'
+            />
+          </svg>
+        ) : (
+          <svg
+            className='w-6 h-6'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2.5}
+              d='M4 6h16M4 12h16M4 18h16'
+            />
+          </svg>
+        )}
       </button>
     </>
   )

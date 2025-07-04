@@ -331,60 +331,16 @@ function DetailedMarketView({
           </div>
 
           <div>
-            <h3 className='font-semibold text-neutral-800 mb-2'>Location</h3>
-            <p className='text-neutral-600 text-sm'>{market.location}</p>
-          </div>
-
-          <div>
             <h3 className='font-semibold text-neutral-800 mb-2'>About</h3>
             <p className='text-neutral-600 text-sm leading-relaxed'>
               {market.description}
             </p>
           </div>
 
-          {/* Operating Hours */}
+          {/* Location */}
           <div>
-            <h3 className='font-semibold text-neutral-800 mb-2'>Hours</h3>
-            <div className='bg-neutral-50 rounded-lg p-3'>
-              <p className='text-neutral-600 text-sm'>
-                🕐 Daily: 5:00 PM - 12:00 AM
-              </p>
-              <p className='text-neutral-500 text-xs mt-1'>
-                Peak hours: 7:00 PM - 10:00 PM
-              </p>
-            </div>
-          </div>
-
-          {/* Research Notes */}
-          <div>
-            <h3 className='font-semibold text-neutral-800 mb-2'>
-              Research Notes
-            </h3>
-            <div className='bg-blue-50 rounded-lg p-3'>
-              <p className='text-blue-800 text-sm'>
-                📝 Cultural significance: This market represents traditional
-                Taiwanese night market culture with strong community ties.
-              </p>
-            </div>
-          </div>
-
-          {/* Quick Stats */}
-          <div>
-            <h3 className='font-semibold text-neutral-800 mb-2'>Quick Stats</h3>
-            <div className='grid grid-cols-2 gap-3'>
-              <div className='bg-neutral-50 rounded-lg p-3 text-center'>
-                <div className='text-lg font-semibold text-neutral-800'>
-                  50+
-                </div>
-                <div className='text-xs text-neutral-500'>Vendors</div>
-              </div>
-              <div className='bg-neutral-50 rounded-lg p-3 text-center'>
-                <div className='text-lg font-semibold text-neutral-800'>
-                  Local
-                </div>
-                <div className='text-xs text-neutral-500'>Favorite</div>
-              </div>
-            </div>
+            <h3 className='font-semibold text-neutral-800 mb-2'>Location</h3>
+            <p className='text-neutral-600 text-sm'>{market.location}</p>
           </div>
         </div>
       </div>
@@ -522,21 +478,6 @@ function DetailedVendorView({
           </div>
         </div>
 
-        {/* Operating Hours */}
-        {vendor.operatingHours && (
-          <div>
-            <h3 className='font-semibold text-neutral-800 mb-2'>
-              Operating Hours
-            </h3>
-            <div className='bg-neutral-50 rounded-lg p-3'>
-              <p className='text-neutral-600 text-sm flex items-center space-x-2'>
-                <span>🕐</span>
-                <span>{vendor.operatingHours}</span>
-              </p>
-            </div>
-          </div>
-        )}
-
         {/* Description */}
         {vendor.description && (
           <div>
@@ -546,19 +487,6 @@ function DetailedVendorView({
             </p>
           </div>
         )}
-
-        {/* Cultural Heritage Notes */}
-        <div>
-          <h3 className='font-semibold text-neutral-800 mb-2'>
-            Cultural Heritage
-          </h3>
-          <div className='bg-amber-50 rounded-lg p-3'>
-            <p className='text-amber-800 text-sm'>
-              🏮 Traditional preparation methods passed down through
-              generations, representing authentic Taiwanese street food culture.
-            </p>
-          </div>
-        </div>
 
         {/* Market Locations */}
         {vendor.markets && vendor.markets.length > 0 && (
@@ -588,39 +516,6 @@ function DetailedVendorView({
             </div>
           </div>
         )}
-
-        {/* Research Notes */}
-        <div>
-          <h3 className='font-semibold text-neutral-800 mb-2'>
-            Research Notes
-          </h3>
-          <div className='bg-blue-50 rounded-lg p-3'>
-            <p className='text-blue-800 text-sm'>
-              📝 Cultural analysis: This vendor represents traditional food
-              preparation techniques and community gathering patterns typical of
-              Taiwan's night market culture.
-            </p>
-          </div>
-        </div>
-
-        {/* Quick Stats */}
-        <div>
-          <h3 className='font-semibold text-neutral-800 mb-2'>Quick Stats</h3>
-          <div className='grid grid-cols-2 gap-3'>
-            <div className='bg-neutral-50 rounded-lg p-3 text-center'>
-              <div className='text-lg font-semibold text-neutral-800'>
-                {vendor.specialties.length}
-              </div>
-              <div className='text-xs text-neutral-500'>Specialties</div>
-            </div>
-            <div className='bg-neutral-50 rounded-lg p-3 text-center'>
-              <div className='text-lg font-semibold text-neutral-800'>
-                Traditional
-              </div>
-              <div className='text-xs text-neutral-500'>Heritage</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )
@@ -648,7 +543,15 @@ export default function MapSidebar({
       market.location.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  const filteredVendors = vendors.filter(
+  // Get vendors for selected market when in vendor mode
+  const marketVendors = selectedMarket
+    ? vendors.filter(vendor =>
+        vendor.markets?.some((m: any) => m.market?.id === selectedMarket.id)
+      )
+    : vendors
+
+  // Filter vendors based on search query
+  const filteredVendors = marketVendors.filter(
     vendor =>
       vendor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       vendor.chineseName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -657,21 +560,15 @@ export default function MapSidebar({
       )
   )
 
-  // Get vendors for selected market when in vendor mode
-  const marketVendors =
-    viewMode === 'vendors' && selectedMarket
-      ? vendors.filter(vendor =>
-          vendor.markets?.some((m: any) => m.market?.id === selectedMarket.id)
-        )
-      : []
-
   // Show detail view if enabled
   if (isDetailView) {
     if (selectedMarket && viewMode === 'markets') {
       return (
         <div
           className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white shadow-2xl transition-all duration-300 ease-in-out z-30 ${
-            isOpen ? 'w-96' : 'w-0'
+            isOpen
+              ? 'w-3/5 md:w-96' // 60% width on mobile, fixed width on desktop
+              : 'w-0'
           } overflow-hidden`}
         >
           <DetailedMarketView
@@ -686,7 +583,9 @@ export default function MapSidebar({
       return (
         <div
           className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white shadow-2xl transition-all duration-300 ease-in-out z-30 ${
-            isOpen ? 'w-96' : 'w-0'
+            isOpen
+              ? 'w-3/5 md:w-96' // 60% width on mobile, fixed width on desktop
+              : 'w-0'
           } overflow-hidden`}
         >
           <DetailedVendorView
@@ -707,85 +606,96 @@ export default function MapSidebar({
   }
 
   return (
-    <div
-      className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white shadow-2xl transition-all duration-300 ease-in-out z-30 ${
-        isOpen ? 'w-96' : 'w-16'
-      }`}
-    >
-      {/* Content based on view mode */}
-      {viewMode === 'markets' && (
-        <div className='h-full flex flex-col'>
-          {/* Header */}
-          <div className='flex-shrink-0 border-b border-neutral-200 bg-white p-4'>
-            <div className='flex items-center justify-between'>
-              <h2
-                className={`font-semibold text-neutral-800 transition-opacity duration-200 ${
-                  isOpen ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                Cultural Sites ({filteredMarkets.length})
-              </h2>
-            </div>
-          </div>
-
-          {/* Markets List */}
-          <div className='flex-1 overflow-y-auto'>
-            {isOpen ? (
-              <div className='p-4 space-y-4'>
-                {filteredMarkets.map(market => (
-                  <ExpandedMarketCard
-                    key={market.id}
-                    market={market}
-                    isSelected={selectedMarket?.id === market.id}
-                    onClick={() => onMarketSelect(market)}
-                    onDetailsClick={() => handleMarketDetailsClick(market)}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className='p-2 space-y-2'>
-                {filteredMarkets.slice(0, 8).map(market => (
-                  <CompactMarketCard
-                    key={market.id}
-                    market={market}
-                    isSelected={selectedMarket?.id === market.id}
-                    onClick={() => onMarketSelect(market)}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
+    <>
+      {/* Mobile Overlay - only show when sidebar is open on mobile */}
+      {isOpen && (
+        <div
+          className='fixed inset-0 bg-black/50 z-20 md:hidden'
+          onClick={onToggle}
+        />
       )}
 
-      {viewMode === 'vendors' && (
-        <div className='h-full flex flex-col'>
-          {/* Header */}
-          <div className='flex-shrink-0 border-b border-neutral-200 bg-white p-4'>
-            <div className='flex items-center justify-between'>
-              <h2
-                className={`font-semibold text-neutral-800 transition-opacity duration-200 ${
-                  isOpen ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                {selectedMarket
-                  ? `${selectedMarket.name} Vendors (${marketVendors.length})`
-                  : `Food Heritage (${filteredVendors.length})`}
-              </h2>
+      {/* Sidebar */}
+      <div
+        className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white shadow-2xl transition-all duration-300 ease-in-out z-30 ${
+          isOpen
+            ? 'w-3/5 md:w-96' // 60% width on mobile, fixed width on desktop
+            : 'w-0 md:w-20' // Hidden on mobile, collapsed on desktop
+        }`}
+      >
+        {/* Content based on view mode */}
+        {viewMode === 'markets' && (
+          <div className='h-full flex flex-col'>
+            {/* Header */}
+            <div className='flex-shrink-0 border-b border-neutral-200 bg-white p-4'>
+              <div className='flex items-center justify-between'>
+                <h2
+                  className={`font-semibold text-neutral-800 transition-opacity duration-200 ${
+                    isOpen ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  Cultural Sites ({filteredMarkets.length})
+                </h2>
+              </div>
             </div>
-            {selectedMarket && isOpen && (
-              <p className='text-neutral-500 text-sm mt-1'>
-                {selectedMarket.chineseName}
-              </p>
-            )}
-          </div>
 
-          {/* Vendors List */}
-          <div className='flex-1 overflow-y-auto'>
-            {isOpen ? (
-              <div className='p-4 space-y-4'>
-                {(selectedMarket ? marketVendors : filteredVendors).map(
-                  vendor => (
+            {/* Markets List */}
+            <div className='flex-1 overflow-y-auto'>
+              {isOpen ? (
+                <div className='p-4 space-y-4'>
+                  {filteredMarkets.map(market => (
+                    <ExpandedMarketCard
+                      key={market.id}
+                      market={market}
+                      isSelected={selectedMarket?.id === market.id}
+                      onClick={() => onMarketSelect(market)}
+                      onDetailsClick={() => handleMarketDetailsClick(market)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className='p-2 space-y-2 hidden md:block overflow-hidden'>
+                  {filteredMarkets.slice(0, 8).map(market => (
+                    <CompactMarketCard
+                      key={market.id}
+                      market={market}
+                      isSelected={selectedMarket?.id === market.id}
+                      onClick={() => onMarketSelect(market)}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {viewMode === 'vendors' && (
+          <div className='h-full flex flex-col'>
+            {/* Header */}
+            <div className='flex-shrink-0 border-b border-neutral-200 bg-white p-4'>
+              <div className='flex items-center justify-between'>
+                <h2
+                  className={`font-semibold text-neutral-800 transition-opacity duration-200 ${
+                    isOpen ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  {selectedMarket
+                    ? `${selectedMarket.name} Vendors (${filteredVendors.length})`
+                    : `Food Heritage (${filteredVendors.length})`}
+                </h2>
+              </div>
+              {selectedMarket && isOpen && (
+                <p className='text-neutral-500 text-sm mt-1'>
+                  {selectedMarket.chineseName}
+                </p>
+              )}
+            </div>
+
+            {/* Vendors List */}
+            <div className='flex-1 overflow-y-auto'>
+              {isOpen ? (
+                <div className='p-4 space-y-4'>
+                  {filteredVendors.map(vendor => (
                     <ExpandedVendorCard
                       key={vendor.id}
                       vendor={vendor}
@@ -793,14 +703,11 @@ export default function MapSidebar({
                       onClick={() => onVendorSelect(vendor)}
                       onDetailsClick={() => handleVendorDetailsClick(vendor)}
                     />
-                  )
-                )}
-              </div>
-            ) : (
-              <div className='p-2 space-y-2'>
-                {(selectedMarket ? marketVendors : filteredVendors)
-                  .slice(0, 8)
-                  .map(vendor => (
+                  ))}
+                </div>
+              ) : (
+                <div className='p-2 space-y-2 hidden md:block overflow-hidden'>
+                  {filteredVendors.slice(0, 8).map(vendor => (
                     <CompactVendorCard
                       key={vendor.id}
                       vendor={vendor}
@@ -808,93 +715,94 @@ export default function MapSidebar({
                       onClick={() => onVendorSelect(vendor)}
                     />
                   ))}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {viewMode === 'research' && (
-        <div className='h-full flex flex-col'>
-          {/* Header */}
-          <div className='flex-shrink-0 border-b border-neutral-200 bg-white p-4'>
-            <div className='flex items-center justify-between'>
-              <h2
-                className={`font-semibold text-neutral-800 transition-opacity duration-200 ${
-                  isOpen ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                Research Framework
-              </h2>
+                </div>
+              )}
             </div>
           </div>
+        )}
 
-          {/* Research Content */}
-          <div className='flex-1 overflow-y-auto'>
-            {isOpen ? (
-              <div className='p-4 space-y-6'>
-                <div className='bg-blue-50 rounded-lg p-4'>
-                  <h3 className='font-semibold text-blue-800 mb-2'>
-                    Methodology
-                  </h3>
-                  <p className='text-blue-700 text-sm leading-relaxed'>
-                    Following Wu and Lin (2013) and Chen and Huang (2014), this
-                    research analyzes vendor behaviors and cultural performances
-                    from a supply-side perspective.
-                  </p>
-                </div>
-
-                <div className='bg-amber-50 rounded-lg p-4'>
-                  <h3 className='font-semibold text-amber-800 mb-2'>
-                    Digital Heritage
-                  </h3>
-                  <p className='text-amber-700 text-sm leading-relaxed'>
-                    Using Barbash et al. (2024) framework for participatory
-                    digital documentation to preserve underrepresented cultural
-                    practices.
-                  </p>
-                </div>
-
-                <div className='bg-green-50 rounded-lg p-4'>
-                  <h3 className='font-semibold text-green-800 mb-2'>
-                    Key Findings
-                  </h3>
-                  <p className='text-green-700 text-sm leading-relaxed'>
-                    Night markets serve as sites where cultural identity is both
-                    performed and commodified for different audiences.
-                  </p>
-                </div>
-
-                <div className='bg-purple-50 rounded-lg p-4'>
-                  <h3 className='font-semibold text-purple-800 mb-2'>
-                    Theoretical Framework
-                  </h3>
-                  <p className='text-purple-700 text-sm leading-relaxed'>
-                    Applying Giaccardi's participatory heritage model to
-                    understand how night markets balance commercial appeal with
-                    cultural authenticity.
-                  </p>
-                </div>
+        {viewMode === 'research' && (
+          <div className='h-full flex flex-col'>
+            {/* Header */}
+            <div className='flex-shrink-0 border-b border-neutral-200 bg-white p-4'>
+              <div className='flex items-center justify-between'>
+                <h2
+                  className={`font-semibold text-neutral-800 transition-opacity duration-200 ${
+                    isOpen ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  Research Framework
+                </h2>
               </div>
-            ) : (
-              <div className='p-2 space-y-2'>
-                <div className='w-12 h-12 bg-blue-100 rounded flex items-center justify-center'>
-                  <span className='text-blue-600'>📊</span>
+            </div>
+
+            {/* Research Content */}
+            <div className='flex-1 overflow-y-auto'>
+              {isOpen ? (
+                <div className='p-4 space-y-6'>
+                  <div className='bg-blue-50 rounded-lg p-4'>
+                    <h3 className='font-semibold text-blue-800 mb-2'>
+                      Methodology
+                    </h3>
+                    <p className='text-blue-700 text-sm leading-relaxed'>
+                      Following Wu and Lin (2013) and Chen and Huang (2014),
+                      this research analyzes vendor behaviors and cultural
+                      performances from a supply-side perspective.
+                    </p>
+                  </div>
+
+                  <div className='bg-amber-50 rounded-lg p-4'>
+                    <h3 className='font-semibold text-amber-800 mb-2'>
+                      Digital Heritage
+                    </h3>
+                    <p className='text-amber-700 text-sm leading-relaxed'>
+                      Using Barbash et al. (2024) framework for participatory
+                      digital documentation to preserve underrepresented
+                      cultural practices.
+                    </p>
+                  </div>
+
+                  <div className='bg-green-50 rounded-lg p-4'>
+                    <h3 className='font-semibold text-green-800 mb-2'>
+                      Key Findings
+                    </h3>
+                    <p className='text-green-700 text-sm leading-relaxed'>
+                      Night markets serve as sites where cultural identity is
+                      both performed and commodified for different audiences.
+                    </p>
+                  </div>
+
+                  <div className='bg-purple-50 rounded-lg p-4'>
+                    <h3 className='font-semibold text-purple-800 mb-2'>
+                      Theoretical Framework
+                    </h3>
+                    <p className='text-purple-700 text-sm leading-relaxed'>
+                      Applying Giaccardi's participatory heritage model to
+                      understand how night markets balance commercial appeal
+                      with cultural authenticity.
+                    </p>
+                  </div>
                 </div>
-                <div className='w-12 h-12 bg-amber-100 rounded flex items-center justify-center'>
-                  <span className='text-amber-600'>💾</span>
+              ) : (
+                <div className='p-2 space-y-2'>
+                  <div className='w-12 h-12 bg-blue-100 rounded flex items-center justify-center'>
+                    <span className='text-blue-600'>📊</span>
+                  </div>
+                  <div className='w-12 h-12 bg-amber-100 rounded flex items-center justify-center'>
+                    <span className='text-amber-600'>💾</span>
+                  </div>
+                  <div className='w-12 h-12 bg-green-100 rounded flex items-center justify-center'>
+                    <span className='text-green-600'>🔍</span>
+                  </div>
+                  <div className='w-12 h-12 bg-purple-100 rounded flex items-center justify-center'>
+                    <span className='text-purple-600'>🧠</span>
+                  </div>
                 </div>
-                <div className='w-12 h-12 bg-green-100 rounded flex items-center justify-center'>
-                  <span className='text-green-600'>🔍</span>
-                </div>
-                <div className='w-12 h-12 bg-purple-100 rounded flex items-center justify-center'>
-                  <span className='text-purple-600'>🧠</span>
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   )
 }

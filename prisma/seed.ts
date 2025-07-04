@@ -22,8 +22,7 @@ const markets = [
       'Spatial tourism infrastructure with designated photo spots',
       'Cultural commodification through "authentic" performance',
     ],
-    image:
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+    image: '/images/markets/shilin.jpg',
     isActive: true,
   },
   {
@@ -45,8 +44,7 @@ const markets = [
       'Audience-specific marketing preserving cultural authenticity',
       'Strategic visibility of minority culture within dominant stories',
     ],
-    image:
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+    image: '/images/markets/raohe.jpg',
     isActive: true,
   },
   {
@@ -68,8 +66,7 @@ const markets = [
       'Community formation through shared dining experiences',
       'Resistance to gentrification through cultural authenticity',
     ],
-    image:
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+    image: '/images/markets/huaxi.jpg',
     isActive: true,
   },
   {
@@ -91,8 +88,7 @@ const markets = [
       'Beach town cultural adaptations maintaining local character',
       'Tourism economy effects on traditional food culture preservation',
     ],
-    image:
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+    image: '/images/markets/kenting.jpg',
     isActive: true,
   },
 ]
@@ -100,237 +96,209 @@ const markets = [
 const vendors = [
   // Shilin Night Market vendors
   {
-    name: 'Big Sausage Uncle',
-    chineseName: '大腸包小腸阿伯',
+    name: 'Hot Sausage Stand',
+    chineseName: '熱狗香腸攤',
     description:
-      'Famous for Taiwanese sausage (da chang bao xiao chang), this vendor shows tourist-friendly presentation while maintaining traditional preparation methods. Shows sophisticated audience recognition and cultural performance adaptation.',
+      'Popular sausage vendor serving grilled Taiwanese sausages with various toppings. Known for their perfectly charred exterior and juicy interior, served with garlic, pickled vegetables, and special sauce.',
     specialties: [
-      'Taiwanese Sausage',
-      'Da Chang Bao Xiao Chang',
-      'Tourist Photography',
+      'Grilled Taiwanese Sausage',
+      'Garlic Sauce',
+      'Pickled Vegetables',
     ],
     latitude: 25.0877,
     longitude: 121.5241,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
+    images: ['/images/vendors/IMG_1232.jpg'],
     operatingHours: '6:00 PM - 1:00 AM',
     researchNotes:
-      'Observed language switching between Mandarin and basic English for tourists. Uses visual presentation techniques specifically for social media photography.',
+      'Observed consistent preparation methods with high-quality ingredients. Popular with both locals and tourists, with staff able to explain preparation in multiple languages.',
     culturalSignificance:
-      'Represents the commodification of traditional street food for tourism while maintaining authentic preparation methods.',
+      'Represents traditional Taiwanese street food culture with simple, quality ingredients and time-tested preparation methods.',
     marketId: 'shilin-night-market',
   },
   {
-    name: "Mei-Li's Stinky Tofu",
-    chineseName: '美麗臭豆腐',
+    name: 'Korean Corn Dogs',
+    chineseName: '韓式熱狗',
     description:
-      'Traditional fermented tofu stand with dual-language signage serving both locals and international tourists. Shows cultural bridge-building through food education and patient explanation of traditional fermentation processes.',
-    specialties: ['Stinky Tofu', 'Fermented Foods', 'Cultural Education'],
+      'Korean-style corn dogs with various coatings including potato cubes, crushed ramen noodles, and traditional batter. Served with special Korean sauces and toppings.',
+    specialties: ['Korean Corn Dogs', 'Potato Coating', 'Korean Sauces'],
     latitude: 25.0878,
     longitude: 121.5239,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
+    images: ['/images/vendors/IMG_1617.jpg'],
     operatingHours: '7:00 PM - 12:30 AM',
     researchNotes:
-      'Notable for patient cultural education of tourists about fermentation processes. Maintains traditional preparation while explaining cultural significance.',
+      'Modern addition to traditional night market, showing how international foods adapt to local tastes. Popular with younger customers.',
     culturalSignificance:
-      'Serves as cultural ambassador, introducing challenging traditional foods to international audiences while preserving authentic methods.',
+      'Demonstrates how night markets evolve to include international foods while maintaining local preparation styles.',
     marketId: 'shilin-night-market',
   },
   {
-    name: 'Night Market Bubble Tea King',
-    chineseName: '夜市珍奶王',
+    name: 'Bubble Tea Corner',
+    chineseName: '珍珠奶茶角落',
     description:
-      'Modern bubble tea stand with Instagram-worthy presentation, representing the evolution of traditional Taiwanese drinks for social media culture. Shows innovation within cultural tradition.',
-    specialties: ['Bubble Tea', 'Instagram Photography', 'Modern Presentation'],
+      'Traditional bubble tea stand offering classic milk tea with tapioca pearls, taro, and seasonal fruit flavors. Uses traditional brewing methods with modern presentation.',
+    specialties: ['Bubble Tea', 'Tapioca Pearls', 'Fruit Teas'],
     latitude: 25.0876,
     longitude: 121.5242,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
+    images: ['/images/vendors/bubble_tea.jpg'],
     operatingHours: '6:30 PM - 1:30 AM',
     researchNotes:
-      'Specifically designs drinks for social media photography. Represents evolution of traditional Taiwanese beverages for contemporary culture.',
+      'Classic Taiwanese beverage with consistent quality. Serves both traditional preparations and modern variations for different customer preferences.',
     culturalSignificance:
-      'Shows how traditional Taiwanese drinks adapt to global social media culture while maintaining cultural identity.',
+      "Represents Taiwan's most famous beverage export, showing how local innovations become global phenomena.",
     marketId: 'shilin-night-market',
   },
 
   // Raohe Street Market vendors
   {
-    name: "Grandma Chen's Hakka Noodles",
-    chineseName: '陳阿嬤客家麵',
+    name: 'Chinese Hamburger House',
+    chineseName: '中式漢堡屋',
     description:
-      'Third-generation family business preserving traditional Hakka flat noodle recipes and preparation methods. Shows intergenerational knowledge transfer and minority culture preservation within commercial spaces.',
-    specialties: [
-      'Hakka Flat Noodles',
-      'Traditional Recipes',
-      'Family Heritage',
-    ],
+      'Traditional Chinese hamburger (rou jia mo) with slow-braised pork in crispy flatbread. Family recipe passed down through generations with authentic Shaanxi-style preparation.',
+    specialties: ['Chinese Hamburger', 'Braised Pork', 'Traditional Flatbread'],
     latitude: 25.0515,
     longitude: 121.5769,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
+    images: ['/images/vendors/IMG_1225.jpg'],
     operatingHours: '6:00 PM - 11:30 PM',
     researchNotes:
-      'Documents three generations of recipe preservation. Grandmother actively teaches traditional Hakka cooking techniques to family members.',
+      'Family-operated business maintaining traditional preparation methods. Uses time-intensive braising process that creates tender, flavorful meat.',
     culturalSignificance:
-      'Critical site for Hakka cultural preservation, demonstrating how minority cultures maintain identity through food traditions.',
+      'Preserves traditional Chinese regional cuisine, demonstrating how night markets serve as repositories for diverse culinary traditions.',
     marketId: 'raohe-street-market',
   },
   {
-    name: 'Heritage Pepper Buns',
-    chineseName: '傳統胡椒餅',
+    name: 'Fresh Pancakes',
+    chineseName: '新鮮煎餅',
     description:
-      'Traditional clay oven pepper buns with Hakka-style preparation methods. Maintains traditional baking techniques while serving diverse clientele, showing cultural preservation through authentic preparation.',
-    specialties: ['Pepper Buns', 'Clay Oven Baking', 'Hakka Preparation'],
+      'Thin, crispy pancakes (jian bing) made fresh to order with eggs, scallions, and savory sauce. Traditional breakfast food adapted for evening night market dining.',
+    specialties: ['Jian Bing Pancakes', 'Fresh Eggs', 'Scallion Sauce'],
     latitude: 25.0516,
     longitude: 121.5767,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
+    images: ['/images/vendors/IMG_9794.jpg'],
     operatingHours: '5:30 PM - 12:00 AM',
     researchNotes:
-      'Uses traditional clay oven techniques increasingly rare in modern Taiwan. Hakka-style spice blend distinguishes from mainstream versions.',
+      'Skilled preparation requiring precise timing and temperature control. Popular comfort food that bridges breakfast and dinner dining.',
     culturalSignificance:
-      'Preserves traditional baking methods while demonstrating Hakka cultural distinctiveness within Taiwanese food culture.',
+      'Shows how traditional breakfast foods find new life in night market settings, adapting to different dining schedules.',
     marketId: 'raohe-street-market',
   },
   {
-    name: 'Three Generations Tea Eggs',
-    chineseName: '三代茶葉蛋',
+    name: 'King Oyster Mushroom Grill',
+    chineseName: '杏鮑菇燒烤',
     description:
-      'Family-run tea egg stand with traditional Hakka spice blends passed down through three generations. Shows cultural continuity and the role of family recipes in preserving minority cultural identity.',
-    specialties: ['Tea Eggs', 'Hakka Spices', 'Traditional Preparation'],
-    latitude: 25.0514,
-    longitude: 121.577,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
+      'Grilled king oyster mushrooms with various seasonings and sauces. Vegetarian-friendly option that showcases the natural umami flavors of premium mushrooms.',
+    specialties: [
+      'Grilled King Oyster Mushrooms',
+      'Vegetarian Options',
+      'Umami Seasonings',
     ],
-    operatingHours: '6:00 PM - 11:00 PM',
+    latitude: 25.0517,
+    longitude: 121.5766,
+    images: ['/images/vendors/IMG_2055.jpg'],
+    operatingHours: '6:00 PM - 1:00 AM',
     researchNotes:
-      'Three generations share cooking responsibilities, with active knowledge transfer. Uses traditional Hakka spice combinations distinct from mainstream preparations.',
+      'Specializes in vegetarian grilled foods, showing growing demand for plant-based options in traditional meat-heavy night market environment.',
     culturalSignificance:
-      'Shows how simple dishes carry complex cultural knowledge and serve as ways to preserve minority culture.',
+      'Represents evolving dietary preferences while maintaining traditional grilling techniques and flavor profiles.',
     marketId: 'raohe-street-market',
   },
 
   // Huaxi Street Market vendors
   {
-    name: "Old Wang's Snake Soup",
-    chineseName: '老王蛇肉湯',
+    name: 'Fried Bread Kitchen',
+    chineseName: '炸麵包廚房',
     description:
-      'Traditional snake soup serving working-class clientele, representing authentic working-class food culture and traditional Chinese medicine principles. Shows economic accessibility and community formation.',
-    specialties: ['Snake Soup', 'Traditional Medicine', 'Working Class Food'],
+      'Traditional fried bread (you tiao) and various fried dough items. Simple, affordable comfort food that serves the local working community with generous portions.',
+    specialties: ['Fried Bread', 'You Tiao', 'Comfort Food'],
     latitude: 25.0376,
     longitude: 121.501,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
-    operatingHours: '8:00 PM - 2:00 AM',
+    images: ['/images/vendors/IMG_1303.jpg'],
+    operatingHours: '5:00 PM - 11:00 PM',
     researchNotes:
-      'Serves primarily working-class customers, many regulars. Represents traditional Chinese medicine principles in daily food consumption.',
+      'Focuses on affordable, filling foods for working-class customers. Maintains consistent quality and pricing despite rising ingredient costs.',
     culturalSignificance:
-      'Maintains traditional food culture that resists gentrification, serving as authentic community gathering space.',
+      "Provides essential affordable nutrition for local working community, demonstrating night markets' role in food security.",
     marketId: 'huaxi-street-market',
   },
   {
-    name: "Workers' Noodle Stand",
-    chineseName: '工人麵攤',
+    name: 'Pork Bun Express',
+    chineseName: '豬肉包快遞',
     description:
-      'Affordable beef noodle soup serving as community gathering spot for working-class populations. Shows democratic cultural space crossing economic boundaries through accessible pricing and communal dining.',
-    specialties: [
-      'Beef Noodle Soup',
-      'Affordable Meals',
-      'Community Gathering',
-    ],
+      'Steamed pork buns (baozi) with traditional filling recipes. Quick, affordable meals that serve construction workers, taxi drivers, and local residents.',
+    specialties: ['Steamed Pork Buns', 'Traditional Fillings', 'Quick Service'],
     latitude: 25.0377,
     longitude: 121.5008,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
-    operatingHours: '7:00 PM - 3:00 AM',
+    images: ['/images/vendors/IMG_2080.jpg'],
+    operatingHours: '4:00 PM - 10:00 PM',
     researchNotes:
-      'Functions as community center with shared tables fostering social interaction. Pricing specifically maintained for working-class accessibility.',
+      'Efficient operation serving working-class customers who need quick, affordable meals. Known for generous portions and consistent quality.',
     culturalSignificance:
-      'Shows night markets as democratic spaces where economic barriers to cultural participation are reduced.',
+      'Essential food service for working community, showing how traditional foods meet modern urban needs.',
     marketId: 'huaxi-street-market',
   },
   {
-    name: 'Night Shift Dumplings',
-    chineseName: '夜班水餃',
+    name: 'Simple Noodle Bowl',
+    chineseName: '簡單麵碗',
     description:
-      '24-hour dumpling stand serving night workers and late-shift employees. Represents night market role in supporting working-class schedules and community formation outside traditional hours.',
-    specialties: ['Dumplings', '24-Hour Service', 'Night Workers'],
-    latitude: 25.0375,
-    longitude: 121.5011,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
-    operatingHours: '24 Hours',
+      'Basic beef noodle soup and simple noodle dishes at affordable prices. No-frills preparation focusing on hearty, satisfying meals for local workers.',
+    specialties: ['Beef Noodle Soup', 'Simple Noodles', 'Affordable Meals'],
+    latitude: 25.0378,
+    longitude: 121.5009,
+    images: ['/images/vendors/simple_noodle.jpg'],
+    operatingHours: '5:00 PM - 11:00 PM',
     researchNotes:
-      'Serves night shift workers from nearby industries. Demonstrates night market function in supporting non-traditional work schedules.',
+      'Straightforward operation with focus on value and nutrition rather than presentation. Regular customers include local workers and elderly residents.',
     culturalSignificance:
-      'Shows how night markets support working-class community needs beyond tourism, serving essential social infrastructure role.',
+      'Maintains traditional noodle shop culture within night market setting, serving essential community dining needs.',
     marketId: 'huaxi-street-market',
   },
 
   // Kenting Night Market vendors
   {
-    name: 'Beach BBQ Seafood',
-    chineseName: '海灘烤海鮮',
+    name: 'Beach Seafood Grill',
+    chineseName: '海灘海鮮燒烤',
     description:
-      'Fresh local seafood with beach tourism appeal, showing adaptation of traditional preparation methods for seasonal tourism economy. Balances local fishing culture with visitor expectations.',
-    specialties: ['Fresh Seafood', 'Beach BBQ', 'Local Fishing'],
-    latitude: 21.958753,
-    longitude: 120.794328,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
-    operatingHours: '6:00 PM - 12:00 AM (Seasonal)',
+      'Fresh grilled seafood featuring local catches from Kenting waters. Specializes in fish, squid, and shellfish prepared with simple seasonings to highlight natural flavors.',
+    specialties: ['Grilled Fish', 'Fresh Squid', 'Local Seafood'],
+    latitude: 21.9588,
+    longitude: 120.7943,
+    images: ['/images/vendors/beach_seafood.jpg'],
+    operatingHours: '6:00 PM - 1:00 AM',
     researchNotes:
-      'Sources from local fishing boats, adapts preparation for tourist preferences. Seasonal operation reflects tourism economy impacts.',
+      'Sources directly from local fishing boats. Preparation adapts to seasonal availability while maintaining traditional grilling methods.',
     culturalSignificance:
-      'Demonstrates how regional food culture adapts to tourism while maintaining connections to local fishing traditions.',
+      'Connects night market dining to local fishing economy, showcasing regional coastal food culture.',
     marketId: 'kenting-night-market',
   },
   {
-    name: 'Tropical Fruit Smoothies',
-    chineseName: '熱帶水果冰沙',
+    name: 'Tropical Fruit Stand',
+    chineseName: '熱帶水果攤',
     description:
-      'Local tropical fruits prepared as smoothies for beach tourists, representing regional agricultural identity and adaptation to tourism preferences. Uses indigenous fruit varieties with modern presentation.',
-    specialties: ['Tropical Fruits', 'Smoothies', 'Regional Agriculture'],
-    latitude: 21.958853,
-    longitude: 120.794228,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
-    operatingHours: '5:00 PM - 11:00 PM',
+      'Fresh tropical fruits including mango, dragon fruit, and local seasonal varieties. Serves both whole fruits and fresh-cut options for beach visitors.',
+    specialties: ['Fresh Mango', 'Dragon Fruit', 'Seasonal Tropical Fruits'],
+    latitude: 21.9587,
+    longitude: 120.7944,
+    images: ['/images/vendors/tropical_fruit.jpg'],
+    operatingHours: '5:00 PM - 12:00 AM',
     researchNotes:
-      'Uses local tropical fruits including indigenous varieties. Adapts traditional fruit consumption for beach tourism context.',
+      'Adapts to tourist preferences while showcasing local agricultural products. Popular with visitors seeking healthy, refreshing options.',
     culturalSignificance:
-      'Shows how regional agricultural identity adapts to tourism economy while preserving connections to local farming traditions.',
+      "Highlights southern Taiwan's agricultural abundance and adaptation to beach tourism economy.",
     marketId: 'kenting-night-market',
   },
   {
-    name: "Surfer's Late Night Noodles",
-    chineseName: '衝浪客宵夜麵',
+    name: 'Late Night Beef Noodles',
+    chineseName: '深夜牛肉麵',
     description:
-      'Casual noodles popular with surfers and beach-goers, representing cultural adaptation to beach lifestyle and international surf culture. Shows local-global cultural intersection.',
-    specialties: ['Late Night Noodles', 'Surf Culture', 'Beach Lifestyle'],
-    latitude: 21.958653,
-    longitude: 120.794428,
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    ],
-    operatingHours: '8:00 PM - 2:00 AM',
+      'Traditional beef noodle soup adapted for late-night beach dining. Lighter broth and smaller portions suitable for warm coastal weather and late eating.',
+    specialties: ['Light Beef Noodles', 'Clear Broth', 'Late Night Dining'],
+    latitude: 21.9586,
+    longitude: 120.7945,
+    images: ['/images/vendors/beef_noodle.jpg'],
+    operatingHours: '8:00 PM - 3:00 AM',
     researchNotes:
-      'Serves both local and international surf community. Represents intersection of traditional Taiwanese food culture with global beach lifestyle.',
+      'Adapts traditional heavy noodle soup for beach climate and late-night dining preferences. Popular with surfers and late-night beach visitors.',
     culturalSignificance:
-      'Demonstrates how local food culture adapts to international beach and surf culture while maintaining Taiwanese identity.',
+      'Shows how traditional Taiwanese comfort food adapts to regional climate and tourism patterns.',
     marketId: 'kenting-night-market',
   },
 ]
@@ -339,6 +307,12 @@ async function main() {
   console.log('Starting database seeding with research data...')
 
   try {
+    // First, delete all existing market-vendor relationships and vendors
+    console.log('Cleaning up existing data...')
+    await prisma.marketVendor.deleteMany({})
+    await prisma.vendor.deleteMany({})
+    console.log('✓ Cleaned up existing vendors and relationships')
+
     // Create markets
     for (const market of markets) {
       await prisma.market.upsert({
@@ -353,46 +327,25 @@ async function main() {
     for (const vendor of vendors) {
       const { marketId, ...vendorData } = vendor
 
-      // Use upsert to prevent duplicate vendors based on name and market
-      const createdVendor = await prisma.vendor.upsert({
-        where: {
-          // Create a unique constraint based on name - we'll need to add this to schema
-          // For now, let's use a combination approach
-          id: `${vendor.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${marketId}`,
-        },
-        update: vendorData,
-        create: {
-          id: `${vendor.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${marketId}`,
+      // Create vendor with a deterministic ID based on name and market
+      const vendorId = `${vendor.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${marketId}`
+
+      const createdVendor = await prisma.vendor.create({
+        data: {
+          id: vendorId,
           ...vendorData,
         },
       })
-      console.log(`✓ Created/updated vendor: ${vendor.name}`)
+      console.log(`✓ Created vendor: ${vendor.name}`)
 
-      // Link vendor to market (check if relationship already exists)
-      const existingRelation = await prisma.marketVendor.findUnique({
-        where: {
-          marketId_vendorId: {
-            marketId: marketId,
-            vendorId: createdVendor.id,
-          },
+      // Link vendor to market
+      await prisma.marketVendor.create({
+        data: {
+          marketId: marketId,
+          vendorId: createdVendor.id,
         },
       })
-
-      if (!existingRelation) {
-        await prisma.marketVendor.create({
-          data: {
-            marketId: marketId,
-            vendorId: createdVendor.id,
-          },
-        })
-        console.log(
-          `  → Linked to ${markets.find(m => m.id === marketId)?.name}`
-        )
-      } else {
-        console.log(
-          `  → Already linked to ${markets.find(m => m.id === marketId)?.name}`
-        )
-      }
+      console.log(`  → Linked to ${markets.find(m => m.id === marketId)?.name}`)
     }
 
     console.log('\n🎉 Database seeding completed successfully!')
