@@ -2,11 +2,11 @@
 
 **A Critical Examination of Taiwanese Cultural Identity Through Night Market Food Culture**
 
-## 📖 Overview
+## Overview
 
 This digital humanities project investigates how Taiwan's night markets function as sites of cultural identity negotiation. Through observational research and critical cultural analysis, this study explores how food vendors navigate authenticity, tourism pressures, and cultural preservation in post-colonial Taiwan.
 
-## 🔬 Research Framework
+## Research Framework
 
 ### Central Research Questions
 
@@ -21,7 +21,7 @@ This digital humanities project investigates how Taiwan's night markets function
 - **Photo Documentation**: Visual evidence of spatial organization and cultural markers
 - **Critical Analysis**: Application of food studies theory, postcolonial analysis, and digital heritage scholarship
 
-## 🏮 Case Studies: Four Night Markets
+## Case Studies: Four Night Markets
 
 | Market                   | Focus                       | Key Findings                                                        |
 | ------------------------ | --------------------------- | ------------------------------------------------------------------- |
@@ -30,7 +30,7 @@ This digital humanities project investigates how Taiwan's night markets function
 | **Huaxi Street Market**  | Working Class Food Culture  | Economic accessibility, community formation                         |
 | **Kenting Night Market** | Regional Identity & Tourism | Seasonal impacts, regional vs. tourist-oriented offerings           |
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 - **Frontend**: Next.js 15, React 18, TypeScript
 - **Backend**: Next.js SSR routing, Node.js
@@ -41,7 +41,7 @@ This digital humanities project investigates how Taiwan's night markets function
 - **Images**: Local files in `/public/images/`
 - **Deployment**: Vercel
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -83,7 +83,7 @@ Visit `http://localhost:3000` to explore the research platform.
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript checks
 
-## 🗺️ Platform Features
+## Platform Features
 
 - **Interactive Map**: Explore market locations and research findings geographically
 - **Vendor Profiles**: Detailed analysis of individual vendors with theoretical connections
@@ -92,11 +92,11 @@ Visit `http://localhost:3000` to explore the research platform.
 - **Responsive Design**: Accessible across all devices
 - **Multilingual Support**: Traditional Chinese and English content
 
-## 🤝 Research Ethics
+## Research Ethics
 
 This research was conducted with respect for Taiwanese culture and vendor privacy. All observations were conducted in public spaces with attention to cultural sensitivity and community agency in representation.
 
-## 📄 License
+## License
 
 This project is for academic research purposes. Please respect the cultural content and cite appropriately if using for educational purposes.
 
