@@ -33,10 +33,10 @@ This digital humanities project investigates how Taiwan's night markets function
 ## 🛠️ Technical Stack
 
 - **Frontend**: Next.js 15, React 18, TypeScript
-- **Backend**: Next.js SSR routing, Node.js
+- **Backend**: Next.js API Routes, Node.js
 - **Styling**: Tailwind CSS
 - **State Management**: Redux Toolkit
-- **Database**: PostgreSQL with Prisma ORM
+- **Database**: PostgreSQL (Neon) with Prisma ORM
 - **Maps**: Mapbox GL JS
 - **Images**: Local files in `/public/images/`
 - **Deployment**: Vercel
@@ -46,14 +46,14 @@ This digital humanities project investigates how Taiwan's night markets function
 ### Prerequisites
 
 - Node.js 18+
-- PostgreSQL database
-- Mapbox API key
+- [Neon](https://neon.tech) PostgreSQL database (free tier available)
+- [Mapbox](https://account.mapbox.com) API key (free tier available)
 
 ### Installation
 
 ```bash
 # Clone repository
-git clone [repository-url]
+git clone https://github.com/adequatej/mapping-flavor.git
 cd mapping-flavor
 
 # Install dependencies
@@ -61,11 +61,18 @@ npm install
 
 # Set up environment variables
 cp .env.example .env.local
-# Edit .env.local with your database URL, Mapbox token, etc.
+```
 
-# Set up database
-npm run db:migrate
-npm run db:seed
+Edit `.env.local` with your credentials:
+```env
+DATABASE_URL="postgresql://username:password@your-neon-host.neon.tech/neondb?sslmode=require"
+NEXT_PUBLIC_MAPBOX_TOKEN="pk.your_mapbox_token_here"
+```
+
+```bash
+# Push database schema and seed with sample data
+npx prisma db push
+npx prisma db seed
 
 # Start development server
 npm run dev
@@ -77,11 +84,10 @@ Visit `http://localhost:3000` to explore the research platform.
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm run db:migrate` - Run database migrations
-- `npm run db:seed` - Seed database with sample data
-- `npm run db:studio` - Open Prisma Studio
+- `npx prisma db push` - Push schema to database
+- `npx prisma db seed` - Seed database with sample data
+- `npx prisma studio` - Open Prisma Studio (visual database browser)
 - `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript checks
 
 ## 🗺️ Platform Features
 
@@ -102,7 +108,7 @@ This project is for academic research purposes. Please respect the cultural cont
 
 ---
 
-**Researcher**: Jed Geoghegan  
-**Institution**: Humanities and Arts Program  
+**Researcher**: John (Jed) Geoghegan  
+**Institution**: WPI Humanities and Arts Program  
 **Research Period**: 2025  
 **Methodology**: Observational Research with Critical Cultural Analysis

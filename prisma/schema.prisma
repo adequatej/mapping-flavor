@@ -16,7 +16,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("users")
+
 }
 
 model Market {
@@ -28,8 +28,8 @@ model Market {
   longitude      Float
   established    String
   researchFocus  String
-  description    String   @db.Text
-  analyticalNote String   @db.Text
+  description    String
+  analyticalNote String
   keyFindings    String[]
   image          String
   isActive       Boolean  @default(true)
@@ -38,15 +38,13 @@ model Market {
 
   // Relations
   vendors MarketVendor[]
-
-  @@map("markets")
 }
 
 model Vendor {
   id                   String   @id @default(cuid())
   name                 String
   chineseName          String?
-  description          String   @db.Text
+  description          String
   specialties          String[]
   latitude             Float?
   longitude            Float?
@@ -56,16 +54,14 @@ model Vendor {
   contactFacebook      String?
   contactLine          String?
   operatingHours       String?
-  researchNotes        String?  @db.Text
-  culturalSignificance String?  @db.Text
+  researchNotes        String?
+  culturalSignificance String?
   isActive             Boolean  @default(true)
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
 
   // Relations
   markets MarketVendor[]
-
-  @@map("vendors")
 }
 
 model MarketVendor {
@@ -77,7 +73,6 @@ model MarketVendor {
   vendor Vendor @relation(fields: [vendorId], references: [id], onDelete: Cascade)
   
   @@unique([marketId, vendorId])
-  @@map("market_vendors")
 }
 
 enum Role {

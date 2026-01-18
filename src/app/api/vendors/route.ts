@@ -25,7 +25,6 @@ export async function GET(request: NextRequest) {
         { name: { contains: search, mode: 'insensitive' } },
         { chineseName: { contains: search, mode: 'insensitive' } },
         { description: { contains: search, mode: 'insensitive' } },
-        { specialties: { has: search } },
       ]
     }
 
@@ -69,21 +68,6 @@ export async function GET(request: NextRequest) {
         },
       },
     })
-
-    // Debug logging
-    console.log('API vendors response:', {
-      total: vendors.length,
-      vendorNames: vendors.map(v => v.name),
-    })
-
-    const shilinVendors = vendors.filter(v =>
-      v.markets.some(m => m.market.id === 'shilin-night-market')
-    )
-    console.log(
-      'Shilin vendors found:',
-      shilinVendors.length,
-      shilinVendors.map(v => v.name)
-    )
 
     // Calculate pagination info
     const pages = Math.ceil(total / limit)

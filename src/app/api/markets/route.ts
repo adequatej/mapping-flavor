@@ -116,6 +116,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Create market
     const market = await prisma.market.create({
       data: {
         id: body.id,
