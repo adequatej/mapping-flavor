@@ -96,7 +96,6 @@ Visit `http://localhost:3000` to explore the research platform.
 - **Market Analysis**: Comprehensive case studies for each night market
 - **Academic Sources**: Annotated bibliography with Chicago author-date citations
 - **Responsive Design**: Accessible across all devices
-- **Multilingual Support**: Traditional Chinese and English content
 
 ## Research Ethics
 
